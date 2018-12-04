@@ -28,5 +28,5 @@ class Customer:
     def get_birthday(self):
         return self.__birthday
 
-Aron = Customer("Aron Úlfarsson", 2904972649, "Furugrund", 8620273, "29/04/1997")
-print(Aron)
+#Aron = Customer("Aron Úlfarsson", 2904972649, "Furugrund", 8620273, "29/04/1997")
+#print(Aron)
