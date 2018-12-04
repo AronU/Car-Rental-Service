@@ -1,6 +1,10 @@
 from services.CustomerService import CustomerService
 from models.Customer import Customer
 
+
+Quit = "q"
+ONE = "1"
+
 class SalesmanUI:
 
     def __init__(self):
@@ -9,7 +13,7 @@ class SalesmanUI:
     def main_menu(self):
 
         action = ""
-        while(action != "q"):
+        while(action != Quit):
             print("You can do the following: ")
             print("1. Add a customer")
             #print("2. List all videos")
@@ -17,7 +21,7 @@ class SalesmanUI:
 
             action = input("Choose an option: ").lower()
 
-            if action == "1":
+            if action == ONE:
                 name = input("Full name: ")
                 ssn = input("SSN: ")
                 address = input("Home address: ")
