@@ -1,9 +1,32 @@
 from services.CustomerService import CustomerService
 from models.Customer import Customer
 
+Quit_1 = "q"
+Quit_2 = "quit"
 
-Quit = "q"
-ONE = "1"
+ONE_1 = "1"
+ONE_2 = "register user"
+
+Two_1 = "2"
+Two_2 = "car list"
+
+Three_1 = "3"
+Three_2 = "search user"
+
+Four_1 = "4"
+Four_2 = "search order"
+
+Five_1 = "5"
+Five_2 = "make order"
+
+Six_1 = "6"
+Six_2 = "calculate cost"
+
+Seven_1 = "7"
+Seven_2 = "return a car"
+
+Eight_1 = "8"
+Eight_2 = "price list"
 
 class SalesmanUI:
 
@@ -13,15 +36,21 @@ class SalesmanUI:
     def main_menu(self):
 
         action = ""
-        while(action != Quit):
-            print("You can do the following: ")
-            print("1. Add a customer")
-            #print("2. List all videos")
-            print("press q to quit")
-
+        while(action != Quit_1 or action != Quit_2):
+            print("Welcome to the central hub of the program.\n")
+            print("1.  Register User")
+            print("2.  Car list")
+            print("3.  Search User")
+            print("4.  Search order")
+            print("5.  Make order")
+            print("6.  Calculate cost")
+            print("7.  Return a car")
+            print("8.  Price list\n")
+            print("Press q to Quit")
+            print("--"*25)
             action = input("Choose an option: ").lower()
 
-            if action == ONE:
+            if action == ONE_1 or action == ONE_2:
                 name = input("Full name: ")
                 ssn = input("SSN: ")
                 address = input("Home address: ")
