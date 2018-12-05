@@ -1,4 +1,5 @@
 from models.Car import Car
+import csv
 
 class CarRepository:
 
@@ -12,12 +13,13 @@ class CarRepository:
         If the availability is 1, then it puts it into the list. This list
         will therefore be containing all available cars. -Aron 05/12/2018'''
 
-        with open("./data/Cars.txt", "r") as car_file:
-            for line in car_file.readlines():
-                licence_plate, brand, model, year, availability = line.split(",")
-                if availability == 1:
-                    available_car = Car(licence_plate, brand, model, year, availability)
-                    self.__available_cars.append(available_car)    
+        with open("./data/cars.csv") as car_file:
+            csv_reader = csv.reader(car_file)
+            next(csv_reader)
+            for line in csv_reader:
+                #licence_plate, brand, model, year, availability = line.split(",")
+                if line[3] == 1:
+                    self.__available_cars.append(line)    
         
         return self.__available_cars
 
