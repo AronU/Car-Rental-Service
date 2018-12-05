@@ -11,6 +11,14 @@ class CustomerRepository:
 
             csv_writer = csv.writer(customers_file)
             csv_writer.writerow(Customer.__repr__() + '\n')
+    
+    def remove_customer(self, customer):
+        with open("./data/customer.csv", "a") as customers_file:
+
+            csv_writer = csv.writer(customers_file)
+            for row in csv_writer:
+                if row == csv_writer:
+                    row = 0
 
         #     name = customer.get_name()
         #     ssn = customer.get_ssn()
