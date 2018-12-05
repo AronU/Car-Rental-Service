@@ -1,3 +1,4 @@
+import datetime
 class Order:
     def __init__(self, ID, start_date, end_date):
         self.__ID = ID
@@ -20,5 +21,5 @@ class Order:
     def get_end_date(self):
         return self.__end_date
 
-fannar = Order('1', '05.12.18', '10.12.18')
-print(fannar)
+# fannar = Order('1', '2018, 5, 12', '2018,10,12')
+# print(fannar)

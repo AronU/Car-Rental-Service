@@ -4,7 +4,6 @@ from models.Customer import Customer
 Quit_1 = "q"
 Quit_2 = "quit"
 
-<<<<<<< HEAD
 ONE_1 = "1"
 ONE_2 = "register user"
 
@@ -29,11 +28,9 @@ Seven_2 = "return a car"
 Eight_1 = "8"
 Eight_2 = "price list"
 
-=======
 Quit = "q"
 ONE = "1"
 #test Thelma
->>>>>>> 5f9b2bf70e96cc57946b745627899431caa83a11
 class SalesmanUI:
 
     def __init__(self):
