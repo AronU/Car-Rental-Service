@@ -1,5 +1,9 @@
 from services.CustomerService import CustomerService
 from models.Customer import Customer
+from ui.Register_User_func import RegisterUser
+import ui.Register_User_func as fl
+from ui.Universal_func import printline
+import ui.Universal_func as un_func
 
 Quit_1 = "q"
 Quit_2 = "quit"
@@ -28,9 +32,6 @@ Seven_2 = "return a car"
 Eight_1 = "8"
 Eight_2 = "price list"
 
-Quit = "q"
-ONE = "1"
-#test Thelma
 class SalesmanUI:
 
     def __init__(self):
@@ -52,17 +53,18 @@ class SalesmanUI:
             print("Press q to Quit")
             print("--"*25)
             action = input("Choose an option: ").lower()
+            un_func.printline()
 
             if action == ONE_1 or action == ONE_2:
-                name = input("Full name: ")
-                ssn = input("SSN: ")
-                address = input("Home address: ")
-                phone = input("Phone number: ")
-                birthday = input("Birthday: ")
-                new_customer = Customer(name, ssn, address, phone, birthday)
-                self.__customer_service.add_customer(new_customer)
+                name, ssn, address, phone, birthday = fl.RegisterUser()
+                if name != "0" and ssn != "0" and address != "0" and phone != "0" and birthday != "0":
+                    new_customer = Customer(name, ssn, address, phone, birthday)
+                    self.__customer_service.add_customer(new_customer)
 
             #elif action == "2":
             #    videos = self.__video_service.get_videos()
             #    print(videos)
+
+            elif :
+                pass
                     
