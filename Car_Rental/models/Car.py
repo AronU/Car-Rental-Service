@@ -1,12 +1,13 @@
 class Car:
-    def __init__(self, licence_plate, brand, model, year):
+    def __init__(self, licence_plate, brand, model, year, availability=1):
         self.__licence_plate = licence_plate
         self.__brand = brand
         self.__model = model
         self.__year = year
+        self.__availability = availability
 
     def __str__(self):
-        return "{},{},{},{}".format(self.__licence_plate, self.__brand, self.__model, self.__year)
+        return "{},{},{},{},{}".format(self.__licence_plate, self.__brand, self.__model, self.__year, self.__availability)
 
     def __repr__(self):
         return self.__str__()
@@ -22,6 +23,9 @@ class Car:
     
     def get_year(self):
         return self.__year
+
+    def get_availability(self):
+        return self.__availability
 
 Aron = Car("DL 085", "Toyota", "Aygo", 2006)
 print(Aron)
