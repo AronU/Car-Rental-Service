@@ -2,6 +2,8 @@ from services.CustomerService import CustomerService
 from models.Customer import Customer
 from ui.Register_User_func import RegisterUser
 import ui.Register_User_func as fl
+from ui.Universal_func import printline
+import ui.Universal_func as un_func
 
 Quit_1 = "q"
 Quit_2 = "quit"
@@ -53,6 +55,7 @@ class SalesmanUI:
             print("Press q to Quit")
             print("--"*25)
             action = input("Choose an option: ").lower()
+            un_func.printline()
 
             if action == ONE_1 or action == ONE_2:
                 name, ssn, address, phone, birthday = fl.RegisterUser()
