@@ -26,6 +26,3 @@ class Car:
 
     def get_availability(self):
         return self.__availability
-
-Aron = Car("DL 085", "Toyota", "Aygo", 2006)
-print(Aron)
