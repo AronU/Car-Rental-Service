@@ -4,7 +4,7 @@ from models.Customer import Customer
 
 Quit = "q"
 ONE = "1"
-
+#test Thelma
 class SalesmanUI:
 
     def __init__(self):
