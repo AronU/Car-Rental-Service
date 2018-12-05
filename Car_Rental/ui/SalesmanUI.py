@@ -32,12 +32,6 @@ Seven_2 = "return a car"
 Eight_1 = "8"
 Eight_2 = "price list"
 
-Quit = "q"
-ONE = "1"
-<<<<<<< HEAD
-=======
-#test Thelma
->>>>>>> c0d56d41d50570dd4fa570e8dc6c3e19fb1ad03f
 class SalesmanUI:
 
     def __init__(self):
@@ -70,4 +64,7 @@ class SalesmanUI:
             #elif action == "2":
             #    videos = self.__video_service.get_videos()
             #    print(videos)
+
+            elif :
+                pass
                     

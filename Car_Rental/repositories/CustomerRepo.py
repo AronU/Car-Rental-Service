@@ -1,5 +1,4 @@
 from models.Customer import Customer
-from ui.SalesmanUI import SalesmanUI
 import csv
 
 class CustomerRepository:
