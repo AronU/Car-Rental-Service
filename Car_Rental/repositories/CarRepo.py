@@ -13,7 +13,11 @@ class CarRepository:
         although we only care about availability this time. If the availability
         is 1, then it puts it into the list. This list will therefore be 
         containing all available cars. -Aron'''
+<<<<<<< HEAD
         with open("Car-Rental-Service/Car_rental/data/cars.csv", "r") as car_file:
+=======
+        with open("./data/cars.csv", "r") as car_file:
+>>>>>>> 25799a71f319ea4e38156986e4b994c547b47629
             csv_reader = csv.reader(car_file)
             next(csv_reader)
             for line in csv_reader:
