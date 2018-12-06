@@ -8,17 +8,25 @@ class CustomerRepository:
     
     def add_customer(self, customer):
         with open("Car_Rental/data/customers.csv", "a+") as customers_file:
-<<<<<<< HEAD
 
             csv_writer = csv.writer(customers_file)
             csv_writer.writerow(Customer.__repr__() + '\n')
 
-    def get_customer(self, name):
-        with open("Car_Rental/data/customers.csv", "r") as customers_file:
+    def get_customer_name(self, name):
+        with open("Car-Rental-Service/Car_Rental/data/customers.csv", "r") as customers_file:
             csv_reader = csv.reader(customers_file)
             next(csv_reader)
             for line in csv_reader:
-                if line[0] == name:
+                if name in line[0]:
+                    return line
+                
+
+    def get_customer_ssn(self, ssn):
+        with open("Car-Rental-Service/Car_Rental/data/customers.csv", "r") as customers_file:
+            csv_reader = csv.reader(customers_file)
+            next(csv_reader)
+            for line in csv_reader:
+                if line[1] == ssn:
                     return line
                     
     
@@ -41,22 +49,3 @@ class CustomerRepository:
         #     birthday = customer.get_birthday()
         #     customers_file.write("{},{},{},{},{}\n".format(name, ssn, 
         # address, phone, birthday))
-=======
-            customers_file.write('\n' + customer.__repr__())
-    
-    def remove_customer(self, customer):
-        with open("Car_Rental/data/customer.csv", "a") as customers_file:
-
-            csv_writer = csv.writer(customers_file)
-            for row in csv_writer:
-                if row == csv_writer:
-                    row = 0
-    
-    def get_customers(self):
-        customers = []
-        with open("Car_Rental/data/customer.csv", "r") as customers_file:
-            for line in customers_file.readlines():
-                customer = eval(line.strip())
-                customers.append(customer)
-        return customers
->>>>>>> 7af19f86c47655c4c5157f7d757644e33ef137bd
