@@ -1,11 +1,11 @@
 from services.CustomerService import CustomerService
 from models.Customer import Customer
-from ui.Register_User_func import RegisterUser
-import ui.Register_User_func as reg_func
-from ui.Universal_func import printline
-import ui.Universal_func as un_func
-from ui.Car_list_func import Carlist
-import ui.Car_list_func as car_func
+from ui.Register_User_func import RegisterUser  #
+import ui.Register_User_func as reg_func        #
+from ui.Universal_func import printline         #
+import ui.Universal_func as un_func             #
+from ui.Car_list_func import Carlist            #
+import ui.Car_list_func as car_func             #
 
 Quit_1 = "q"
 
