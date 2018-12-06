@@ -1,6 +1,10 @@
+# Gets acces to the printline funcson in the Universal_func named un_func in the code
+# All over the place in the ui
 from ui.Universal_func import printer, printline
 import ui.Universal_func as un_func
+#Gets access to the CarService class in the services folder. Used to get the available car lists.
 from services.CarService import CarService
+
 #Constant variable used to take in commands toru the input
 Back_1 = "b"
 Back_2 = "back"
@@ -8,6 +12,8 @@ Home_1 = "h"
 Home_2 = "main menu"
 
 def car_list_printer(car_list):
+    # This function takes a nested list of car available or unavailable and prints them out 
+    # in a presentable way
     for line in car_list:
         print("Licence plate: {} - {} {} - Year: {} ".format(line[0], line[1], line[2], line[3]))
     un_func.printline()
@@ -16,6 +22,7 @@ def car_list_printer(car_list):
 
     
 def Carlist():
+    # This function gives user a choice and calls the the appropriate list 
     car_service = CarService()
     count = True
     while count == True:

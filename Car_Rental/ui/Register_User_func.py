@@ -1,3 +1,5 @@
+# Gets acces to the printline funcson in the Universal_func named un_func in the code
+# All over the place in the ui
 from ui.Universal_func import printer, printline
 import ui.Universal_func as un_func
 
