@@ -1,9 +1,17 @@
-from services.CustomerService import CustomerService #Gains access to the CustomerService class in /services folder.
-from models.Customer import Customer #Gets acces to the Customer class in /models folder. Used to create a user.
+# Gains access to the CustomerService class in /services folder.
+from services.CustomerService import CustomerService 
+# Gets acces to the Customer class in /models folder. Used to create a user.
+from models.Customer import Customer 
+# Gets acces to the RegisterUser function in the Register_User_func named reg_func in the code
+# Used to make user in oppositions one in the mane menu
 from ui.Register_User_func import RegisterUser
 import ui.Register_User_func as reg_func
+# Gets acces to the printline function in the Universal_func named un_func in the code
+# All over the place in the ui
 from ui.Universal_func import printline
 import ui.Universal_func as un_func
+# Gets acces to the Carlist function in the Car_list_func named car_func in the code
+# Used to list Available and Unavailable cars in oppositions two in the mane menu
 from ui.Car_list_func import Carlist
 import ui.Car_list_func as car_func
 
