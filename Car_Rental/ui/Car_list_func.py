@@ -7,6 +7,14 @@ Back_2 = "back"
 Home_1 = "h"
 Home_2 = "main menu"
 
+def car_list_printer(car_list):
+    for line in car_list:
+        print("Licence plate: {} - {} {} - Year: {} ".format(line[0], line[1], line[2], line[3]))
+    un_func.printline()
+    input("Press Enter to continue: ")
+    un_func.printline()
+
+    
 def Carlist():
     car_service = CarService()
     count = True
@@ -19,7 +27,7 @@ def Carlist():
             count = False
         elif Choice == "1":
             available_car_list = car_service.get_available_cars()
-            print(available_car_list)
+            car_list_printer(available_car_list)
         elif Choice == "2":
             unavailable_car_list = car_service.get_unavailable_cars()
-            print(unavailable_car_list)
+            car_list_printer(unavailable_car_list)
