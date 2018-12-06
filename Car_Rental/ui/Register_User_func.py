@@ -1,6 +1,6 @@
 # Gets acces to the printline funcson in the Universal_func named un_func in the code
 # All over the place in the ui
-from ui.Universal_func import printer, printline
+from ui.Universal_func import printer, printline, name_input_chack
 import ui.Universal_func as un_func
 
 #Constant variable used to take in commands toru the input
@@ -37,6 +37,7 @@ def RegisterUser():
                 count, name, ssn, address, phone, birthday = DontMakeUser()
             elif name == Back_1 or name == Back_2:
                 count, name, ssn, address, phone, birthday = DontMakeUser()
+            un_func.name_input_chack()
             
         elif count == 2:
             # Takes in SSN and allows user to go back one window or go to the mane menu
