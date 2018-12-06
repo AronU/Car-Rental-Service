@@ -1,5 +1,5 @@
-from services.CustomerService import CustomerService
-from models.Customer import Customer
+from services.CustomerService import CustomerService #Gains access to the CustomerService class in /services folder.
+from models.Customer import Customer #Gets acces to the Customer class in /models folder. Used to create a user.
 from ui.Register_User_func import RegisterUser
 import ui.Register_User_func as reg_func
 from ui.Universal_func import printline
