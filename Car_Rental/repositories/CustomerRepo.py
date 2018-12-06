@@ -7,27 +7,21 @@ class CustomerRepository:
         self.__customers = []
     
     def add_customer(self, customer):
-        with open("./data/customers.csv", "a+") as customers_file:
+        with open("Car_Rental/data/customers.csv", "a+") as customers_file:
+            customers_file.writer('\n' + customer.__repr__())
+    
+    def remove_customer(self, customer):
+        with open("Car_Rental/data/customer.csv", "a") as customers_file:
 
             csv_writer = csv.writer(customers_file)
-            csv_writer.writerow(Customer.__repr__() + '\n')
+            for row in csv_writer:
+                if row == csv_writer:
+                    row = 0
     
-    # Delete user class unfinished
-
-    # def remove_customer(self, deleted_ssn):     
-    #     with open('./data/customers.csv', 'r') as inp, open('temp.csv', 'w') as out:
-    #         writer = csv.DictWriter(out, fieldnames=['name', 'SSN', 'Address','phone','DoB'])
-    #         writer.writeheader()
-    #         for row in csv.DictReader(inp):
-    #             if row['SSN'] != :
-    #                 writer.writerow(row)           
-            
-            
-
-        #     name = customer.get_name()
-        #     ssn = customer.get_ssn()
-        #     address = customer.get_address()
-        #     phone = customer.get_phone()
-        #     birthday = customer.get_birthday()
-        #     customers_file.write("{},{},{},{},{}\n".format(name, ssn, 
-        # address, phone, birthday))
+    def get_customers(self):
+        customers = []
+        with open("Car_Rental/data/customer.csv", "r") as customers_file:
+            for line in customers_file.readlines():
+                customer = eval(line.strip())
+                customers.append(customer)
+        return customers
