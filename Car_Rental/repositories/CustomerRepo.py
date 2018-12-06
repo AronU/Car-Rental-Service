@@ -12,13 +12,17 @@ class CustomerRepository:
             csv_writer = csv.writer(customers_file)
             csv_writer.writerow(Customer.__repr__() + '\n')
     
-    def remove_customer(self, customer):
-        with open("./data/customer.csv", "a") as customers_file:
+    # Delete user class unfinished
 
-            csv_writer = csv.writer(customers_file)
-            for row in csv_writer:
-                if row == csv_writer:
-                    row = 0
+    # def remove_customer(self, deleted_ssn):     
+    #     with open('./data/customers.csv', 'r') as inp, open('temp.csv', 'w') as out:
+    #         writer = csv.DictWriter(out, fieldnames=['name', 'SSN', 'Address','phone','DoB'])
+    #         writer.writeheader()
+    #         for row in csv.DictReader(inp):
+    #             if row['SSN'] != :
+    #                 writer.writerow(row)           
+            
+            
 
         #     name = customer.get_name()
         #     ssn = customer.get_ssn()
