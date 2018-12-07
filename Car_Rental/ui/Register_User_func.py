@@ -1,6 +1,6 @@
 # Gets acces to the printline funcson in the Universal_func named un_func in the code
 # All over the place in the ui
-from ui.Universal_func import printer, printline, name_input_chack
+from ui.Universal_func import printer, printline, name_input_check
 import ui.Universal_func as un_func
 
 #Constant variable used to take in commands toru the input
