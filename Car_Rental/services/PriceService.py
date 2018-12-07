@@ -15,3 +15,7 @@ class PriceService:
     def get_HighPrice(self):
         high_price_list = self.__priceRepo.get_HighPrice()
         return high_price_list
+    
+    def get_all_prices(self):
+        all_prices_list = self.__priceRepo.get_all_prices()
+        return all_prices_list

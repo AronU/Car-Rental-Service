@@ -76,14 +76,11 @@ class SalesmanUI:
 
             elif action == Three_1 or action == Three_2:
                 user_func.Search_User()
-<<<<<<< HEAD
 
             #elif action == Five_1 or action == Five_2:
 
             elif action == Seven_1 or action == Seven_2:
-                
-=======
+                pass
             
             elif action == Eight_1 or action == Eight_2:
                 price_func.Pricelist()
->>>>>>> 6a46e6c992d2594bd35e0cfbd6bff6db1069ebe1
