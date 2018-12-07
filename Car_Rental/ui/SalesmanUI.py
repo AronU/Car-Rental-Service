@@ -88,14 +88,10 @@ class SalesmanUI:
             # elif action == Six_1 or action == Six_1:
 
             elif action == Seven_1 or action == Seven_2:
-<<<<<<< HEAD
                 licence_plate = ret_car_func.returncar()
                 if licence_plate != "0":
                     car_service = CarService()
                     car_service.return_car(licence_plate)
-=======
-                pass
->>>>>>> bbcc7d8e206d059366eda89dcc8bf0b6e1166507
             
             elif action == Eight_1 or action == Eight_2:
                 price_func.Pricelist()

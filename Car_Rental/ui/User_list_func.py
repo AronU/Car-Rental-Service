@@ -31,8 +31,10 @@ def Search_User():
             count = False
         elif Choice == "1":
             customer_name = input("Name: ")
-            print(customer_service.get_customer_name(customer_name))
+            customer_name_list = customer_service.get_customer_name(customer_name)
+            user_list_printer(customer_name_list)
         elif Choice == "2":
             customer_ssn = input("SSN: ")
-            print(customer_service.get_customer_ssn(customer_ssn))
+            customer_ssn_list = customer_service.get_customer_ssn(customer_ssn)
+            user_list_printer(customer_ssn_list)
             
