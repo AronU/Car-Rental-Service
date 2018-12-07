@@ -8,27 +8,27 @@ def printline():
     # The printline function is used to Print a line of --- anywhere it is needs
     print("--"*25)
 
-def name_input_chack(name):
+def name_input_check(name):
     name_list = []
     name_list = name.split()
     print(name_list)
 
 
-def ssn_input_chack(ssn):
+def ssn_input_check(ssn):
     pass
 
-def address_input_chack(address):
+def address_input_check(address):
     pass
 
-def phone_input_chack(phone):
+def phone_input_check(phone):
     pass
     
-def birthday_input_chack(birthday):
+def birthday_input_check(birthday):
     pass
 
-def paymant_input_chack(paymant):
+def paymant_input_check(paymant):
     pass
 
-def Licence_plate_input_chack(Licence_plate):
+def Licence_plate_input_check(Licence_plate):
     pass
 
