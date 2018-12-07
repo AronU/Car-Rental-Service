@@ -8,5 +8,5 @@ class CustomerService:
         self.__customer_repo.add_customer(customer)
     
     def get_customer_name(self, name):
-        user_list = self.__customer_repo.get_customer(name)
+        user_list = self.__customer_repo.get_customers(name)
         return user_list
