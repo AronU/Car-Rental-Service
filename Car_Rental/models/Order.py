@@ -9,8 +9,8 @@ class Order:
         self.__additional_insurance = additional_insurance
 
     def __str__(self):
-        return "{},{},{}".format(self.__ID, self.__start_date,
-                                 self.__end_date)
+        return "{},{},{},{},{},{}".format(self.__ID, self.__licence_plate, self.__ssn,
+        self.__start_date, self.__end_date, self.__additional_insurance)
 
     def __repr__(self):
         return self.__str__()

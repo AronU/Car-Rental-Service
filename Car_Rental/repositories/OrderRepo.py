@@ -7,5 +7,5 @@ class OrderRepository:
         self.__all_orders = []
 
     def add_order(self, order):
-        with open("Car_Rental/data/orders.csv", "a+") as orders_file:
-            orders_file.writer('\n' + order.__repr__())
+        with open("./data/orders.csv", "a+") as orders_file:
+            orders_file.write('\n' + order.__repr__())
