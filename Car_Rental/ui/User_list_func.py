@@ -30,8 +30,11 @@ def Search_User():
         if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
             count = False
         elif Choice == "1":
-            c_name = input("Name: ")
-            customer_service.get_customer_name(c_name)
-            print(c_name)
+            customer_name = input("Name: ")
+            customer_name_list = customer_service.get_customer_name(customer_name)
+            user_list_printer(customer_name_list)
         elif Choice == "2":
-            c_ssn = input("SSN: ")
+            customer_ssn = input("SSN: ")
+            customer_ssn_list = customer_service.get_customer_ssn(customer_ssn)
+            user_list_printer(customer_ssn_list)
+            

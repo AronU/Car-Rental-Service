@@ -14,8 +14,7 @@ class CarRepository:
         although we only care about availability this time. If the availability
         is 1, then it puts it into the list. This list will therefore be 
         containing all available cars. -Aron'''
-        with open("./data/cars.csv", "r") as car_file:
-            self.__available_cars = []
+        with open("Car-Rental-Service/Car_rental/data/cars.csv", "r") as car_file:
             csv_reader = csv.reader(car_file)
             next(csv_reader)
             for line in csv_reader:
@@ -28,8 +27,7 @@ class CarRepository:
         although we only care about availability this time. If the availability
         is 0, then it puts it into the list. This list will therefore be 
         containing all unavailable cars. -Aron'''
-        with open("./data/cars.csv", "r") as car_file:
-            self.__unavailable_cars = []
+        with open("Car-Rental-Service/Car_rental/data/cars.csv", "r") as car_file:
             csv_reader = csv.reader(car_file)
             next(csv_reader)
             for line in csv_reader:
@@ -56,11 +54,12 @@ class CarRepository:
 
     def verify_licence_plate(self, licence_plate):
         '''Verifies if the licence plate given is in the database and in a unavailable state. -Aron'''
-        writer = csv.DictWriter(out, fieldnames=['Licence plate', 'Brand', 'Model', 'Year', 'Availability', 'Price'])
-        writer.writeheader()
-        licence_check = False
+        
         with open('./data/cars.csv', 'r') as car_file:
-            for row in csv_reader:
+            #writer = csv.DictWriter(car_file, fieldnames=['Licence plate', 'Brand', 'Model', 'Year', 'Availability', 'Price'])
+            #writer.writeheader()
+            licence_check = False
+            for row in csv.DictReader(car_file):
                 if row['Licence plate'] == licence_plate:
                     if row['Availability'] == "0":
                         return True
