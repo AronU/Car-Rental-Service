@@ -12,14 +12,7 @@ Home_1 = "h"
 Home_2 = "main menu"
 
 def order_menu():
-    order_service = OrderService()
-    count = True
-    while count == True:
-        print("1.  Make order\n2.  ")
-        un_func.printer()
-        Choice = input("Choice: ").lower()
-        un_func.printline()
-        if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
-            count = False
-        elif Choice == "1":
-                ID, licence, ssn, start_date, end_date, insurance = 
+    print("Select the user that wants to rent a car.")
+    print("1.  List all users")
+    print("2.  Search by ssn")
+    print("3.  Search by name")
