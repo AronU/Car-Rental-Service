@@ -1,6 +1,10 @@
 # Gets acces to the printline funcson in the Universal_func named un_func in the code
 # All over the place in the ui
+<<<<<<< HEAD
 from ui.Universal_func import printer, printline, name_input_chack
+=======
+from ui.Universal_func import printer, printline, Full_name_input_chack
+>>>>>>> cb895adc30df585f8ffefe6de3938aaee3a1ebd9
 import ui.Universal_func as un_func
 
 #Constant variable used to take in commands toru the input
@@ -37,8 +41,16 @@ def RegisterUser():
                 count, name, ssn, address, phone, birthday = DontMakeUser()
             elif name == Back_1 or name == Back_2:
                 count, name, ssn, address, phone, birthday = DontMakeUser()
+<<<<<<< HEAD
             un_func.name_input_chack()
             
+=======
+            else:
+                Tester, name = un_func.Full_name_input_chack(name)
+                if Tester == False:
+                    count = 1
+
+>>>>>>> cb895adc30df585f8ffefe6de3938aaee3a1ebd9
         elif count == 2:
             # Takes in SSN and allows user to go back one window or go to the mane menu
             print("SSN: \n")
@@ -50,6 +62,10 @@ def RegisterUser():
                 count, name, ssn, address, phone, birthday = DontMakeUser()
             elif ssn == Back_1 or ssn == Back_2:
                 count -= 2
+            else:
+                Tester, ssn = un_func.ssn_input_chack(ssn)
+                if Tester == False:
+                    count = 2
 
         elif count == 3:
             # Takes in Home address and allows user to go back one window or go to the mane menu
@@ -62,6 +78,10 @@ def RegisterUser():
                 count, name, ssn, address, phone, birthday = DontMakeUser()
             elif address == Back_1 or address == Back_2:
                 count -= 2
+            else:
+                Tester, address = un_func.address_input_chack(address)
+                if Tester == False:
+                    count = 3
 
         elif count == 4:
             # Takes in Phone number and allows user to go back one window or go to the mane menu
@@ -74,6 +94,10 @@ def RegisterUser():
                 count, name, ssn, address, phone, birthday = DontMakeUser()
             elif phone == Back_1 or phone == Back_2:
                 count -= 2
+            else:
+                Tester, phone = un_func.phone_input_chack(phone)
+                if Tester == False:
+                    count = 4
 
         elif count == 5:
             # Takes in Birthday and allows user to go back one window or go to the mane menu
@@ -86,6 +110,10 @@ def RegisterUser():
                 count, name, ssn, address, phone, birthday = DontMakeUser()
             elif birthday == Back_1 or birthday == Back_2:
                 count -= 2
+            else:
+                Tester, birthday = un_func.birthday_input_chack(birthday)
+                if Tester == False:
+                    count = 5
 
         elif count == 6:
             # makes the user confurm what user he is making 

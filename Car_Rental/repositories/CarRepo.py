@@ -27,7 +27,7 @@ class CarRepository:
         although we only care about availability this time. If the availability
         is 0, then it puts it into the list. This list will therefore be 
         containing all unavailable cars. -Aron'''
-        with open("Car_rental/data/cars.csv", "r") as car_file:
+        with open("./data/cars.csv", "r") as car_file:
             csv_reader = csv.reader(car_file)
             next(csv_reader)
             for line in csv_reader:
