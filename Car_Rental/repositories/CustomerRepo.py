@@ -7,7 +7,15 @@ class CustomerRepository:
         self.__customers = []
     
     def add_customer(self, customer):
+<<<<<<< HEAD
         with open("Car_Rental/data/customers.csv", "a+") as customers_file:
+=======
+        with open("./data/customers.csv", "a+") as customers_file:
+            customers_file.write('\n' + customer.__repr__())
+    
+    def remove_customer(self, customer):
+        with open("./data/customer.csv", "a") as customers_file:
+>>>>>>> 51ae59cd609f3005097f32ee8a2131e667890cf7
 
             csv_writer = csv.writer(customers_file)
             csv_writer.writerow(Customer.__repr__() + '\n')
@@ -30,6 +38,7 @@ class CustomerRepository:
                     return line
                     
     
+<<<<<<< HEAD
     # Delete user class unfinished
     ###############################################
     # def remove_customer(self, deleted_ssn):     
@@ -49,3 +58,12 @@ class CustomerRepository:
         #     birthday = customer.get_birthday()
         #     customers_file.write("{},{},{},{},{}\n".format(name, ssn, 
         # address, phone, birthday))
+=======
+    def get_customers(self):
+        customers = []
+        with open("./data/customer.csv", "r") as customers_file:
+            for line in customers_file.readlines():
+                customer = eval(line.strip())
+                customers.append(customer)
+        return customers
+>>>>>>> 51ae59cd609f3005097f32ee8a2131e667890cf7

@@ -18,6 +18,13 @@ import ui.Car_list_func as car_func
 from ui.User_list_func import Search_User
 import ui.User_list_func as user_func
 
+from ui.Price_list_func import Pricelist
+import ui.Price_list_func as price_func
+
+from ui.Return_Car_func import returncar
+import ui.Return_Car_func as ret_car_func
+
+from services.CarService import CarService
 Quit_1 = "q"
 
 ONE_1 = "1"
@@ -73,3 +80,22 @@ class SalesmanUI:
 
             elif action == Three_1 or action == Three_2:
                 user_func.Search_User()
+
+            # elif action == Four_1 or action == Four_2:
+
+            # elif action == Five_1 or action == Five_2:
+
+            # elif action == Six_1 or action == Six_1:
+
+            elif action == Seven_1 or action == Seven_2:
+<<<<<<< HEAD
+                licence_plate = ret_car_func.returncar()
+                if licence_plate != "0":
+                    car_service = CarService()
+                    car_service.return_car(licence_plate)
+=======
+                pass
+>>>>>>> bbcc7d8e206d059366eda89dcc8bf0b6e1166507
+            
+            elif action == Eight_1 or action == Eight_2:
+                price_func.Pricelist()

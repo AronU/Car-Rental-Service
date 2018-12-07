@@ -1,11 +1,11 @@
-Licence plate,Brand,Model,Year,Availability
-TE 378,Toyota,Yaris,2000,1
-JK 911,Range Rover,Evoque,2011,1
-TO 999,Tesla,Model S,2018,1
-SP L20,Subaru,Impreza,2019,1
-LO 567,Jeep,Wrangler,2018,0
-RI T09,Mercedes-Benz,AMG,2018,0
-JR FL0,Volvo,XC90,2018,1
-PM S45,Volvo,V60,2019,1
-SJ 234,BMW,X1,2018,0
-HK 468,Kia,Sorento,2018,1
+Licence plate,Brand,Model,Year,Availability,Price
+TE 378,Toyota,Yaris,2000,1,1500
+JK 911,Range Rover,Evoque,2011,1,11000
+TO 999,Tesla,Model S,2018,1,20000
+SP L20,Subaru,Impreza,2019,1,9500
+LO 567,Jeep,Wrangler,2018,0,13000
+RI T09,Mercedes-Benz,AMG,2018,0,25569
+JR FL0,Volvo,XC90,2018,1,15690
+PM S45,Volvo,V60,2019,1,17239
+SJ 234,BMW,X1,2018,0,11540
+HK 468,Kia,Sorento,2018,1,10500
