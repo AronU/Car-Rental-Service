@@ -10,36 +10,6 @@ def printline():
     # The printline function is used to Print a line of --- anywhere it is needs
     print("--"*25)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-def name_input_chack(name):
-=======
-def name_input_check(name):
->>>>>>> f797c372741cecdef646eea97cd35ba6a2a24d49
-    name_list = []
-    name_list = name.split()
-    print(name_list)
-
-
-def ssn_input_check(ssn):
-    pass
-
-def address_input_check(address):
-    pass
-
-def phone_input_check(phone):
-    pass
-    
-def birthday_input_check(birthday):
-    pass
-
-def paymant_input_check(paymant):
-    pass
-
-def Licence_plate_input_check(Licence_plate):
-    pass
-
-=======
 def Full_name_input_chack(name):
     # This function is used to chack if the full name is properly inputid in the system
     name_list = name.split()
@@ -150,4 +120,3 @@ def Licence_plate_input_chack(Licence_plate):
     # This function is used to chack if the Licence_plate is properly inputid in the system
     Tester = True
     return Tester, Licence_plate
->>>>>>> cb895adc30df585f8ffefe6de3938aaee3a1ebd9
