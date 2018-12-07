@@ -15,6 +15,9 @@ import ui.Universal_func as un_func
 from ui.Car_list_func import Carlist
 import ui.Car_list_func as car_func
 
+from ui.User_list_func import Search_User
+import ui.User_list_func as user_func
+
 Quit_1 = "q"
 
 ONE_1 = "1"
@@ -67,3 +70,6 @@ class SalesmanUI:
 
             elif action == Two_1 or action == Two_2:
                 car_func.Carlist()
+
+            elif action == Three_1 or action == Three_2:
+                user_func.Search_User()
