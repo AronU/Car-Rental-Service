@@ -18,6 +18,9 @@ import ui.Car_list_func as car_func
 from ui.User_list_func import Search_User
 import ui.User_list_func as user_func
 
+from ui.Price_list_func import Pricelist
+import ui.Price_list_func as price_func
+
 Quit_1 = "q"
 
 ONE_1 = "1"
@@ -73,8 +76,14 @@ class SalesmanUI:
 
             elif action == Three_1 or action == Three_2:
                 user_func.Search_User()
+<<<<<<< HEAD
 
             #elif action == Five_1 or action == Five_2:
 
             elif action == Seven_1 or action == Seven_2:
                 
+=======
+            
+            elif action == Eight_1 or action == Eight_2:
+                price_func.Pricelist()
+>>>>>>> 6a46e6c992d2594bd35e0cfbd6bff6db1069ebe1
