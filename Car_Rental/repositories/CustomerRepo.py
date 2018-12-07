@@ -8,7 +8,7 @@ class CustomerRepository:
     
     def add_customer(self, customer):
         with open("Car_Rental/data/customers.csv", "a+") as customers_file:
-            customers_file.writer('\n' + customer.__repr__())
+            customers_file.write('\n' + customer.__repr__())
     
     def remove_customer(self, customer):
         with open("Car_Rental/data/customer.csv", "a") as customers_file:
