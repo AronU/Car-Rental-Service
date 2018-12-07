@@ -39,6 +39,7 @@ class CarRepository:
         '''this function is used to switch the availability of the car it
         is given over to 'available' instead of unavailable.'''
         with open('./data/cars.csv', 'r') as inp, open('./data/temp.csv', 'w', newline='') as out:
+            licence_change_check = False
             writer = csv.DictWriter(out, fieldnames=['Licence plate', 'Brand', 'Model', 'Year', 'Availability'])
             writer.writeheader()
             for row in csv.DictReader(inp):
@@ -46,8 +47,10 @@ class CarRepository:
                     if row['Availability'] == "0":
                         row['Availability'] = "1"
                         writer.writerow(row)
+                        licence_change_check = True
                 else:
                     writer.writerow(row)
         # Til að eyða gömlu skránni og gera nýju skránna samnefnda gömlu skránni  
         os.remove('./data/cars.csv')
         os.rename('./data/temp.csv', './data/cars.csv')
+        return licence_change_check

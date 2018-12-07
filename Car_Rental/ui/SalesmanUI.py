@@ -73,3 +73,8 @@ class SalesmanUI:
 
             elif action == Three_1 or action == Three_2:
                 user_func.Search_User()
+
+            #elif action == Five_1 or action == Five_2:
+
+            elif action == Seven_1 or action == Seven_2:
+                

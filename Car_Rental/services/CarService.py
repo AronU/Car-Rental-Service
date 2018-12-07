@@ -17,3 +17,7 @@ class CarService:
        from there. - Aron 05/12'''
         unavailable_car_list = self.__car_repo.get_unavailable_cars()
         return unavailable_car_list
+
+    def return_car(self, licence_plate):
+        valid_check = self.__car_repo.return_car(licence_plate)
+        return valid_check
