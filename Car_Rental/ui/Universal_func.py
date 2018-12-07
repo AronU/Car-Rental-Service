@@ -1,5 +1,5 @@
 import string
-from datetime import date
+from datetime import datetime
 def printer():
     # The printer function is used to make the command options more visible to the user anywhere he needs it
     print("B.  Back one window")
@@ -17,7 +17,7 @@ def Full_name_input_chack(name):
 
     if len(name_list) <= 1:# chacks if the input is just one word
         Tester = False
-        print("\nFull name was not entered\n")
+        print("\nERROR: Full name was not entered\n")
         printline()
 
     elif len(name_list) > 1:# chacks if the input contanes a number or a symbol
@@ -26,11 +26,11 @@ def Full_name_input_chack(name):
                 T_or_F = letter.isdigit()
                 if T_or_F == True:
                     Tester = False
-                    print("\nNumber can be used in your name\n")
+                    print("\nERROR: Number can be used in your name\n")
                     printline()
                 elif letter in string.punctuation:
                     Tester = False
-                    print("\nname can not contain a symbol\n")
+                    print("\nERROR: Name can not contain a symbol\n")
                     printline()
 
     else:# if it is a full name betar make sur it is capitalized
@@ -46,11 +46,11 @@ def ssn_input_chack(ssn):
     T_or_F = ssn.isdigit()
     if len(ssn) > 10 or len(ssn) < 10:
         Tester = False
-        print("\nSSN contains 10 letters but you but in "+ str(len(ssn)) +"\n")
+        print("\nERROR: SSN contains 10 letters but you but in "+ str(len(ssn)) +"\n")
         printline()
     elif T_or_F == False:
         Tester = False
-        print("\nSSN can not contain a letters\n")
+        print("\nERROR: SSN can not contain a letters\n")
         printline()
     return Tester, ssn
 
@@ -67,11 +67,11 @@ def phone_input_chack(phone):
     T_or_F = phone.isdigit()
     if T_or_F == False:
         Tester = False
-        print("\nphone nuber can not contain a letters\n")
+        print("\nERROR: phone nuber can not contain a letters\n")
         printline()
     elif len(phone) < 7 or len(phone) > 7:
         Tester = False
-        print("\nphone nuber can not contain a more or less then 7 nubers\n")
+        print("\nERROR: phone nuber can not contain a more or less then 7 nubers\n")
         printline()
     return Tester, phone
     
@@ -85,8 +85,24 @@ def birthday_input_chack(birthday):
             T_or_F = number.isdigit()
             if T_or_F == False:
                 Tester = False
-        birthday = date(int(year), int(month), int(day))
-        print(birthday)
+        print(len(year))
+        print(day)
+        print(month)
+        print(year)
+        if len(day) != 2:
+            print("ERROR: Day must be represented with 2 numbers such as this: 06 or 15")
+        elif len(month) != 2:
+            print("ERROR: Month must be represented with 2 numbers such as this: 06 or 12")
+        elif len(year) != 4:
+            print("ERROR: Year must be represented with 4 numbers such as this: 1985 or 2000")
+        else:
+            try:
+                birthday = datetime(int(year), int(month), int(day))
+            except ValueError as ex:
+                print("\nERROR: "+ str(ex) + "\n")
+                printline()
+                Tester = False
+        
         return Tester, birthday
 
     
@@ -114,9 +130,3 @@ def paymant_input_chack(paymant):
     # This function is used to chack if the paymant is properly inputid in the system
     Tester = True
     return Tester, paymant
-
-
-def Licence_plate_input_chack(Licence_plate):
-    # This function is used to chack if the Licence_plate is properly inputid in the system
-    Tester = True
-    return Tester, Licence_plate

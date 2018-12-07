@@ -32,9 +32,9 @@ def returncar():
             elif car_service.valid_check_licence_plate(licence_plate) == True:
                 count += 1
             else:
-                print("\nThe licence plate you enterd is not in the system or not currently rented out\n")
+                print("\nERROR: The licence plate you enterd is not in the system or not currently rented out\n")
                 un_func.printline()
-                
+
         elif count == 2:
             print("Are you sure you what to return the car (Y/N): " + licence_plate +" ?\n")
             un_func.printer()

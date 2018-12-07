@@ -92,7 +92,7 @@ def RegisterUser():
 
         elif count == 5:
             # Takes in Birthday and allows user to go back one window or go to the mane menu
-            print("Birthday: \n")
+            print("DD/MM/YYYY\nBirthday: \n")
             un_func.printer()
             birthday = input("Choice: ").lower()
             un_func.printline()
@@ -111,7 +111,7 @@ def RegisterUser():
             # and allows user to go back one window or go to the mane menu
             print("Is this the user you whant to make (Y/N) ?\n")
             print("Full name: {:>2}\nSSN: {:>2}\nHome address: {:>2}".format(name, ssn, address))
-            print("Phone number: {:>2}\nBirthday: {:>2}\n".format(phone, birthday))
+            print("Phone number: {:>2}\nBirthday: {}\n".format(phone, birthday))
             un_func.printer()
             confurm = input("Choice: ").lower()
             un_func.printline()
