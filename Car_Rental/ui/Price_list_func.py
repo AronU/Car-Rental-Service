@@ -11,8 +11,6 @@ Home_1 = "h"
 Home_2 = "main menu"
 
 def price_list_printer(price_list):
-    # This function takes a nested list of car available or unavailable and prints them out 
-    # in a presentable way
     for line in price_list:
         print("Licence plate: {} - {} {} - Year: {} Price: {} ".format(line[0], line[1], line[2], line[3], line[5]))
     un_func.printline()
@@ -21,11 +19,10 @@ def price_list_printer(price_list):
 
     
 def Pricelist():
-    # This function gives user a choice and calls the the appropriate list 
     price_service = PriceService()
     count = True
     while count == True:
-        print("1.  Low prices\n2.  Medium prices\n3.  High prices\n")
+        print("1.  Low prices\n2.  Medium prices\n3.  High prices\n4.  All prices\n")
         un_func.printer()
         Choice = input("Choice: ").lower()
         un_func.printline()
@@ -40,3 +37,6 @@ def Pricelist():
         elif Choice == "3":
             high_price_list = price_service.get_HighPrice()
             price_list_printer(high_price_list)
+        elif Choice == "4":
+            all_prices_list = price_service.get_all_prices()
+            price_list_printer(all_prices_list)

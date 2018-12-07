@@ -15,6 +15,7 @@ class CarRepository:
         is 1, then it puts it into the list. This list will therefore be 
         containing all available cars. -Aron'''
         with open("./data/cars.csv", "r") as car_file:
+            self.__available_cars = []
             csv_reader = csv.reader(car_file)
             next(csv_reader)
             for line in csv_reader:
@@ -28,6 +29,7 @@ class CarRepository:
         is 0, then it puts it into the list. This list will therefore be 
         containing all unavailable cars. -Aron'''
         with open("./data/cars.csv", "r") as car_file:
+            self.__unavailable_cars = []
             csv_reader = csv.reader(car_file)
             next(csv_reader)
             for line in csv_reader:

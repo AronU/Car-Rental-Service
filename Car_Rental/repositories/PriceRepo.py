@@ -5,9 +5,11 @@ class PriceRepository:
         self.__LowPrice = []
         self.__MediumPrice = []
         self.__HighPrice = []
+        self.__AllPrices = []
     
     def get_LowPrice(self):
         with open("./data/cars.csv", "r") as price_file:
+            self.__LowPrice = []
             csv_reader = csv.reader(price_file)
             next(csv_reader)
             for line in csv_reader:
@@ -18,6 +20,7 @@ class PriceRepository:
 
     def get_MediumPrice(self):
         with open("./data/cars.csv", "r") as price_file:
+            self.__MediumPrice = []
             csv_reader = csv.reader(price_file)
             next(csv_reader)
             for line in csv_reader:
@@ -28,6 +31,7 @@ class PriceRepository:
     
     def get_HighPrice(self):
         with open("./data/cars.csv", "r") as price_file:
+            self.__HighPrice = []
             csv_reader = csv.reader(price_file)
             next(csv_reader)
             for line in csv_reader:
@@ -35,3 +39,12 @@ class PriceRepository:
                 if line[5] >= 20000:
                     self.__HighPrice.append(line)
         return self.__HighPrice
+    
+    def get_all_prices(self):
+        with open("./data/cars.csv", "r") as price_file:
+            self.__AllPrices = []
+            csv_reader = csv.reader(price_file)
+            next(csv_reader)
+            for line in csv_reader:
+                self.__AllPrices.append(line)
+        return self.__AllPrices
