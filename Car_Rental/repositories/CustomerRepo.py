@@ -19,7 +19,7 @@ class CustomerRepository:
             csv_reader = csv.reader(customers_file)
             next(csv_reader)
             for line in csv_reader:
-                if name in line[0]:
+                if name.lower() in line[0].lower():
                     self.__customer_name.append(line)
             return self.__customer_name
                 

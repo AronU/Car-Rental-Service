@@ -33,8 +33,10 @@ def Search_User():
             customer_name = input("Name: ")
             customer_name_list = customer_service.get_customer_name(customer_name)
             user_list_printer(customer_name_list)
+            customer_name_list.clear()
         elif Choice == "2":
             customer_ssn = input("SSN: ")
             customer_ssn_list = customer_service.get_customer_ssn(customer_ssn)
             user_list_printer(customer_ssn_list)
+            customer_ssn_list.clear()
             
