@@ -22,7 +22,7 @@ def car_list_printer(car_list):
 
     
 def Carlist():
-    # This function gives user a choice and calls the the appropriate list 
+    # This function gives user a choice and calls the the appropriate list. 
     car_service = CarService()
     count = True
     while count == True:

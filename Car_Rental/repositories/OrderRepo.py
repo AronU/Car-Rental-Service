@@ -32,6 +32,3 @@ class OrderRepository:
             for row in csv_reader:
                 id_list.append(row)
             return id_list
-
-
-

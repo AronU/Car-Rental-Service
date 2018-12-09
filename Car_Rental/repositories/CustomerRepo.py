@@ -1,3 +1,4 @@
+# This gives the class in this file access to the 
 from models.Customer import Customer
 import csv
 
@@ -5,14 +6,26 @@ class CustomerRepository:
 
     def __init__(self):
         self.__customers = []
-        self.__customer_name = []
-        self.__customer_ssn = []
     
     def add_customer(self, customer):
-        with open("Car_Rental/data/customers.csv", "a+") as customers_file:
+        with open("./data/customers.csv", "a+") as customers_file:
+            customers_file.write('\n' + customer.__repr__())
+    
+    # def remove_customer(self, customer):
+    #     with open("./data/customer.csv", "a") as customers_file:
 
-            csv_writer = csv.writer(customers_file)
-            csv_writer.writerow(Customer.__repr__() + '\n')
+    #         csv_writer = csv.writer(customers_file)
+    #         for row in csv_writer:
+    #             if row == csv_writer:
+    #                 row = 0
+    
+    # def get_customers(self):
+    #     customers = []
+    #     with open("./data/customer.csv", "r") as customers_file:
+    #         for line in customers_file.readlines():
+    #             customer = eval(line.strip())
+    #             customers.append(customer)
+    #     return customers
 
     # Find customer according to their name
     def get_customer_name(self, name):
