@@ -6,6 +6,8 @@ class CustomerRepository:
 
     def __init__(self):
         self.__customers = []
+        self.__customer_name = []
+        self.__customer_ssn = []
     
     def add_customer(self, customer):
         with open("./data/customers.csv", "a+") as customers_file:
@@ -19,13 +21,13 @@ class CustomerRepository:
     #             if row == csv_writer:
     #                 row = 0
     
-    # def get_customers(self):
-    #     customers = []
-    #     with open("./data/customer.csv", "r") as customers_file:
-    #         for line in customers_file.readlines():
-    #             customer = eval(line.strip())
-    #             customers.append(customer)
-    #     return customers
+    def get_customers(self):
+        customers = []
+        with open("./data/customer.csv", "r") as customers_file:
+            for line in customers_file.readlines():
+                customer = eval(line.strip())
+                customers.append(customer)
+        return customers
 
     # Find customer according to their name
     def get_customer_name(self, name):
