@@ -29,7 +29,7 @@ class CustomerRepository:
 
     # Find customer according to their name
     def get_customer_name(self, name):
-        with open("Car-Rental-Service/Car_Rental/data/customers.csv", "r") as customers_file:
+        with open("./data/customers.csv", "r") as customers_file:
             csv_reader = csv.reader(customers_file)
             next(csv_reader)
             for line in csv_reader:
@@ -42,7 +42,7 @@ class CustomerRepository:
                 
     # Find customer according to their SSN
     def get_customer_ssn(self, ssn):
-        with open("Car-Rental-Service/Car_Rental/data/customers.csv", "r") as customers_file:
+        with open("./data/customers.csv", "r") as customers_file:
             csv_reader = csv.reader(customers_file)
             next(csv_reader)
             for line in csv_reader:
