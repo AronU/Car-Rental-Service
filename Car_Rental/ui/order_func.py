@@ -62,73 +62,14 @@ def order_menu():
                 else:
                     customer_name_list = customer_service.get_customer_name(Choice)
                     user_list_printer(customer_name_list)
-<<<<<<< HEAD
                     if len(customer_name_list) > 1:
                         customer_name_list.clear()
-                        User()
+                        order_menu()
                     else:
                         for line in customer_name_list:
                             SSN = line[1]
                             Name = line[0]
                     customer_name_list.clear() 
-                    count = False   
-        return SSN, Name
-    def dates():
-        count = 1
-        while count != 3:
-            if count == 1:
-                print("DD/MM/YYYY\nEnter in the date you whant to pick up a car\n")
-                un_func.printer()
-                Choice = input("Choice: ").lower()
-                un_func.printline()
-                if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
-                    count = 4
-                elif len(Choice) == 10:
-                    try:
-                        day, month, year = Choice.replace("/", " ").split()
-                        Tester, start_date = un_func.date_chack(day, month, year)
-                        if Tester == False:
-                            count = 1
-                    except ValueError:
-                        Tester = False
-                        print("\nERROR: Something went wrong with your input please try again\n")
-                        printline()
-                    if present < start_date:
-                        count += 1
-                    else:
-                        print("\nYou Can't rent a car in the past\n")
-                        un_func.printline()
-            elif count == 2:
-                print("DD/MM/YYYY\nEnter in the date you whant to return a car\n")
-                un_func.printer()
-                Choice = input("Choice: ").lower()
-                un_func.printline()
-                if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
-                    count = 4
-                elif len(Choice) == 10:
-                    try:
-                        day, month, year = Choice.replace("/", " ").split()
-                        Tester, end_date = un_func.date_chack(day, month, year, Tester)
-                    except ValueError:
-                        Tester = False
-                        print("\nERROR: Something went wrong with your input please try again\n")
-                        un_func.printline()
-                    if start_date < end_date:
-                        count += 1
-                    else:
-                        print("\nYou Can't return a car you don't have\n")
-                        un_func.printline()
-        return start_date, end_date
-    # def availabel_cars():
-    #     return licence_plate, additional_insurance
-    # def paymant():
-    #     return paymant_way
-    SSN, Name = User()
-    start_date, end_date = dates()
-    # licence_plate, additional_insurance = availabel_cars()
-    # paymant_way = paymant()
-=======
-                    customer_name_list.clear()
                     count += 1 
         elif count == 2:
             print("DD/MM/YYYY\nEnter in the date you whant to pick up a car\n")
@@ -185,7 +126,6 @@ def order_menu():
         # elif count == 7:
         #     count = END
 ####################################################################################################
->>>>>>> 49d07a5a997c7864ecda66f48d517af12287f0e1
     print(SSN)
     print(Name)
     print(start_date)
