@@ -23,20 +23,23 @@ def Search_User():
     customer_service = CustomerService()
     count = True
     while count == True:
-        print("1. Search by name\n2. Search by SSN\n")
+        print("Search by Name or by SSN\n")
         un_func.printer()
         Choice = input("Choice: ").lower()
         un_func.printline()
         if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
             count = False
-        elif Choice == "1":
-            customer_name = input("Name: ")
-            customer_name_list = customer_service.get_customer_name(customer_name)
-            user_list_printer(customer_name_list)
-            customer_name_list.clear()
-        elif Choice == "2":
-            customer_ssn = input("SSN: ")
-            customer_ssn_list = customer_service.get_customer_ssn(customer_ssn)
+        elif Choice.isdigit() == True:
+            customer_ssn_list = customer_service.get_customer_ssn(Choice)
             user_list_printer(customer_ssn_list)
             customer_ssn_list.clear()
-            
+        elif Choice.isdigit() == False:
+            for letter in Choice:
+                T_or_F = letter.isdigit()
+            if T_or_F == True:
+                print("\nERROR: Number can't be used in Name\n")
+                printline()
+            else:
+                customer_name_list = customer_service.get_customer_name(Choice)
+                user_list_printer(customer_name_list)
+                customer_name_list.clear()

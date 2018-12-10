@@ -26,7 +26,7 @@ def Full_name_input_chack(name):
                 T_or_F = letter.isdigit()
                 if T_or_F == True:
                     Tester = False
-                    print("\nERROR: Number can be used in your name\n")
+                    print("\nERROR: Number can't be used in your name\n")
                     printline()
                 elif letter in string.punctuation:
                     Tester = False
