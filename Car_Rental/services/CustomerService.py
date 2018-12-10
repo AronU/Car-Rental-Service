@@ -19,3 +19,8 @@ class CustomerService:
         #Validation checks, could check if customers already 
         #exists etc. 
         return True
+
+    def valid_check_ssn(self, ssn):
+        '''Verifies if the ssn it is given is real or not.'''
+        valid_check = self.__customer_repo.verify_ssn(ssn)
+        return valid_check
