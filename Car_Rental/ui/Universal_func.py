@@ -1,5 +1,5 @@
 import string
-from datetime import datetime
+from datetime import date
 def printer():
     # The printer function is used to make the command options more visible to the user anywhere he needs it
     print("B.  Back one window")
@@ -105,7 +105,7 @@ def birthday_input_chack(birthday):
             print("ERROR: Year must be represented with 4 numbers such as this: 1985 or 2000")
         else:
             try:
-                birthday = datetime(int(year), int(month), int(day))
+                birthday = date(int(year), int(month), int(day))
             except ValueError as ex:
                 print("\nERROR: "+ str(ex) + "\n")
                 printline()
