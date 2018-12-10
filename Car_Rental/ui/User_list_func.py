@@ -21,7 +21,7 @@ Home_2 = "main menu"
 def Search_menu():
     count = True
     while count == True:
-        print("1.  Search by Name or by SSN or leave empty for full list\n2.  Edit customer by SSN\n3.  Delete customer by SSN")
+        print("1.  Search by Name, SSN or leave empty for full list\n2.  Edit customer by SSN\n3.  Delete customer by SSN\n")
         un_func.printer()
         Choice = input("Choice: ").lower()
         un_func.printline()

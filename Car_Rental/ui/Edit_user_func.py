@@ -22,7 +22,7 @@ def edit_user():
             print("Input the SSN of the customer you want to edit\n")
             un_func.printer()
             SSN = input("Choice: ").lower()
-            un_func.printline
+            un_func.printline()
             if SSN == Home_1 or SSN == Home_2 or SSN == Back_1 or SSN == Back_2:
                 count, SSN = Donteditcustomer()
             elif customer_service.valid_check_ssn(SSN):
