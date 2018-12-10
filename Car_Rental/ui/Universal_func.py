@@ -68,10 +68,7 @@ def address_input_chack(address):
     except ValueError:
         print("\nERROR: Street must have a name and a number\n")
         printline()
-
-
     return Tester, address
-
 
 def phone_input_chack(phone):
     # This function is used to chack if the phone is properly inputid in the system
@@ -87,41 +84,18 @@ def phone_input_chack(phone):
         printline()
     return Tester, phone
     
-    
 def birthday_input_chack(birthday):
     # This function is used to chack if the birthday is properly inputid in the system
     Tester = False
-    def number_chack(day, month, year, Tester):
-        birthday = day + month + year
-        for number in birthday:
-            T_or_F = number.isdigit()
-            if T_or_F == False:
-                Tester = False
-        if len(day) != 2:
-            print("ERROR: Day must be represented with 2 numbers such as this: 06 or 15")
-        elif len(month) != 2:
-            print("ERROR: Month must be represented with 2 numbers such as this: 06 or 12")
-        elif len(year) != 4:
-            print("ERROR: Year must be represented with 4 numbers such as this: 1985 or 2000")
-        else:
-            try:
-                birthday = date(int(year), int(month), int(day))
-            except ValueError as ex:
-                print("\nERROR: "+ str(ex) + "\n")
-                printline()
-                Tester = False
-        
-        return Tester, birthday
-
-    birthday_list = []
-    for word in birthday:
-        birthday_list.append(word)
+    # birthday_list = []
+    # for word in birthday:
+    #     birthday_list.append(word)
 
     if len(birthday) == 10:
         try:
             day, month, year = birthday.replace("/", " ").split()
             Tester = True
-            Tester, birthday = number_chack(day, month, year, Tester)
+            Tester, birthday = date_chack(day, month, year, Tester)
         except ValueError:
             Tester = False
             print("\nERROR: Something went wrong with your input please try again\n")
@@ -129,10 +103,28 @@ def birthday_input_chack(birthday):
     else:
         print("\nERROR: Something went wrong with your input please try again\n")
         printline()
-
-
     return Tester, birthday
 
+def date_chack(day, month, year, Tester):
+    date_time = day + month + year
+    for number in date_time:
+        T_or_F = number.isdigit()
+        if T_or_F == False:
+            Tester = False
+    if len(day) != 2:
+        print("ERROR: Day must be represented with 2 numbers such as this: 06 or 15")
+    elif len(month) != 2:
+        print("ERROR: Month must be represented with 2 numbers such as this: 06 or 12")
+    elif len(year) != 4:
+        print("ERROR: Year must be represented with 4 numbers such as this: 1985 or 2000")
+    else:
+        try:
+            date_time = date(int(year), int(month), int(day))
+        except ValueError as ex:
+            print("\nERROR: "+ str(ex) + "\n")
+            printline()
+            Tester = False
+    return Tester, date_time
 
 def paymant_input_chack(paymant):
     # This function is used to chack if the paymant is properly inputid in the system
