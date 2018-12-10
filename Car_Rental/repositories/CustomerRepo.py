@@ -2,6 +2,7 @@
 from models.Customer import Customer
 # This imports the CSV module, which includes all the necessary built-in functions, and allows this file(the class) to parse CSV files.
 import csv
+import os
 
 class CustomerRepository:
 
@@ -15,13 +16,17 @@ class CustomerRepository:
         with open("./data/customers.csv", "a+") as customers_file:
             customers_file.write('\n' + customer.__repr__())
     
-    # def remove_customer(self, customer):
-    #     with open("./data/customer.csv", "a") as customers_file:
+    def remove_customer(self, ssn):
+        '''Function removes the customer based on the ssn given. -Aron'''
+        with open("./data/customers.csv", "r") as customers_file, open('./data/temp.csv', 'w', newline='') as output_file:
+            writer = csv.DictWriter(output_file, fieldnames=['name', 'ssn', 'address', 'phone', 'birthday'])
+            writer.writeheader()
+            for row in csv.DictReader(customers_file):
+                if row['ssn'] != ssn:
+                    writer.writerow(row)
 
-    #         csv_writer = csv.writer(customers_file)
-    #         for row in csv_writer:
-    #             if row == csv_writer:
-    #                 row = 0
+        os.remove('./data/customers.csv')
+        os.rename('./data/temp.csv', './data/customers.csv')
     
     def get_customers(self):
         customers = []
@@ -54,24 +59,3 @@ class CustomerRepository:
                 if line[1] == ssn:
                     self.__customer_ssn.append(line)
             return self.__customer_ssn
-                    
-    
-    # Delete user class unfinished
-    ###############################################
-    # def remove_customer(self, deleted_ssn):     
-    #     with open('./data/customers.csv', 'r') as inp, open('temp.csv', 'w') as out:
-    #         writer = csv.DictWriter(out, fieldnames=['name', 'SSN', 'Address','phone','DoB'])
-    #         writer.writeheader()
-    #         for row in csv.DictReader(inp):
-    #             if row['SSN'] != :
-    #                 writer.writerow(row)           
-    ###############################################       
-            
-
-        #     name = customer.get_name()
-        #     ssn = customer.get_ssn()
-        #     address = customer.get_address()
-        #     phone = customer.get_phone()
-        #     birthday = customer.get_birthday()
-        #     customers_file.write("{},{},{},{},{}\n".format(name, ssn, 
-        # address, phone, birthday))
