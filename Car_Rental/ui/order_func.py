@@ -118,7 +118,15 @@ def order_menu():
                     print("\nYou Can't return a car you don't have\n")
                     un_func.printline()
         elif count == 4:
-            count = END
+            print("Enter in the the licence plate of the car you whant to rent or leave empty for full list of Availabel cars\n")
+            un_func.printer()
+            Choice = input("Choice: ").lower()
+            un_func.printline()
+            if Choice == Home_1 or Choice == Home_2:
+                SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, count = DontMakeOrder()
+            elif Choice == Back_1 or Choice == Back_2:
+                count -= 1
+            
         # elif count == 5:
 
         # elif count == 6: 
