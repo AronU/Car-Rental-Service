@@ -1,8 +1,9 @@
 import string
 from datetime import date, datetime
 
-past = datetime.now().date()
-past.year = past.year - 20
+present = datetime.now().date()
+newYear = present.year-20
+newdate = present.replace(year=newYear)
 
 def printer():
     # The printer function is used to make the command options more visible to the user anywhere he needs it

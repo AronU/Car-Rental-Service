@@ -5,15 +5,12 @@ import ui.Universal_func as un_func
 #Gets access to the OrderService class in the services folder. Used to get the available order lists.
 from services.OrderService import OrderService
 
-<<<<<<< HEAD
 from datetime import date, datetime
-=======
 from services.CustomerService import CustomerService
 
-from ui.User_list_func import user_list_printer
+from ui.Search_user_func import user_list_printer
 
 
->>>>>>> aa663c02afcc02d38c02857804f85334c744635d
 #Constant variable used to take in commands toru the input
 Back_1 = "b"
 Back_2 = "back"
@@ -59,19 +56,9 @@ def order_menu():
         return SSN, Name
     def dates():
         count = 1
-<<<<<<< HEAD
         while count != 3:
             if count == 1:
                 print("DD/MM/YYYY\nEnter in the date you whant to pick up a car\n")
-=======
-        while count != 4:
-            if count == 1:
-<<<<<<< HEAD
-                print("\nEnter in the date you want to pick up a car\n")
-=======
-                print("\nEnter in the date you whant to pick up a car\n")
->>>>>>> dcdd778ecf21ac008b43255b0f9609904c3c97e7
->>>>>>> aa663c02afcc02d38c02857804f85334c744635d
                 un_func.printer()
                 Choice = input("Choice: ").lower()
                 un_func.printline()
@@ -87,7 +74,6 @@ def order_menu():
                         Tester = False
                         print("\nERROR: Something went wrong with your input please try again\n")
                         printline()
-<<<<<<< HEAD
                     if present < start_date:
                         count += 1
                     else:
@@ -95,10 +81,6 @@ def order_menu():
                         un_func.printline()
             elif count == 2:
                 print("DD/MM/YYYY\nEnter in the date you whant to return a car\n")
-=======
-            elif count == 2:
-                print("\nEnter in the date you whant to return a car\n")
->>>>>>> aa663c02afcc02d38c02857804f85334c744635d
                 un_func.printer()
                 Choice = input("Choice: ").lower()
                 un_func.printline()
@@ -111,18 +93,12 @@ def order_menu():
                     except ValueError:
                         Tester = False
                         print("\nERROR: Something went wrong with your input please try again\n")
-<<<<<<< HEAD
                         un_func.printline()
                     if start_date < end_date:
                         count += 1
                     else:
                         print("\nYou Can't return a car you don't have\n")
                         un_func.printline()
-=======
-                        printline()
-            elif count == 3:
-                pass
->>>>>>> aa663c02afcc02d38c02857804f85334c744635d
         return start_date, end_date
     # def availabel_cars():
     #     return licence_plate, additional_insurance
