@@ -56,7 +56,11 @@ def order_menu():
         count = 1
         while count != 4:
             if count == 1:
+<<<<<<< HEAD
                 print("\nEnter in the date you want to pick up a car\n")
+=======
+                print("\nEnter in the date you whant to pick up a car\n")
+>>>>>>> dcdd778ecf21ac008b43255b0f9609904c3c97e7
                 un_func.printer()
                 Choice = input("Choice: ").lower()
                 un_func.printline()
