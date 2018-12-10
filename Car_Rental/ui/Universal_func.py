@@ -1,5 +1,9 @@
 import string
-from datetime import date
+from datetime import date, datetime
+
+past = datetime.now().date()
+past.year = past.year - 20
+
 def printer():
     # The printer function is used to make the command options more visible to the user anywhere he needs it
     print("B.  Back one window")
@@ -87,9 +91,6 @@ def phone_input_chack(phone):
 def birthday_input_chack(birthday):
     # This function is used to chack if the birthday is properly inputid in the system
     Tester = False
-    # birthday_list = []
-    # for word in birthday:
-    #     birthday_list.append(word)
 
     if len(birthday) == 10:
         try:
@@ -105,7 +106,7 @@ def birthday_input_chack(birthday):
         printline()
     return Tester, birthday
 
-def date_chack(day, month, year, Tester):
+def date_chack(day, month, year, Tester=True):
     date_time = day + month + year
     for number in date_time:
         T_or_F = number.isdigit()
