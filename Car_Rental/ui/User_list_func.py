@@ -8,6 +8,9 @@ from services.CustomerService import CustomerService
 from ui.Search_user_func import search_user
 import ui.Search_user_func as search_u
 
+from ui.Edit_user_func import edit_user
+import ui.Edit_user_func as edit_u
+
 # constant variables to be used to take in commands through the input
 Back_1 = "b"
 Back_2 = "back"
@@ -26,4 +29,5 @@ def Search_menu():
             count = False
         elif Choice == "1":
             search_u.search_user()
-            print(Choice)
+        elif Choice == "2":
+            edit_u.edit_user()

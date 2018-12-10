@@ -19,12 +19,12 @@ def user_list_printer(user_list):
 
 def search_user():
     customer_service = CustomerService()
-    print("Input name or SSN\n")
-    un_func.printer()
-    Choice = input("Choice: ").lower()
-    un_func.printline
     count = True
     while count == True:
+        print("Input name or SSN or empty\n")
+        un_func.printer()
+        Choice = input("Choice: ").lower()
+        un_func.printline
         if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
             count = False
         elif Choice.isdigit() == True:

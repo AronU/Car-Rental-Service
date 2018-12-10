@@ -51,7 +51,7 @@ def order_menu():
     def dates():
         count = 1
         while count != 4:
-            if count = 1:
+            if count == 1:
                 print("\nEnter in the date you whant to pick up a car\n")
                 un_func.printer()
                 Choice = input("Choice: ").lower()
@@ -67,7 +67,7 @@ def order_menu():
                         Tester = False
                         print("\nERROR: Something went wrong with your input please try again\n")
                         printline()
-            elif count = 2:
+            elif count == 2:
                 print("\nEnter in the date you whant to return a car\n")
                 un_func.printer()
                 Choice = input("Choice: ").lower()
@@ -83,7 +83,7 @@ def order_menu():
                         Tester = False
                         print("\nERROR: Something went wrong with your input please try again\n")
                         printline()
-            elif count = 3:
+            elif count == 3:
                 pass
         return start_date, end_date
     # def availabel_cars():
