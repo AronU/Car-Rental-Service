@@ -18,7 +18,9 @@ import ui.Car_list_func as car_func
 from ui.User_list_func import Search_menu
 import ui.User_list_func as user_func
 
+# This gives the function access to the Pricelist function in Price_list_func.
 from ui.Price_list_func import Pricelist
+# This names the Price_list_func price_func.
 import ui.Price_list_func as price_func
 
 from ui.Return_Car_func import returncar
