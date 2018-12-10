@@ -30,7 +30,7 @@ def DontMakeOrder():
     paymant_way = "0"
     count = END
     return SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, count
-    
+
 def order_menu():
     customer_service = CustomerService()
     count = 1
@@ -116,7 +116,7 @@ def order_menu():
         elif count == 4:
             count = END
         # elif count == 5:
-
+            
         # elif count == 6: 
         
         # elif count == 7:
