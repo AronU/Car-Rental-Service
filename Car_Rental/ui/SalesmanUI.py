@@ -15,7 +15,7 @@ import ui.Universal_func as un_func
 from ui.Car_list_func import Carlist
 import ui.Car_list_func as car_func
 
-from ui.User_list_func import Search_User
+from ui.User_list_func import Search_menu
 import ui.User_list_func as user_func
 
 # This gives the function access to the Pricelist function in Price_list_func.
@@ -85,9 +85,10 @@ class SalesmanUI:
                 car_func.Carlist()
 
             elif action == Three_1 or action == Three_2:
-                user_func.Search_User()
+                user_func.Search_menu()
 
-            # elif action == Four_1 or action == Four_2:
+            elif action == Four_1 or action == Four_2:
+                order.order_menu()
 
             elif action == Five_1 or action == Five_2:
                 order.order_menu()
