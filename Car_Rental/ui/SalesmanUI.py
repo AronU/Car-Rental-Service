@@ -25,6 +25,10 @@ from ui.Return_Car_func import returncar
 import ui.Return_Car_func as ret_car_func
 
 from services.CarService import CarService
+
+from ui.order_func import order_menu
+import ui.order_func as order
+
 Quit_1 = "q"
 
 ONE_1 = "1"
@@ -83,7 +87,8 @@ class SalesmanUI:
 
             # elif action == Four_1 or action == Four_2:
 
-            # elif action == Five_1 or action == Five_2:
+            elif action == Five_1 or action == Five_2:
+                order.order_menu()
 
             # elif action == Six_1 or action == Six_1:
 
