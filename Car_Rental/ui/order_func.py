@@ -10,7 +10,7 @@ from datetime import date, datetime
 =======
 from services.CustomerService import CustomerService
 
-from ui.User_list_func import user_list_printer
+from ui.Search_user_func import user_list_printer
 
 
 >>>>>>> aa663c02afcc02d38c02857804f85334c744635d
@@ -37,6 +37,7 @@ def order_menu():
                 for line in customer_ssn_list:
                     SSN = line[1]
                     Name = line[0]
+                user_list_printer(customer_ssn_list)
                 customer_ssn_list.clear()
                 count = False
             elif Choice.isdigit() == False:
@@ -66,12 +67,14 @@ def order_menu():
 =======
         while count != 4:
             if count == 1:
-<<<<<<< HEAD
                 print("\nEnter in the date you want to pick up a car\n")
+<<<<<<< HEAD
+=======
 =======
                 print("\nEnter in the date you whant to pick up a car\n")
 >>>>>>> dcdd778ecf21ac008b43255b0f9609904c3c97e7
 >>>>>>> aa663c02afcc02d38c02857804f85334c744635d
+>>>>>>> 915389fb7a341bda1dab0f83ad712dbc481ddc7e
                 un_func.printer()
                 Choice = input("Choice: ").lower()
                 un_func.printline()
