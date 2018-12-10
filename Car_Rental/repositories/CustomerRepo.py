@@ -1,3 +1,4 @@
+# This gives the class in this file access to the 
 from models.Customer import Customer
 import csv
 
@@ -9,26 +10,45 @@ class CustomerRepository:
         self.__customer_ssn = []
     
     def add_customer(self, customer):
-        with open("Car_Rental/data/customers.csv", "a+") as customers_file:
+        with open("./data/customers.csv", "a+") as customers_file:
+            customers_file.write('\n' + customer.__repr__())
+    
+    # def remove_customer(self, customer):
+    #     with open("./data/customer.csv", "a") as customers_file:
 
-            csv_writer = csv.writer(customers_file)
-            csv_writer.writerow(Customer.__repr__() + '\n')
+    #         csv_writer = csv.writer(customers_file)
+    #         for row in csv_writer:
+    #             if row == csv_writer:
+    #                 row = 0
+    
+    def get_customers(self):
+        customers = []
+        with open("./data/customer.csv", "r") as customers_file:
+            for line in customers_file.readlines():
+                customer = eval(line.strip())
+                customers.append(customer)
+        return customers
 
+    # Find customer according to their name
     def get_customer_name(self, name):
-        with open("Car-Rental-Service/Car_Rental/data/customers.csv", "r") as customers_file:
+        with open("./data/customers.csv", "r") as customers_file:
             csv_reader = csv.reader(customers_file)
             next(csv_reader)
             for line in csv_reader:
-                if name.lower() in line[0].lower():
+                # Check if the input is equal to the name in the list, the only part of the name that is checked is the part
+                # that is equal to the lenght of the input. For example if the input is "ar" then the only part of the string 
+                # that is checked is equal to the len(name)
+                if name.lower() == line[0][:len(name)].lower():
                     self.__customer_name.append(line)
             return self.__customer_name
                 
-
+    # Find customer according to their SSN
     def get_customer_ssn(self, ssn):
-        with open("Car-Rental-Service/Car_Rental/data/customers.csv", "r") as customers_file:
+        with open("./data/customers.csv", "r") as customers_file:
             csv_reader = csv.reader(customers_file)
             next(csv_reader)
             for line in csv_reader:
+                # See if the SSN list item is equal to the input
                 if line[1] == ssn:
                     self.__customer_ssn.append(line)
             return self.__customer_ssn

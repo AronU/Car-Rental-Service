@@ -1,7 +1,9 @@
-# Gives the function access to the printline function in Universal_func named un_func
+# This gives the function access to the printer and printline functions in the file Universal_func.
 from ui.Universal_func import printer, printline
+# This names the file Universal_func un_func.
 import ui.Universal_func as un_func
 
+# This gives the function access to the class PriceService stored in the folder services.
 from services.PriceService import PriceService
 
 # Constant variables used as commands in the input.
