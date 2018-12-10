@@ -60,7 +60,7 @@ class CustomerRepository:
                     self.__customer_ssn.append(line)
             return self.__customer_ssn
 
-    def edit_user_name(self, ssn, choice):
+    def edit_user(self, ssn, choice, new_input):
         '''This function is used to edit the user that has the SSN that is
             inputted '''
         with open('./data/customers.csv', 'r') as inp, open('./data/temp.csv', 'w', newline='') as out:
@@ -68,10 +68,22 @@ class CustomerRepository:
             writer.writeheader()
             for row in csv.DictReader(inp):
                 if row['ssn'] == ssn:
-                    row['name'] = input('Name: ')
-                    writer.writerow(row)
+                    if choice == "1":
+                        row['name'] = new_input
+                        writer.writerow(row)
+                    elif choice == "2":
+                        row['address'] = new_input
+                        writer.writerow(row)
+                    elif choice == "3":
+                        row['phone'] = new_input
+                        writer.writerow(row)
+                    elif choice == "4":
+                        row['birthday'] = new_input
+                        writer.writerow(row)
                 else:
                     writer.writerow(row)
+        os.remove('./data/customers.csv')
+        os.rename('./data/temp.csv', './data/customers.csv')
 
     def verify_ssn(self, ssn):
         '''Verifies if the ssn given is in the database'''

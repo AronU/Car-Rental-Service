@@ -61,11 +61,15 @@ def order_menu():
                     printline()
                 else:
                     customer_name_list = customer_service.get_customer_name(Choice)
-                    for line in customer_name_list:
-                        SSN = line[1]
-                        Name = line[0]
                     user_list_printer(customer_name_list)
-                    customer_name_list.clear()
+                    if len(customer_name_list) > 1:
+                        customer_name_list.clear()
+                        order_menu()
+                    else:
+                        for line in customer_name_list:
+                            SSN = line[1]
+                            Name = line[0]
+                    customer_name_list.clear() 
                     count += 1 
         elif count == 2:
             print("DD/MM/YYYY\nEnter in the date you whant to pick up a car\n")

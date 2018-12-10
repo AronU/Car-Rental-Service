@@ -35,7 +35,17 @@ def edit_user():
             un_func.printer()
             Choice = input("Choice: ")
             un_func.printline()
-            if Choice == Home_1 or Choice == Home_2 or Back_1 or Choice == Back_2:
+            if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
                 count, SSN = Donteditcustomer()
             elif Choice == "1":
-                pass
+                new_name = input("New name: ")
+                customer_service.edit_customer(SSN, Choice, new_name)
+            elif Choice == "2":
+                new_address = input("New address: ")
+                customer_service.edit_customer(SSN, Choice, new_address)
+            elif Choice == "3":
+                new_phone = input("New phone number: ")
+                customer_service.edit_customer(SSN, Choice, new_phone)
+            elif Choice == "4":
+                new_birthday = input("New date of birth: ")
+                customer_service.edit_customer(SSN, Choice, new_birthday)
