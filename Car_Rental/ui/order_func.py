@@ -4,6 +4,12 @@ from ui.Universal_func import printer, printline, date_chack
 import ui.Universal_func as un_func
 #Gets access to the OrderService class in the services folder. Used to get the available order lists.
 from services.OrderService import OrderService
+
+from services.CustomerService import CustomerService
+
+from ui.User_list_func import user_list_printer
+
+
 #Constant variable used to take in commands toru the input
 Back_1 = "b"
 Back_2 = "back"
@@ -12,6 +18,7 @@ Home_2 = "main menu"
 
 def order_menu():
     def User():
+        customer_service = CustomerService()
         count = True
         while count == True:
             print("Search by Name or by SSN\n")
@@ -21,14 +28,12 @@ def order_menu():
             if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
                 count = False
             elif Choice.isdigit() == True:
-                ##########################Breita hér#################################
-                Name = Choice
-                SSN = Choice
+                customer_ssn_list = customer_service.get_customer_ssn(Choice)
+                for line in customer_ssn_list:
+                    SSN = line[1]
+                    Name = line[0]
+                customer_ssn_list.clear()
                 count = False
-                ##########################Breita hér#################################
-                # customer_ssn_list = customer_service.get_customer_ssn(Choice)
-                # user_list_printer(customer_ssn_list)
-                # customer_ssn_list.clear()
             elif Choice.isdigit() == False:
                 Tester = False
                 for letter in Choice:
@@ -39,20 +44,19 @@ def order_menu():
                     print("\nERROR: Number can't be used in Name\n")
                     printline()
                 else:
-                    ##########################Breita hér#################################
-                    SSN = Choice
-                    Name = Choice
-                    count = False
-                    ##########################Breita hér#################################
-                    # customer_name_list = customer_service.get_customer_name(Choice)
-                    # user_list_printer(customer_name_list)
-                    # customer_name_list.clear()    
+                    customer_name_list = customer_service.get_customer_name(Choice)
+                    for line in customer_name_list:
+                        SSN = line[1]
+                        Name = line[0]
+                    user_list_printer(customer_name_list)
+                    customer_name_list.clear() 
+                    count = False   
         return SSN, Name
     def dates():
         count = 1
         while count != 4:
-            if count = 1:
-                print("\nEnter in the date you whant to pick up a car\n")
+            if count == 1:
+                print("\nEnter in the date you want to pick up a car\n")
                 un_func.printer()
                 Choice = input("Choice: ").lower()
                 un_func.printline()
@@ -67,7 +71,7 @@ def order_menu():
                         Tester = False
                         print("\nERROR: Something went wrong with your input please try again\n")
                         printline()
-            elif count = 2:
+            elif count == 2:
                 print("\nEnter in the date you whant to return a car\n")
                 un_func.printer()
                 Choice = input("Choice: ").lower()
@@ -83,7 +87,7 @@ def order_menu():
                         Tester = False
                         print("\nERROR: Something went wrong with your input please try again\n")
                         printline()
-            elif count = 3:
+            elif count == 3:
                 pass
         return start_date, end_date
     # def availabel_cars():

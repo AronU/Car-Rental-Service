@@ -87,7 +87,8 @@ class SalesmanUI:
             elif action == Three_1 or action == Three_2:
                 user_func.Search_User()
 
-            # elif action == Four_1 or action == Four_2:
+            elif action == Four_1 or action == Four_2:
+                order.order_menu()
 
             elif action == Five_1 or action == Five_2:
                 order.order_menu()
