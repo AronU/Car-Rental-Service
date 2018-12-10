@@ -1,5 +1,6 @@
-# This gives the class in this file access to the 
+# This gives the class in this file access to the Customer class which is stored in the models folder.
 from models.Customer import Customer
+# This imports the CSV module, which includes all the necessary built-in functions, and allows this file(the class) to parse CSV files.
 import csv
 
 class CustomerRepository:
@@ -10,6 +11,7 @@ class CustomerRepository:
         self.__customer_ssn = []
     
     def add_customer(self, customer):
+        ''' This function opens the csv file and appends the new customer that was input into the file. '''
         with open("./data/customers.csv", "a+") as customers_file:
             customers_file.write('\n' + customer.__repr__())
     
