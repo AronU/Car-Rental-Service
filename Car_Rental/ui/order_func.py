@@ -7,7 +7,7 @@ from services.OrderService import OrderService
 
 from services.CustomerService import CustomerService
 
-from ui.User_list_func import user_list_printer
+from ui.Search_user_func import user_list_printer
 
 
 #Constant variable used to take in commands toru the input
@@ -32,6 +32,7 @@ def order_menu():
                 for line in customer_ssn_list:
                     SSN = line[1]
                     Name = line[0]
+                user_list_printer(customer_ssn_list)
                 customer_ssn_list.clear()
                 count = False
             elif Choice.isdigit() == False:
@@ -56,11 +57,7 @@ def order_menu():
         count = 1
         while count != 4:
             if count == 1:
-<<<<<<< HEAD
                 print("\nEnter in the date you want to pick up a car\n")
-=======
-                print("\nEnter in the date you whant to pick up a car\n")
->>>>>>> dcdd778ecf21ac008b43255b0f9609904c3c97e7
                 un_func.printer()
                 Choice = input("Choice: ").lower()
                 un_func.printline()
