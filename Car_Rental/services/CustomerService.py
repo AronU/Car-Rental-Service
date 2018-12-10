@@ -15,11 +15,15 @@ class CustomerService:
         user_list_ssn = self.__customer_repo.get_customer_ssn(ssn)
         return user_list_ssn
 
+    def is_valid_customer(self, customer):
+        #Validation checks, could check if customers already 
+        #exists etc. 
+        return True
+
     def valid_check_ssn(self, ssn):
         '''Verifies if the ssn it is given is real or not.'''
         valid_check = self.__customer_repo.verify_ssn(ssn)
         return valid_check
-
     def valid_customer_check(self, ssn):
         '''Verifies if the user exists, returns True if he does, False if not. -Aron'''
         user_list_ssn = self.__customer_repo.get_customer_ssn(ssn)
@@ -31,3 +35,6 @@ class CustomerService:
     def remove_customer(self, ssn):
         '''Sends over the ssn to the repo to delete the user. - Aron'''
         self.__customer_repo.remove_customer(ssn)
+
+    def edit_customer(self, ssn, choice, new_input):
+        self.__customer_repo.edit_user(ssn, choice, new_input)
