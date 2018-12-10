@@ -34,9 +34,12 @@ def Search_User():
             user_list_printer(customer_ssn_list)
             customer_ssn_list.clear()
         elif Choice.isdigit() == False:
+            Tester = False
             for letter in Choice:
                 T_or_F = letter.isdigit()
-            if T_or_F == True:
+                if T_or_F == True:
+                    Tester = True
+            if Tester == True:
                 print("\nERROR: Number can't be used in Name\n")
                 printline()
             else:
