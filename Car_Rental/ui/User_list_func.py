@@ -8,7 +8,7 @@ from services.CustomerService import CustomerService
 # constant variables to be used to take in commands through the input
 Back_1 = "b"
 Back_2 = "back"
-Home_1 = "h"
+Home_1 = "m"
 Home_2 = "main menu"
 
 def user_list_printer(user_list):

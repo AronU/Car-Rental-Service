@@ -8,7 +8,7 @@ from services.CarService import CarService
 #Constant variable used to take in commands toru the input
 Back_1 = "b"
 Back_2 = "back"
-Home_1 = "h"
+Home_1 = "m"
 Home_2 = "main menu"
 
 def car_list_printer(car_list):

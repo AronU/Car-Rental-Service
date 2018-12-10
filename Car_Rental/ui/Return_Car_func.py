@@ -7,7 +7,7 @@ from services.CarService import CarService
 #Constant variable used to take in commands toru the input
 Back_1 = "B"
 Back_2 = "BACK"
-Home_1 = "H"
+Home_1 = "M"
 Home_2 = "MAIN MENU"
 def Dontreturncar():
     # The Dontreturncar function is used to make sure that when the user want to go back to the 

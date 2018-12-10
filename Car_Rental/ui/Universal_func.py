@@ -3,7 +3,7 @@ from datetime import datetime
 def printer():
     # The printer function is used to make the command options more visible to the user anywhere he needs it
     print("B.  Back one window")
-    print("H.  Main menu")
+    print("M.  Main menu")
     print("--"*25)
 
 def printline():
@@ -57,7 +57,19 @@ def ssn_input_chack(ssn):
 
 def address_input_chack(address):
     # This function is used to chack if the address is properly inputid in the system
-    Tester = True
+    Tester = False
+    try:
+        street, number = address.split()
+        if number.isdigit() == True and street.isdigit() == False:
+            Tester = True
+        else:
+            print("\nERROR: Street must have a name and a number\n")
+            printline()
+    except ValueError:
+        print("\nERROR: Street must have a name and a number\n")
+        printline()
+
+
     return Tester, address
 
 
@@ -78,17 +90,13 @@ def phone_input_chack(phone):
     
 def birthday_input_chack(birthday):
     # This function is used to chack if the birthday is properly inputid in the system
-    Tester = True
+    Tester = False
     def number_chack(day, month, year, Tester):
         birthday = day + month + year
         for number in birthday:
             T_or_F = number.isdigit()
             if T_or_F == False:
                 Tester = False
-        print(len(year))
-        print(day)
-        print(month)
-        print(year)
         if len(day) != 2:
             print("ERROR: Day must be represented with 2 numbers such as this: 06 or 15")
         elif len(month) != 2:
@@ -105,22 +113,22 @@ def birthday_input_chack(birthday):
         
         return Tester, birthday
 
-    
     birthday_list = []
     for word in birthday:
         birthday_list.append(word)
 
     if len(birthday) == 10:
-        day = birthday_list[0] + birthday_list[1]
-        month = birthday_list[3] + birthday_list[4]
-        year = birthday_list[6] + birthday_list[7] + birthday_list[8] + birthday_list[9]
-        Tester, birthday = number_chack(day, month, year, Tester)
-
-    elif len(birthday) == 8:
-        day = birthday_list[0] + birthday_list[1]
-        month = birthday_list[2] + birthday_list[3]
-        year = birthday_list[4] + birthday_list[5] + birthday_list[6] + birthday_list[7]
-        Tester, birthday = number_chack(day, month, year, Tester)
+        try:
+            day, month, year = birthday.replace("/", " ").split()
+            Tester = True
+            Tester, birthday = number_chack(day, month, year, Tester)
+        except ValueError:
+            Tester = False
+            print("\nERROR: Something went wrong with your input please try again\n")
+            printline()
+    else:
+        print("\nERROR: Something went wrong with your input please try again\n")
+        printline()
 
 
     return Tester, birthday

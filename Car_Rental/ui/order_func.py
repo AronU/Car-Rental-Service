@@ -8,7 +8,7 @@ from services.OrderService import OrderService
 #Constant variable used to take in commands toru the input
 Back_1 = "b"
 Back_2 = "back"
-Home_1 = "h"
+Home_1 = "m"
 Home_2 = "main menu"
 
 def order_menu():

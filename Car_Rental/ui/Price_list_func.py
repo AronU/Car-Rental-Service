@@ -9,7 +9,7 @@ from services.PriceService import PriceService
 # Constant variables used as commands in the input.
 Back_1 = "b"
 Back_2 = "back"
-Home_1 = "h"
+Home_1 = "m"
 Home_2 = "main menu"
 
 # This function takes a nested list and prints out the list in a presentable way.
