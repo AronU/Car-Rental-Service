@@ -59,3 +59,25 @@ class CustomerRepository:
                 if line[1] == ssn:
                     self.__customer_ssn.append(line)
             return self.__customer_ssn
+
+    def edit_user_name(self, ssn, choice):
+        '''This function is used to edit the user that has the SSN that is
+            inputted '''
+        with open('./data/customers.csv', 'r') as inp, open('./data/temp.csv', 'w', newline='') as out:
+            writer = csv.DictWriter(out, fieldnames=['name', 'ssn', 'address', 'phone', 'birthday'])
+            writer.writeheader()
+            for row in csv.DictReader(inp):
+                if row['ssn'] == ssn:
+                    row['name'] = input('Name: ')
+                    writer.writerow(row)
+                else:
+                    writer.writerow(row)
+
+    def verify_ssn(self, ssn):
+        '''Verifies if the ssn given is in the database'''
+        with open('./data/customers.csv', 'r') as customer_file:
+            ssn_check = False
+            for row in csv.DictReader(customer_file):
+                if row['ssn'] == ssn:
+                    return True
+        return ssn_check
