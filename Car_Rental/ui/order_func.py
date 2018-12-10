@@ -64,13 +64,13 @@ def order_menu():
                     user_list_printer(customer_name_list)
                     if len(customer_name_list) > 1:
                         customer_name_list.clear()
-                        order_menu()
+                        count = 1
                     else:
                         for line in customer_name_list:
                             SSN = line[1]
                             Name = line[0]
-                    customer_name_list.clear() 
-                    count += 1 
+                        customer_name_list.clear() 
+                        count += 1 
         elif count == 2:
             print("DD/MM/YYYY\nEnter in the date you whant to pick up a car\n")
             un_func.printer()
@@ -120,9 +120,9 @@ def order_menu():
         elif count == 4:
             count = END
         # elif count == 5:
-            
+
         # elif count == 6: 
-        
+
         # elif count == 7:
         #     count = END
 ####################################################################################################
