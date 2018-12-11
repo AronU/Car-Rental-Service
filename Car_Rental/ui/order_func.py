@@ -34,6 +34,7 @@ def DontMakeOrder():
 
 def order_menu():
     customer_service = CustomerService()
+    order_service = OrderService()
     count = 1
     while count != END:
         if count == 1:
@@ -73,7 +74,7 @@ def order_menu():
                         customer_name_list.clear() 
                         count += 1 
         elif count == 2:
-            print("DD/MM/YYYY\nEnter in the date you whant to pick up a car\n")
+            print("Example: DD/MM/YYYY\nEnter in the date you want to pick up a car\n")
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()
@@ -97,7 +98,7 @@ def order_menu():
                     print("\nYou Can't rent a car in the past\n")
                     un_func.printline()
         elif count == 3:
-            print("DD/MM/YYYY\nEnter in the date you whant to return a car\n")
+            print("Example: DD/MM/YYYY\nEnter in the date you want to return a car\n")
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()
@@ -119,7 +120,7 @@ def order_menu():
                     print("\nYou Can't return a car you don't have\n")
                     un_func.printline()
         elif count == 4:
-            print("Enter in the the licence plate of the car you whant to rent or leave empty for full list of Availabel cars\n")
+            print("Example: XX XXX\nEnter in the the licence plate of the car you want to rent or leave empty for full list of Available cars\n")
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()
@@ -127,22 +128,39 @@ def order_menu():
                 SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
+            elif len(Choice) == 6:
+                try:
+                    (' ' in Choice) == True
+                    licence_plate = Choice
+                except ValueError:
+                    print("\nERROR: Something went wrong with your input, please try again\n")
+                    un_func.printline()
+                if licence_plate
+                    count += 1
+                else:
+                    print("")
             
-        # elif count == 5:
+        elif count == 5:
+            count += 1
 
-        # elif count == 6: 
+        elif count == 6:
+            count += 1
 
-        # elif count == 7:
-
-        # elif count == 8:
-        #     count = END
+        elif count == 7:
+            count += 1
+            
+        elif count == 8:
+            count = END
+        ###############Get radom ID###############
+            # if Yes_or_no == "Y":
+            #     ID = order_service.get_random_id()
 ####################################################################################################
     print(SSN)
     print(Name)
     print(start_date)
     print(end_date)
     ####################
-    #print(licence_plate)
+    print(licence_plate)
     #print(additional_insurance)
     ##############################
     #print(paymant_way)
