@@ -17,7 +17,7 @@ Back_1 = "b"
 Back_2 = "back"
 Home_1 = "m"
 Home_2 = "main menu"
-END = 11
+END = 8
 
 present = datetime.now().date()
 
@@ -124,24 +124,33 @@ def order_menu():
         elif count == 4:
             print("Example: XX XXX\nEnter in the the licence plate of the car you want to rent or leave empty for full list of Available cars\n")
             un_func.printer()
-            Choice = input("Choice: ").lower()
+            Choice = input("Choice: ").upper()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
                 SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif len(Choice) == 6:
+                Tester = False
                 try:
                     (' ' in Choice) == True
-                    licence_plate = Choice
+                    Tester = True
                 except ValueError:
                     print("\nERROR: Something went wrong with your input, please try again\n")
                     un_func.printline()
-                if licence_plate == True:
-                    licence_plate = Choice
-                    count += 1
-                else:
-                    print("")
+                if Tester == True:
+                    licence_plate_check = car_service.valid_check_licence_plate(Choice)
+                    if licence_plate_check == True:  
+                        licence_plate = Choice
+                        count += 1
+                    elif licence_plate_check == False:
+                        print("\nThe car you want is not available. Please enter another licence plate.\n")
+                        count = 4
+                        un_func.printline()
+                    else:
+                        print("\nThis car does not exist! Please try again.\n")
+                        count = 4
+                        un_func.printline()
             
         elif count == 5:
             print("Do you want additional car insurance (Y/N)?\n")
@@ -164,13 +173,7 @@ def order_menu():
 
         elif count == 6:
             price = car_service.get_car_price(licence_plate)
-            days = start_date - end_date
-            #####Test case#####
-            print(days)
-            print(type(days))
-            print(price)
-            print(type(price))
-            ###################
+            days = end_date - start_date
             print("Price: "+ str(days*price) +"\n")
             print("How wood you like to pay for the car\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
             un_func.printer()
@@ -180,13 +183,13 @@ def order_menu():
                 SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
-            elif Choice == 1:
+            elif Choice == "1":
                 paymant_way = "Credit card"
                 count += 1
-            elif Choice == 2:
+            elif Choice == "2":
                 paymant_way = "Debit card"
                 count += 1
-            elif Choice == 3:
+            elif Choice == "3":
                 paymant_way = "Cash"
                 count += 1
             else:
@@ -194,7 +197,7 @@ def order_menu():
                 un_func.printline()
 
         elif count == 7:
-            print("Plesse confurm your order:\nSSN: {} \nName: {} \nstart date: {} \nend date: {} \nlicence_plate: {} \nadditional insurance: {} \npaymant way: {} \n".format(SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way))
+            print("Plesse confurm your order:\n\nSSN: {} \nName: {} \nstart date: {} \nend date: {} \nlicence_plate: {} \nadditional insurance: {} \npaymant way: {} \n".format(SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way))
             print("confurm your order (Y/N)\n")
             un_func.printer()
             Choice = input("Choice: ").lower()
@@ -203,16 +206,7 @@ def order_menu():
                 SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
-            elif Choice == "y"
+            elif Choice == "y":
                 #ID = order_service.get_random_id()
                 count = END
-####################################################################################################
-    print(SSN)
-    print(Name)
-    print(start_date)
-    print(end_date)
-    print(licence_plate)
-    print(additional_insurance)
-    print(paymant_way)
-
     #return SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID
