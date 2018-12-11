@@ -123,7 +123,6 @@ def order_menu():
                     print("\nYou Can't return a car you don't have\n")
                     un_func.printline()
         elif count == 4:
-            
             print("Example: XX XXX\nEnter in the the licence plate of the car you want to rent or leave empty for full list of Available cars\n")
             un_func.printer()
             Choice = input("Choice: ").upper()
@@ -140,22 +139,19 @@ def order_menu():
                 except ValueError:
                     print("\nERROR: Something went wrong with your input, please try again\n")
                     un_func.printline()
-<<<<<<< HEAD
                 if Tester == True:
                     licence_plate_check = car_service.valid_check_licence_plate(Choice)
                     if licence_plate_check == True:  
                         licence_plate = Choice
                         count += 1
-                    else:
+                    elif licence_plate_check == False:
                         print("\nThe car you want is not available. Please enter another licence plate.\n")
                         count = 4
                         un_func.printline()
-=======
-                if licence_plate:
-                    count += 1
-                else:
-                    print("")
->>>>>>> 7a564cc805c1d9d4e2661b88e78201b84ac966d4
+                    else:
+                        print("\nThis car does not exist! Please try again.\n")
+                        count = 4
+                        un_func.printline()
             
         elif count == 5:
             count += 1
