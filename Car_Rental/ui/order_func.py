@@ -135,7 +135,7 @@ def order_menu():
                 except ValueError:
                     print("\nERROR: Something went wrong with your input, please try again\n")
                     un_func.printline()
-                if licence_plate
+                if licence_plate:
                     count += 1
                 else:
                     print("")
