@@ -180,8 +180,7 @@ def order_menu():
         elif count == 6:
             price = car_service.get_car_price(licence_plate)
             d = end_date - start_date
-            print("Price: "+ str(d.days*price) +"\n")
-            print("How wood you like to pay for the car\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
+            print("How wood you like to pay for the car?\n"Price: "+ str(d.days*price) +"Kr."\n\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()
@@ -203,8 +202,7 @@ def order_menu():
                 un_func.printline()
 
         elif count == 7:
-            print("Plesse confurm your order:\n\nSSN: {} \nName: {} \nstart date: {} \nend date: {} \nlicence_plate: {} \nadditional insurance: {} \npaymant way: {} \n".format(ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way))
-            print("confurm your order (Y/N)\n")
+            print("Plesse confurm your order (Y/N):\n\nSSN: {} \nName: {} \nstart date: {} \nend date: {} \nlicence_plate: {} \nadditional insurance: {} \npaymant way: {} \n".format(ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way))
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()
