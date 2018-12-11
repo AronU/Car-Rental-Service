@@ -22,8 +22,8 @@ END = 8
 present = datetime.now().date()
 
 def DontMakeOrder():
-    SSN = "0"
-    Name = "0"
+    ssn = "0"
+    name = "0"
     start_date = "0"
     end_date = "0"
     licence_plate = "0"
@@ -31,7 +31,7 @@ def DontMakeOrder():
     payment_way = "0"
     ID = "0"
     count = END
-    return SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count
+    return ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count
 
 def order_menu():
     customer_service = CustomerService()
@@ -45,12 +45,12 @@ def order_menu():
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
+                ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
             elif Choice.isdigit() == True:
                 customer_ssn_list = customer_service.get_customer_ssn(Choice)
                 for line in customer_ssn_list:
-                    SSN = line[1]
-                    Name = line[0]
+                    ssn = line[1]
+                    name = line[0]
                 user_list_printer(customer_ssn_list)
                 customer_ssn_list.clear()
                 count += 1 
@@ -71,8 +71,8 @@ def order_menu():
                         count = 1
                     else:
                         for line in customer_name_list:
-                            SSN = line[1]
-                            Name = line[0]
+                            ssn = line[1]
+                            name = line[0]
                         customer_name_list.clear() 
                         count += 1 
         elif count == 2:
@@ -81,7 +81,7 @@ def order_menu():
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
+                ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif len(Choice) == 10:
@@ -105,29 +105,30 @@ def order_menu():
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
+                ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif len(Choice) == 10:
                 try:
                     day, month, year = Choice.replace("/", " ").split()
                     Tester, end_date = un_func.date_chack(day, month, year, Tester)
+                    if start_date < end_date:
+                        count += 1
+                    else:
+                        print("\nYou Can't return a car you don't have\n")
+                        un_func.printline()
                 except:
                     Tester = False
                     print("\nERROR: Something went wrong with your input please try again\n")
                     un_func.printline()
-                if start_date < end_date:
-                    count += 1
-                else:
-                    print("\nYou Can't return a car you don't have\n")
-                    un_func.printline()
+                
         elif count == 4:
             print("Example: XX XXX\nEnter in the the licence plate of the car you want to rent or leave empty for full list of Available cars\n")
             un_func.printer()
             Choice = input("Choice: ").upper()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
+                ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif len(Choice) == 6:
@@ -163,7 +164,7 @@ def order_menu():
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
+                ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif Choice == "y":
@@ -178,14 +179,13 @@ def order_menu():
 
         elif count == 6:
             price = car_service.get_car_price(licence_plate)
-            days = end_date - start_date
-            print("Price: "+ str(days*price) +"\n")
-            print("How wood you like to pay for the car\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
+            d = end_date - start_date
+            print("How wood you like to pay for the car?\n"Price: "+ str(d.days*price) +"Kr."\n\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
+                ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif Choice == "1":
@@ -202,16 +202,15 @@ def order_menu():
                 un_func.printline()
 
         elif count == 7:
-            print("Plesse confurm your order:\n\nSSN: {} \nName: {} \nstart date: {} \nend date: {} \nlicence_plate: {} \nadditional insurance: {} \npaymant way: {} \n".format(SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way))
-            print("confurm your order (Y/N)\n")
+            print("Plesse confurm your order (Y/N):\n\nSSN: {} \nName: {} \nstart date: {} \nend date: {} \nlicence_plate: {} \nadditional insurance: {} \npaymant way: {} \n".format(ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way))
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2 or Choice == "n":
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
+                ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif Choice == "y":
-                #ID = order_service.get_random_id()
+                ID = order_service.get_random_id()
                 count = END
-    #return ID, licence_plate, ssn, name, start_date, end_date, payment_way, additional_insurance
+    return ID, licence_plate, ssn, name, start_date, end_date, payment_way, additional_insurance

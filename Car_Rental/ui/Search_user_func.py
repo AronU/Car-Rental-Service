@@ -3,6 +3,7 @@ import ui.Universal_func as un_func
 
 from services.CustomerService import CustomerService
 
+
 #Constant variable used to take in commands toru the input
 Back_1 = "b"
 Back_2 = "back"
@@ -25,8 +26,10 @@ def search_user():
         un_func.printer()
         Choice = input("Choice: ").lower()
         un_func.printline
-        if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
-            count = False
+        if Choice == Home_1 or Choice == Home_2:
+            return False
+        elif Choice == Back_1 or Choice == Back_2:
+            return True
         elif Choice.isdigit() == True:
             customer_ssn_list = customer_service.get_customer_ssn(Choice)
             user_list_printer(customer_ssn_list)
@@ -44,3 +47,5 @@ def search_user():
                 customer_name_list = customer_service.get_customer_name(Choice)
                 user_list_printer(customer_name_list)
                 customer_name_list.clear()
+       
+       

@@ -18,8 +18,10 @@ def Delete_User():
         un_func.printer()
         Choice = input("Choice: ").lower()
         un_func.printline()
-        if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
-            count = False
+        if Choice == Home_1 or Choice == Home_2:
+            return False
+        elif Choice == Back_1 or Choice == Back_2:
+            return True
         else:
             T_or_F = customer_service.valid_customer_check(Choice)
             if T_or_F == True:
@@ -27,8 +29,10 @@ def Delete_User():
                 un_func.printer()
                 Yes_or_no = input("Choice: ").lower()
                 un_func.printline()
-                if Yes_or_no == Home_1 or Yes_or_no == Home_2 or Yes_or_no == Back_1 or Yes_or_no == Back_2 or Yes_or_no == "n":
+                if Yes_or_no == Home_1 or Yes_or_no == Home_2:
                     count = False
+                elif Yes_or_no == Back_1 or Yes_or_no == Back_2 or Yes_or_no == "n":
+                    count = True
                 elif Yes_or_no == "y":
                     customer_service.remove_customer(Choice)
                     print("Customer Has been deleted.")

@@ -14,6 +14,10 @@ def Donteditcustomer():
     SSN = "0"
     return count, SSN
 
+def exit():
+    count = 3
+    return count
+
 def edit_user():
     customer_service = CustomerService()
     count = 1
@@ -23,7 +27,7 @@ def edit_user():
             un_func.printer()
             SSN = input("Choice: ").lower()
             un_func.printline()
-            if SSN == Home_1 or SSN == Home_2 or SSN == Back_1 or SSN == Back_2:
+            if SSN == Home_1 or SSN == Home_2:
                 count, SSN = Donteditcustomer()
             elif customer_service.valid_customer_check(SSN):
                 count += 1
@@ -35,8 +39,10 @@ def edit_user():
             un_func.printer()
             Choice = input("Choice: ")
             un_func.printline()
-            if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
+            if Choice == Home_1 or Choice == Home_2:
                 count, SSN = Donteditcustomer()
+            elif Choice == Back_1 or Choice == Back_2:
+                count = 1
             elif Choice == "1":
                 new_name = input("New name: ")
                 customer_service.edit_customer(SSN, Choice, new_name)
