@@ -35,7 +35,7 @@ def edit_user():
                 print("\nERROR: The SSN you entered is not in the system\n")
                 un_func.printline()
         elif count == 2:
-            print("Do you want to edit the Name(1), Address(2), Phone(3) or date of birth(4) of the user: " + SSN + "?\n")
+            print("Do you want to edit" + SSN + "users:\n1.  Name\n2.  Address\n3.  Phone\n4.  Date of birth\n")
             un_func.printer()
             Choice = input("Choice: ")
             un_func.printline()
