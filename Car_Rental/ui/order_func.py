@@ -112,15 +112,16 @@ def order_menu():
                 try:
                     day, month, year = Choice.replace("/", " ").split()
                     Tester, end_date = un_func.date_chack(day, month, year, Tester)
+                    if start_date < end_date:
+                        count += 1
+                    else:
+                        print("\nYou Can't return a car you don't have\n")
+                        un_func.printline()
                 except:
                     Tester = False
                     print("\nERROR: Something went wrong with your input please try again\n")
                     un_func.printline()
-                if start_date < end_date:
-                    count += 1
-                else:
-                    print("\nYou Can't return a car you don't have\n")
-                    un_func.printline()
+                
         elif count == 4:
             print("Example: XX XXX\nEnter in the the licence plate of the car you want to rent or leave empty for full list of Available cars\n")
             un_func.printer()
@@ -178,8 +179,8 @@ def order_menu():
 
         elif count == 6:
             price = car_service.get_car_price(licence_plate)
-            days = end_date - start_date
-            print("Price: "+ str(days*price) +"\n")
+            d = end_date - start_date
+            print("Price: "+ str(d.days*price) +"\n")
             print("How wood you like to pay for the car\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
             un_func.printer()
             Choice = input("Choice: ").lower()
