@@ -177,14 +177,8 @@ def order_menu():
 
         elif count == 6:
             price = car_service.get_car_price(licence_plate)
-<<<<<<< HEAD
-            days = end_date - start_date
-            print("Price: "+ str(days*price) +"\n")
-            print("How would you like to pay for the car\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
-=======
             d = end_date - start_date
-            print("How wood you like to pay for the car?\n"Price: "+ str(d.days*price) +"Kr."\n\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
->>>>>>> 5d3b2557c3d3d4111464b520a77ee5af63df521c
+            print("How would you like to pay for the car?\nPrice: " + str(d.days*price) + " Kr.\n\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()
@@ -206,12 +200,7 @@ def order_menu():
                 un_func.printline()
 
         elif count == 7:
-<<<<<<< HEAD
-            print("Please confirm your order:\n\nSSN: {} \nName: {} \nStart date: {} \nEnd date: {} \nLicence_plate: {} \nAdditional insurance: {} \nPaymant way: {} \n".format(SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way))
-            print("confirm your order (Y/N)\n")
-=======
-            print("Plesse confurm your order (Y/N):\n\nSSN: {} \nName: {} \nstart date: {} \nend date: {} \nlicence_plate: {} \nadditional insurance: {} \npaymant way: {} \n".format(ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way))
->>>>>>> 5d3b2557c3d3d4111464b520a77ee5af63df521c
+            print("Please confirm your order (Y/N):\n\nSSN: {} \nName: {} \nStart date: {} \nEnd date: {} \nLicence_plate: {} \nAdditional insurance: {} \nPayment way: {} \n".format(ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way))
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()
@@ -222,8 +211,4 @@ def order_menu():
             elif Choice == "y":
                 ID = order_service.get_random_id()
                 count = END
-<<<<<<< HEAD
-    #return SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID
-=======
     return ID, licence_plate, ssn, name, start_date, end_date, payment_way, additional_insurance
->>>>>>> 5d3b2557c3d3d4111464b520a77ee5af63df521c
