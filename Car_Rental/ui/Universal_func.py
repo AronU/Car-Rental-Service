@@ -1,10 +1,6 @@
 import string
 from datetime import date, datetime
 
-present = datetime.now().date()
-newYear = present.year-20
-newdate = present.replace(year=newYear)
-
 def printer():
     # The printer function is used to make the command options more visible to the user anywhere he needs it
     print("B.  Back one window")
@@ -57,6 +53,9 @@ def ssn_input_chack(ssn):
         Tester = False
         print("\nERROR: SSN can not contain a letters\n")
         printline()
+    #else:
+        ######Vantar_tester_ef_kennitalan_er_frátekinn######
+
     return Tester, ssn
 
 
@@ -91,6 +90,10 @@ def phone_input_chack(phone):
     
 def birthday_input_chack(birthday):
     # This function is used to chack if the birthday is properly inputid in the system
+    present = datetime.now().date()
+    newYear = present.year-20
+    minimum_age = present.replace(year=newYear)
+
     Tester = False
 
     if len(birthday) == 10:
@@ -98,6 +101,10 @@ def birthday_input_chack(birthday):
             day, month, year = birthday.replace("/", " ").split()
             Tester = True
             Tester, birthday = date_chack(day, month, year, Tester)
+            if birthday > minimum_age:
+                print("\nERROR: This age is not allowed to rent a car\n")
+                printline()
+                Tester = False
         except ValueError:
             Tester = False
             print("\nERROR: Something went wrong with your input please try again\n")
@@ -105,6 +112,7 @@ def birthday_input_chack(birthday):
     else:
         print("\nERROR: Something went wrong with your input please try again\n")
         printline()
+
     return Tester, birthday
 
 def date_chack(day, month, year, Tester=True):

@@ -21,7 +21,7 @@ def search_user():
     customer_service = CustomerService()
     count = True
     while count == True:
-        print("Input name or SSN or empty\n")
+        print("Input name, SSN or empty\n")
         un_func.printer()
         Choice = input("Choice: ").lower()
         un_func.printline

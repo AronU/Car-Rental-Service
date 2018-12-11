@@ -1,8 +1,9 @@
 from services.CustomerService import CustomerService
+from services.OrderService import OrderService
 
 customer_service = CustomerService()
-while True:
-    ssn = input("SSN: ")
-    check = customer_service.valid_customer_check(ssn)
-    if check == True:
-        customer_service.remove_customer(ssn)
+order_service = OrderService()
+
+
+random_id = order_service.get_random_id()
+print(random_id)
