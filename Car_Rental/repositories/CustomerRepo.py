@@ -84,3 +84,13 @@ class CustomerRepository:
                     writer.writerow(row)
         os.remove('./data/customers.csv')
         os.rename('./data/temp.csv', './data/customers.csv')
+
+    def get_user_history(self, ssn):
+        user_history = []
+        with open("./data/orders.csv", "r") as order_file:
+            csv_reader = csv.reader(order_file)
+            next(csv_reader)
+            for line in csv_reader:
+                if line[2] == ssn:
+                    user_history.append(line)    
+            return user_history
