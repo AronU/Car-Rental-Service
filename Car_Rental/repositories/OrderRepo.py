@@ -5,7 +5,7 @@ import random
 class OrderRepository:
 
     def __init__(self):
-        pass
+        self.__order_ssn = []
 
     def add_order(self, order):
         with open("./data/orders.csv", "a+") as orders_file:
@@ -54,3 +54,12 @@ class OrderRepository:
                     writer.writerow(row)
         os.remove('./data/orders.csv')
         os.rename('./data/temp.csv', './data/orders.csv')
+
+    def get_order_ssn(self, ssn):
+        with open("./data/orders.csv", "r") as orders_file:
+            csv_reader = csv.reader(orders_file)
+            next(csv_reader)
+            for line in csv_reader:
+                if line[3] == ssn:
+                    self.__order_ssn.append(line)
+            return self.__order_ssn

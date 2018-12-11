@@ -9,6 +9,8 @@ from services.CustomerService import CustomerService
 # Gets access to the CarService class in the service folder
 from services.CarService import CarService
 
+from ui.Search_order_ssn import search_order_ssn
+import ui.Search_order_ssn as search_ssn
 
 
 # constant variables to be used to take in commands through the input
@@ -28,6 +30,6 @@ def Search_order_menu():
         if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
             count = False
         elif Choice == "1":
-            pass
+            count = search_ssn.search_order_ssn()
         elif Choice == "2":
             pass
