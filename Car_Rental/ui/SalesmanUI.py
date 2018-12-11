@@ -102,6 +102,8 @@ class SalesmanUI:
 
             elif action == Five_1 or action == Five_2:
                 ID, licence_plate, ssn, name, start_date, end_date, payment_way, additional_insurance = order.order_menu()
+                # make sure if the user dissident to go back to the mane menu 
+                # halfway through that a have made order is not place 
                 if ssn != "0" and name != "0" and start_date != "0" and end_date != "0" and licence_plate != "0" and additional_insurance != "0" and payment_way != "0" and ID != "0":
                     new_order = Order(ID, licence_plate, ssn, name, start_date, end_date, payment_way, additional_insurance)
                     self.__order_service.add_order(new_order)

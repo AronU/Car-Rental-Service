@@ -135,8 +135,3 @@ def date_chack(day, month, year, Tester=True):
             printline()
             Tester = False
     return Tester, date_time
-
-def paymant_input_chack(paymant):
-    # This function is used to chack if the paymant is properly inputid in the system
-    Tester = True
-    return Tester, paymant
