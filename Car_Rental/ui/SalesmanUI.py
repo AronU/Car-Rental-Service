@@ -34,6 +34,10 @@ import ui.order_func as order
 
 from ui.Search_user_func import search_user
 import ui.Search_user_func as search_u
+
+from ui.Order_menu import Search_order_menu
+import ui.Order_menu as order_m
+
 from services.OrderService import OrderService
 
 Quit_1 = "q"
@@ -93,8 +97,8 @@ class SalesmanUI:
             elif action == Three_1 or action == Three_2:
                 user_func.Search_menu()
 
-            # elif action == Four_1 or action == Four_2:
-                
+            elif action == Four_1 or action == Four_2:
+                order_m.Search_order_menu()
 
             elif action == Five_1 or action == Five_2:
                 ID, licence_plate, ssn, name, start_date, end_date, payment_way, additional_insurance = order.order_menu()

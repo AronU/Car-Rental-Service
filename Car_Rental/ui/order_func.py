@@ -12,6 +12,8 @@ from ui.Search_user_func import user_list_printer
 
 from services.CarService import CarService
 
+from ui.Car_list_func import car_list_printer
+
 #Constant variable used to take in commands toru the input
 Back_1 = "b"
 Back_2 = "back"
@@ -132,27 +134,23 @@ def order_menu():
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif len(Choice) == 6:
-                Tester = False
-                try:
-                    if (' ' in Choice) == True:
-                        Tester = True
-                except:
-                    Tester = False
-                    print("\nERROR: Something went wrong with your input, please try again\n")
+                licence_plate_check = car_service.valid_check_licence_plate(Choice)
+                if licence_plate_check == True:  
+                    licence_plate = Choice
+                    count += 1
+                elif licence_plate_check == False:
+                    print("\nThe car you want is not available. Please enter another licence plate.\n")
+                    count = 4
                     un_func.printline()
-                if Tester == True:
-                    licence_plate_check = car_service.valid_check_licence_plate(Choice)
-                    if licence_plate_check == True:  
-                        licence_plate = Choice
-                        count += 1
-                    elif licence_plate_check == False:
-                        print("\nThe car you want is not available. Please enter another licence plate.\n")
-                        count = 4
-                        un_func.printline()
-                    else:
-                        print("\nThis car does not exist! Please try again.\n")
-                        count = 4
-                        un_func.printline()
+                else:
+                    print("\nThis car does not exist! Please try again.\n")
+                    count = 4
+                    un_func.printline()
+            elif len(Choice) == 0:
+                available_car_list = car_service.get_available_cars()
+                car_list_printer(available_car_list)
+                count = 4
+                un_func.printline()
             else:
                 print("\nERROR: Please enter a licence plate number like this:\nXX XXX\n")
                 count = 4
@@ -180,7 +178,7 @@ def order_menu():
         elif count == 6:
             price = car_service.get_car_price(licence_plate)
             d = end_date - start_date
-            print("How wood you like to pay for the car?\n"Price: "+ str(d.days*price) +"Kr."\n\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
+            print("How would you like to pay for the car?\nPrice: " + str(d.days*price) + " Kr.\n\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()
@@ -202,7 +200,7 @@ def order_menu():
                 un_func.printline()
 
         elif count == 7:
-            print("Plesse confurm your order (Y/N):\n\nSSN: {} \nName: {} \nstart date: {} \nend date: {} \nlicence_plate: {} \nadditional insurance: {} \npaymant way: {} \n".format(ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way))
+            print("Please confirm your order (Y/N):\n\nSSN: {} \nName: {} \nStart date: {} \nEnd date: {} \nLicence_plate: {} \nAdditional insurance: {} \nPayment way: {} \n".format(ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way))
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()
