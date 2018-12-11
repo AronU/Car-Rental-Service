@@ -12,6 +12,8 @@ from services.CarService import CarService
 from ui.Search_order_ssn import search_order_ssn
 import ui.Search_order_ssn as search_ssn
 
+from ui.Search_order_licence_plate import search_order_licence_plate
+import ui.Search_order_licence_plate as search_licence_p
 
 # constant variables to be used to take in commands through the input
 Back_1 = "b"
@@ -32,4 +34,4 @@ def Search_order_menu():
         elif Choice == "1":
             count = search_ssn.search_order_ssn()
         elif Choice == "2":
-            pass
+            count = search_licence_p.search_order_licence_plate()
