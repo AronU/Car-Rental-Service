@@ -10,6 +10,7 @@ from services.CustomerService import CustomerService
 
 from ui.Search_user_func import user_list_printer
 
+from services.CarService import CarService
 
 #Constant variable used to take in commands toru the input
 Back_1 = "b"
@@ -35,6 +36,7 @@ def DontMakeOrder():
 def order_menu():
     customer_service = CustomerService()
     order_service = OrderService()
+    car_service = CarService()
     count = 1
     while count != END:
         if count == 1:
@@ -135,32 +137,82 @@ def order_menu():
                 except ValueError:
                     print("\nERROR: Something went wrong with your input, please try again\n")
                     un_func.printline()
-                if licence_plate
+                if licence_plate == True:
+                    licence_plate = Choice
                     count += 1
                 else:
                     print("")
             
         elif count == 5:
-            count += 1
+            print("Do you want additional car insurance (Y/N)?\n")
+            un_func.printer()
+            Choice = input("Choice: ").lower()
+            un_func.printline()
+            if Choice == Home_1 or Choice == Home_2:
+                SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID, count = DontMakeOrder()
+            elif Choice == Back_1 or Choice == Back_2:
+                count -= 1
+            elif Choice == "y":
+                additional_insurance = 1
+                count += 1
+            elif Choice == "n":
+                additional_insurance = 0
+                count += 1
+            else:
+                print("\nERROR: Something went wrong with your input please try again\n")
+                un_func.printline()
 
         elif count == 6:
-            count += 1
+            price = car_service.get_car_price(licence_plate)
+            days = start_date - end_date
+            #####Test case#####
+            print(days)
+            print(type(days))
+            print(price)
+            print(type(price))
+            ###################
+            print("Price: "+ str(days*price) +"\n")
+            print("How wood you like to pay for the car\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
+            un_func.printer()
+            Choice = input("Choice: ").lower()
+            un_func.printline()
+            if Choice == Home_1 or Choice == Home_2:
+                SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID, count = DontMakeOrder()
+            elif Choice == Back_1 or Choice == Back_2:
+                count -= 1
+            elif Choice == 1:
+                paymant_way = "Credit card"
+                count += 1
+            elif Choice == 2:
+                paymant_way = "Debit card"
+                count += 1
+            elif Choice == 3:
+                paymant_way = "Cash"
+                count += 1
+            else:
+                print("\nERROR: Something went wrong with your input please try again\n")
+                un_func.printline()
 
         elif count == 7:
-            count += 1
-            
-        elif count == 8:
-            count = END
-        ###############Get radom ID###############
-            # if Yes_or_no == "Y":
-            #     ID = order_service.get_random_id()
+            print("Plesse confurm your order:\nSSN: {} \nName: {} \nstart date: {} \nend date: {} \nlicence_plate: {} \nadditional insurance: {} \npaymant way: {} \n".format(SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way))
+            print("confurm your order (Y/N)\n")
+            un_func.printer()
+            Choice = input("Choice: ").lower()
+            un_func.printline()
+            if Choice == Home_1 or Choice == Home_2 or Choice == "n":
+                SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID, count = DontMakeOrder()
+            elif Choice == Back_1 or Choice == Back_2:
+                count -= 1
+            elif Choice == "y"
+                #ID = order_service.get_random_id()
+                count = END
 ####################################################################################################
     print(SSN)
     print(Name)
     print(start_date)
     print(end_date)
-    ####################
     print(licence_plate)
-    #print(additional_insurance)
-    ##############################
-    #print(paymant_way)
+    print(additional_insurance)
+    print(paymant_way)
+
+    #return SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID
