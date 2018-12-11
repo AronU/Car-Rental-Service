@@ -18,3 +18,7 @@ class OrderService:
     def get_order_licence_plate(self, licence_plate):
         order_list_licence_plate = self.__order_repo.get_order_licence_plate(licence_plate)
         return order_list_licence_plate
+    
+    def available_cars(self, start_date, end_date):
+        available_cars = self.__order_repo.get_available_cars(start_date, end_date)
+        return available_cars

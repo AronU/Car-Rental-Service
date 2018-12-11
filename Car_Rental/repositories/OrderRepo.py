@@ -79,6 +79,24 @@ class OrderRepository:
                         unavailable_car_list.append(line[1])
             return unavailable_car_list
 
+    def get_available_cars(self, start_date, end_date):
+        unavailable_car_list = self.catch_unavailable_cars(start_date, end_date)
+        all_cars = []
+        available_car_list = []
+        with open("./data/cars.csv", "r") as car_file:
+            csv_reader = csv.reader(car_file)
+            next(csv_reader)
+            for line in csv_reader:
+                all_cars.append(line)
+        for i in range(len(all_cars)):
+            if all_cars[i][0] not in unavailable_car_list:
+                available_car_list.append(all_cars[i])
+        return available_car_list
+            
+
+
+
+
     def get_order_ssn(self, ssn):
         with open("./data/orders.csv", "r") as orders_file:
             csv_reader = csv.reader(orders_file)

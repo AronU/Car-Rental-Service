@@ -7,7 +7,13 @@ from repositories.OrderRepo import OrderRepository
 from datetime import date, datetime
 
 order_repo = OrderRepository()
-start = date(2020, 1, 23)
-end = date(2020, 1, 28)
-unavail_list = order_repo.catch_unavailable_cars(start, end)
-print(unavail_list)
+order_service = OrderService()
+start = date(2019, 1, 23)
+end = date(2019, 1, 28)
+
+available_cars = order_service.available_cars(start, end)
+print(available_cars)
+
+
+
+
