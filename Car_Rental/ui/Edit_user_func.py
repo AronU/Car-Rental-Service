@@ -29,9 +29,7 @@ def edit_user():
             un_func.printline()
             if SSN == Home_1 or SSN == Home_2:
                 count, SSN = Donteditcustomer()
-            elif SSN == Back_1 or SSN == Back_2:
-                return True
-            elif customer_service.valid_check_ssn(SSN):
+            elif customer_service.valid_customer_check(SSN):
                 count += 1
             else:
                 print("\nERROR: The SSN you entered is not in the system\n")
