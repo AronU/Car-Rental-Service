@@ -1,1 +1,2 @@
-id,licence plate,SSN,name,start date,end date,additional insurance
+id,licence plate,SSN,name,start date,end date,additional insurance,order status
+55555,JK 555,2904972649,Aron,gg,gg,0,1
