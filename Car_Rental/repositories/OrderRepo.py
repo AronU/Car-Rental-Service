@@ -22,8 +22,8 @@ class OrderRepository:
             if hit == True:
                 pass
             else:
-                with open("./data/IDs.csv", "a+") as IDs_file:
-                    IDs_file.write(random_id)
+                with open("./data/IDs.csv", "a+", newline='') as IDs_file:
+                    IDs_file.write('\n' + str(random_id))
                 return random_id
 
     def get_all_ids(self):
