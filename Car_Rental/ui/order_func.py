@@ -112,7 +112,7 @@ def order_menu():
                 try:
                     day, month, year = Choice.replace("/", " ").split()
                     Tester, end_date = un_func.date_chack(day, month, year, Tester)
-                except ValueError:
+                except:
                     Tester = False
                     print("\nERROR: Something went wrong with your input please try again\n")
                     un_func.printline()
@@ -133,9 +133,10 @@ def order_menu():
             elif len(Choice) == 6:
                 Tester = False
                 try:
-                    (' ' in Choice) == True
-                    Tester = True
-                except ValueError:
+                    if (' ' in Choice) == True:
+                        Tester = True
+                except:
+                    Tester = False
                     print("\nERROR: Something went wrong with your input, please try again\n")
                     un_func.printline()
                 if Tester == True:
@@ -151,6 +152,10 @@ def order_menu():
                         print("\nThis car does not exist! Please try again.\n")
                         count = 4
                         un_func.printline()
+            else:
+                print("\nERROR: Please enter a licence plate number like this:\nXX XXX\n")
+                count = 4
+                un_func.printline()
             
         elif count == 5:
             print("Do you want additional car insurance (Y/N)?\n")
