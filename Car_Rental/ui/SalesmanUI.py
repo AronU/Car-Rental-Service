@@ -92,6 +92,9 @@ class SalesmanUI:
 
             elif action == Five_1 or action == Five_2:
                 order.order_menu()
+                #SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, count = order.order_menu()
+                #if SSN != "0" and Name != "0" and start_date != "0" and end_date != "0" and licence_plate != "0" and additional_insurance != "0" and paymant_way != "0" and count != "0":
+
 
             # elif action == Six_1 or action == Six_1:
 

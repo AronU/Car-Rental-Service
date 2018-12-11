@@ -28,8 +28,9 @@ def DontMakeOrder():
     licence_plate = "0"
     additional_insurance = "0"
     paymant_way = "0"
+    ID = "0"
     count = END
-    return SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, count
+    return SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID, count
 
 def order_menu():
     customer_service = CustomerService()
@@ -41,7 +42,7 @@ def order_menu():
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, count = DontMakeOrder()
+                SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID, count = DontMakeOrder()
             elif Choice.isdigit() == True:
                 customer_ssn_list = customer_service.get_customer_ssn(Choice)
                 for line in customer_ssn_list:
@@ -77,7 +78,7 @@ def order_menu():
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, count = DontMakeOrder()
+                SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif len(Choice) == 10:
@@ -101,7 +102,7 @@ def order_menu():
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, count = DontMakeOrder()
+                SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif len(Choice) == 10:
@@ -123,7 +124,7 @@ def order_menu():
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, count = DontMakeOrder()
+                SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             
@@ -131,8 +132,10 @@ def order_menu():
 
         # elif count == 6: 
 
-        # elif count == 7:
-        #     count = END
+        elif count == 7:
+
+        elif count == 8:
+            count = END
 ####################################################################################################
     print(SSN)
     print(Name)

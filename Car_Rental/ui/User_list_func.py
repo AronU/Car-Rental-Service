@@ -11,6 +11,9 @@ import ui.Search_user_func as search_u
 from ui.Edit_user_func import edit_user
 import ui.Edit_user_func as edit_u
 
+from ui.Delete_user_func import Delete_User
+import ui.Delete_user_func as Delete_u
+
 # constant variables to be used to take in commands through the input
 Back_1 = "b"
 Back_2 = "back"
@@ -31,3 +34,5 @@ def Search_menu():
             search_u.search_user()
         elif Choice == "2":
             edit_u.edit_user()
+        elif Choice == "3":
+            Delete_u.Delete_User()
