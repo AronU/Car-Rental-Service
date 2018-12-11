@@ -1,16 +1,17 @@
 import datetime
 class Order:
-    def __init__(self, ID, licence_plate, ssn, start_date, end_date, additional_insurance=0):
+    def __init__(self, ID, licence_plate, ssn, start_date, end_date, additional_insurance=0, order_status=1):
         self.__ID = ID
         self.__licence_plate = licence_plate
         self.__ssn = ssn    
         self.__start_date = start_date
         self.__end_date = end_date
         self.__additional_insurance = additional_insurance
+        self.__order_status = order_status
 
     def __str__(self):
-        return "{},{},{},{},{},{}".format(self.__ID, self.__licence_plate, self.__ssn,
-        self.__start_date, self.__end_date, self.__additional_insurance)
+        return "{},{},{},{},{},{},{}".format(self.__ID, self.__licence_plate, self.__ssn,
+        self.__start_date, self.__end_date, self.__additional_insurance, self.__order_status)
 
     def __repr__(self):
         return self.__str__()
@@ -32,6 +33,6 @@ class Order:
     
     def get_additional_insurance(self):
         return self.__additional_insurance
-
-# fannar = Order('1', '2018, 5, 12', '2018,10,12')
-# print(fannar)
+    
+    def get_order_status(self):
+        return self.__order_status

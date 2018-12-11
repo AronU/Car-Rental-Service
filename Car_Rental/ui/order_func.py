@@ -140,6 +140,7 @@ def order_menu():
                 except ValueError:
                     print("\nERROR: Something went wrong with your input, please try again\n")
                     un_func.printline()
+<<<<<<< HEAD
                 if Tester == True:
                     licence_plate_check = car_service.valid_check_licence_plate(Choice)
                     if licence_plate_check == True:  
@@ -149,6 +150,12 @@ def order_menu():
                         print("\nThe car you want is not available. Please enter another licence plate.\n")
                         count = 4
                         un_func.printline()
+=======
+                if licence_plate:
+                    count += 1
+                else:
+                    print("")
+>>>>>>> 7a564cc805c1d9d4e2661b88e78201b84ac966d4
             
         elif count == 5:
             count += 1

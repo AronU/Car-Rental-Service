@@ -60,12 +60,27 @@ class CarRepository:
         with open('./data/cars.csv', 'r') as car_file:
             #writer = csv.DictWriter(car_file, fieldnames=['Licence plate', 'Brand', 'Model', 'Year', 'Availability', 'Price'])
             #writer.writeheader()
-            licence_check = False
             for row in csv.DictReader(car_file):
                 if row['Licence plate'] == licence_plate:
                     if row['Availability'] == "0":
                         return True
-        return licence_check
+                    elif row['Availability'] == "1":
+                        return False
+
+
+    def car_price(self, licence_plate):
+        '''Verifies if the licence plate given is in the database and in a unavailable state. -Aron'''
+        
+        with open('./data/cars.csv', 'r') as car_file:
+            #writer = csv.DictWriter(car_file, fieldnames=['Licence plate', 'Brand', 'Model', 'Year', 'Availability', 'Price'])
+            #writer.writeheader()
+            price = ""
+            for row in csv.DictReader(car_file):
+                if row['Licence plate'] == licence_plate:
+                    price = row['Price']
+                    price = int(price)
+                    return price
+        
             
                 
         
