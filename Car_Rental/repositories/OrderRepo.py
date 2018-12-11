@@ -101,6 +101,6 @@ class OrderRepository:
             csv_reader = csv.reader(orders_file)
             next(csv_reader)
             for line in csv_reader:
-                if line[3] == ssn:
+                if line[2] == ssn:
                     self.__order_ssn.append(line)
             return self.__order_ssn
