@@ -77,9 +77,9 @@ class CarRepository:
             for row in csv.DictReader(car_file):
                 if row['Licence plate'] == licence_plate:
                     price = row['Price']
-                    int(price)
-                        return price
-        return licence_check
+                    price = int(price)
+                    return price
+        
             
                 
         
