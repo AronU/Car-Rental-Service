@@ -84,12 +84,3 @@ class CustomerRepository:
                     writer.writerow(row)
         os.remove('./data/customers.csv')
         os.rename('./data/temp.csv', './data/customers.csv')
-
-    def verify_ssn(self, ssn):
-        '''Verifies if the ssn given is in the database'''
-        with open('./data/customers.csv', 'r') as customer_file:
-            ssn_check = False
-            for row in csv.DictReader(customer_file):
-                if row['ssn'] == ssn:
-                    return True
-        return ssn_check

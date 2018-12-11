@@ -20,10 +20,6 @@ class CustomerService:
         #exists etc. 
         return True
 
-    def valid_check_ssn(self, ssn):
-        '''Verifies if the ssn it is given is real or not.'''
-        valid_check = self.__customer_repo.verify_ssn(ssn)
-        return valid_check
     def valid_customer_check(self, ssn):
         '''Verifies if the user exists, returns True if he does, False if not. -Aron'''
         user_list_ssn = self.__customer_repo.get_customer_ssn(ssn)
