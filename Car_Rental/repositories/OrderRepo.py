@@ -1,6 +1,7 @@
 from models.Order import Order
 import csv
 import random
+from datetime import date, datetime
 
 class OrderRepository:
 
@@ -54,3 +55,25 @@ class OrderRepository:
                     writer.writerow(row)
         os.remove('./data/orders.csv')
         os.rename('./data/temp.csv', './data/orders.csv')
+
+    def catch_unavailable_cars(self, start_date, end_date):
+        with open("./data/orders.csv", "r") as orders_file:
+            unavailable_car_list = []
+            csv_reader = csv.reader(orders_file)
+            next(csv_reader)
+            for line in csv_reader:
+                #line[4] = old start date
+                #line[5] =  old end date
+                year, month, day = line[4].split("-")
+                check_start_date = date(int(year), int(month), int(day))
+                year2, month2, day2 = line[5].split("-")
+                check_end_date = date(int(year2), int(month2), int(day2))
+                if check_start_date <= start_date and start_date <= check_end_date:
+                    #Ef bíllinn passar ekki við start og end date sem við viljum.
+                    unavailable_car_list.append(line[1])
+                elif check_start_date <= end_date and end_date <= check_end_date:
+                    if line[1] in unavailable_car_list:
+                        pass
+                    else:
+                        unavailable_car_list.append(line[1])
+            return unavailable_car_list
