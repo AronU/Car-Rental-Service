@@ -132,10 +132,10 @@ def order_menu():
 
         # elif count == 6: 
 
-        elif count == 7:
+        # elif count == 7:
 
-        elif count == 8:
-            count = END
+        # elif count == 8:
+        #     count = END
 ####################################################################################################
     print(SSN)
     print(Name)
