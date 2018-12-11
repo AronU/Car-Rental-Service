@@ -10,6 +10,8 @@ from services.CustomerService import CustomerService
 
 from ui.Search_user_func import user_list_printer
 
+from services.CarService import CarService
+
 
 #Constant variable used to take in commands toru the input
 Back_1 = "b"
@@ -35,6 +37,7 @@ def DontMakeOrder():
 def order_menu():
     customer_service = CustomerService()
     order_service = OrderService()
+    car_service = CarService()
     count = 1
     while count != END:
         if count == 1:
@@ -120,25 +123,39 @@ def order_menu():
                     print("\nYou Can't return a car you don't have\n")
                     un_func.printline()
         elif count == 4:
+            
             print("Example: XX XXX\nEnter in the the licence plate of the car you want to rent or leave empty for full list of Available cars\n")
             un_func.printer()
-            Choice = input("Choice: ").lower()
+            Choice = input("Choice: ").upper()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
                 SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif len(Choice) == 6:
+                Tester = False
                 try:
                     (' ' in Choice) == True
-                    licence_plate = Choice
+                    Tester = True
                 except ValueError:
                     print("\nERROR: Something went wrong with your input, please try again\n")
                     un_func.printline()
+<<<<<<< HEAD
+                if Tester == True:
+                    licence_plate_check = car_service.valid_check_licence_plate(Choice)
+                    if licence_plate_check == True:  
+                        licence_plate = Choice
+                        count += 1
+                    else:
+                        print("\nThe car you want is not available. Please enter another licence plate.\n")
+                        count = 4
+                        un_func.printline()
+=======
                 if licence_plate:
                     count += 1
                 else:
                     print("")
+>>>>>>> 7a564cc805c1d9d4e2661b88e78201b84ac966d4
             
         elif count == 5:
             count += 1
