@@ -5,7 +5,6 @@ from services.CarService import CarService
 customer_service = CustomerService()
 order_service = OrderService()
 car_service = CarService()
-licence_plate = "TE 378"
-price = car_service.get_car_price(licence_plate)
-print(type(price))
-print(price)
+kennitala = "0905953189"
+history_list = customer_service.user_history(kennitala)
+print(history_list)

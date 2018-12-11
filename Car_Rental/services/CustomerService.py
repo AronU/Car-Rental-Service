@@ -34,3 +34,6 @@ class CustomerService:
 
     def edit_customer(self, ssn, choice, new_input):
         self.__customer_repo.edit_user(ssn, choice, new_input)
+
+    def user_history(self, ssn):
+        return self.__customer_repo.get_user_history(ssn)
