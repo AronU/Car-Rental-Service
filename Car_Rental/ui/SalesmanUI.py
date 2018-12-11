@@ -2,6 +2,7 @@
 from services.CustomerService import CustomerService 
 # Gets acces to the Customer class in /models folder. Used to create a user.
 from models.Customer import Customer 
+from models.Order import Order
 # Gets acces to the RegisterUser function in the Register_User_func named reg_func in the code
 # Used to make user in oppositions one in the mane menu
 from ui.Register_User_func import RegisterUser
@@ -30,6 +31,8 @@ from services.CarService import CarService
 
 from ui.order_func import order_menu
 import ui.order_func as order
+
+from services.OrderService import OrderService
 
 Quit_1 = "q"
 
@@ -61,6 +64,7 @@ class SalesmanUI:
 
     def __init__(self):
         self.__customer_service = CustomerService()
+        self.__order_service = OrderService()
 
     def main_menu(self):
 
@@ -91,10 +95,10 @@ class SalesmanUI:
                 
 
             elif action == Five_1 or action == Five_2:
-                order.order_menu()
-                #SSN, Name, start_date, end_date, licence_plate, additional_insurance, paymant_way, ID = order.order_menu()
-                #if SSN != "0" and Name != "0" and start_date != "0" and end_date != "0" and licence_plate != "0" and additional_insurance != "0" and paymant_way != "0" and ID != "0":
-
+                ID, licence_plate, ssn, name, start_date, end_date, payment_way, additional_insurance = order.order_menu()
+                if ssn != "0" and name != "0" and start_date != "0" and end_date != "0" and licence_plate != "0" and additional_insurance != "0" and payment_way != "0" and ID != "0":
+                    new_order = Order(ID, licence_plate, ssn, name, start_date, end_date, payment_way, additional_insurance)
+                    self.__order_service.add_order(new_order)
 
             # elif action == Six_1 or action == Six_1:
 

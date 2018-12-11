@@ -22,8 +22,8 @@ END = 8
 present = datetime.now().date()
 
 def DontMakeOrder():
-    SSN = "0"
-    Name = "0"
+    ssn = "0"
+    name = "0"
     start_date = "0"
     end_date = "0"
     licence_plate = "0"
@@ -31,7 +31,7 @@ def DontMakeOrder():
     payment_way = "0"
     ID = "0"
     count = END
-    return SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count
+    return ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count
 
 def order_menu():
     customer_service = CustomerService()
@@ -45,12 +45,12 @@ def order_menu():
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
+                ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
             elif Choice.isdigit() == True:
                 customer_ssn_list = customer_service.get_customer_ssn(Choice)
                 for line in customer_ssn_list:
-                    SSN = line[1]
-                    Name = line[0]
+                    ssn = line[1]
+                    name = line[0]
                 user_list_printer(customer_ssn_list)
                 customer_ssn_list.clear()
                 count += 1 
@@ -71,8 +71,8 @@ def order_menu():
                         count = 1
                     else:
                         for line in customer_name_list:
-                            SSN = line[1]
-                            Name = line[0]
+                            ssn = line[1]
+                            name = line[0]
                         customer_name_list.clear() 
                         count += 1 
         elif count == 2:
@@ -81,7 +81,7 @@ def order_menu():
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
+                ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif len(Choice) == 10:
@@ -105,7 +105,7 @@ def order_menu():
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
+                ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif len(Choice) == 10:
@@ -127,7 +127,7 @@ def order_menu():
             Choice = input("Choice: ").upper()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
+                ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif len(Choice) == 6:
@@ -163,7 +163,7 @@ def order_menu():
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
+                ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif Choice == "y":
@@ -185,7 +185,7 @@ def order_menu():
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
+                ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif Choice == "1":
@@ -202,16 +202,16 @@ def order_menu():
                 un_func.printline()
 
         elif count == 7:
-            print("Plesse confurm your order:\n\nSSN: {} \nName: {} \nstart date: {} \nend date: {} \nlicence_plate: {} \nadditional insurance: {} \npaymant way: {} \n".format(SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way))
+            print("Plesse confurm your order:\n\nSSN: {} \nName: {} \nstart date: {} \nend date: {} \nlicence_plate: {} \nadditional insurance: {} \npaymant way: {} \n".format(ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way))
             print("confurm your order (Y/N)\n")
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2 or Choice == "n":
-                SSN, Name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
+                ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif Choice == "y":
-                #ID = order_service.get_random_id()
+                ID = order_service.get_random_id()
                 count = END
-    #return ID, licence_plate, ssn, name, start_date, end_date, payment_way, additional_insurance
+    return ID, licence_plate, ssn, name, start_date, end_date, payment_way, additional_insurance
