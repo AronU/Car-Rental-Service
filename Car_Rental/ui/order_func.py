@@ -34,6 +34,7 @@ def DontMakeOrder():
 
 def order_menu():
     customer_service = CustomerService()
+    order_service = OrderService()
     count = 1
     while count != END:
         if count == 1:
@@ -136,6 +137,10 @@ def order_menu():
 
         # elif count == 8:
         #     count = END
+        ###############Get radom ID###############
+            # if Yes_or_no == "Y":
+            #     ID = order_service.get_random_id()
+
 ####################################################################################################
     print(SSN)
     print(Name)
