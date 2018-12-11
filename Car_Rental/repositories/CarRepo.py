@@ -62,9 +62,9 @@ class CarRepository:
             #writer.writeheader()
             for row in csv.DictReader(car_file):
                 if row['Licence plate'] == licence_plate:
-                    if row['Availability'] == "0":
+                    if row['Availability'] == "1":
                         return True
-                    elif row['Availability'] == "1":
+                    elif row['Availability'] == "0":
                         return False
 
 
@@ -79,8 +79,5 @@ class CarRepository:
                 if row['Licence plate'] == licence_plate:
                     price = row['Price']
                     price = int(price)
-                    return price
-        
-            
-                
+                    return price   
         
