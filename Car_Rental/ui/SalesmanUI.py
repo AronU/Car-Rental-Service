@@ -31,6 +31,9 @@ from services.CarService import CarService
 from ui.order_func import order_menu
 import ui.order_func as order
 
+from ui.Search_user_func import search_user
+import ui.Search_user_func as search_u
+
 Quit_1 = "q"
 
 ONE_1 = "1"

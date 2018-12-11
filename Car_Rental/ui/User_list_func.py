@@ -21,6 +21,7 @@ Home_1 = "m"
 Home_2 = "main menu"
 
 
+
 def Search_menu():
     count = True
     while count == True:
@@ -31,8 +32,8 @@ def Search_menu():
         if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
             count = False
         elif Choice == "1":
-            search_u.search_user()
+            count = search_u.search_user()
         elif Choice == "2":
-            edit_u.edit_user()
+            count = edit_u.edit_user()
         elif Choice == "3":
-            Delete_u.Delete_User()
+            count = Delete_u.Delete_User()
