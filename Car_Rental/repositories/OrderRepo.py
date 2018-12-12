@@ -43,14 +43,27 @@ class OrderRepository:
         with open('./data/orders.csv', 'r') as inp, open('./data/temp.csv', 'w', newline='') as out:
             writer = csv.DictWriter(out, fieldnames=['id', 'licence plate', 'SSN', 'name', 'start date', 'end date', 'additional insurance', 'order status'])
             writer.writeheader()
+            current_date = datetime.now().date()
             for row in csv.DictReader(inp):
-                if row['Licence plate'] == licence_plate:
-                    if row['order status'] == "1":
-                        row['order status'] = "0"
+                if row['licence plate'] == licence_plate:
+                    year, month, day = row['start date'].split("-")
+                    check_start_date = date(int(year), int(month), int(day))
+                    year2, month2, day2 = row['end date'].split("-")
+                    check_end_date = date(int(year2), int(month2), int(day2))
+                    if check_start_date <= current_date and current_date <= check_end_date:
+                        row['end date'] = current_date
+                        writer.writerow(row)
+                    else:
                         writer.writerow(row)
                 elif row['SSN'] == ssn:
-                    if row['order status'] == "1":
-                        row['order status'] = "0"
+                    year, month, day = row['start date'].split("-")
+                    check_start_date = date(int(year), int(month), int(day))
+                    year2, month2, day2 = row['end date'].split("-")
+                    check_end_date = date(int(year2), int(month2), int(day2))
+                    if check_start_date <= current_date and current_date <= check_end_date:
+                        row['end date'] = current_date
+                        writer.writerow(row)
+                    else:
                         writer.writerow(row)
                 else:
                     writer.writerow(row)
