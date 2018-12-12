@@ -1,6 +1,9 @@
 from ui.Universal_func import printer, printline
 import ui.Universal_func as un_func
 
+from ui.calc_cost_without_extra import calculate_cost_without_extra
+import ui.calc_cost_without_extra as calc_without_extra
+
 from services.CarService import CarService
 
 #Constant variable used to take in commands toru the input
@@ -9,30 +12,21 @@ Back_2 = "back"
 Home_1 = "m"
 Home_2 = "main menu"
 
-def car_list_printer(car_list):
-    for line in car_list:
-        print("Licence plate: {} - {} {} - Year: {}".format(line[0], line[1], line[2], line[3]))
-
-
 def calculate_cost_menu():
-    car_service = CarService()
-    count = 1
-    all_car_list = car_service.get_all_cars()
-    car_list_printer(all_car_list)
-    print("\nSelect a car from the list above by typing in the licence plate\n")
-    un_func.printer()
-    Choice = input("Choice: ").lower()
-    un_func.printline()
-    while count != 3:
-        if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
-            count = 3
-        elif Choice.isdigit() == False:
-                Choice = Choice.upper()
-                car_licence_plate = car_service.get_licence_plate(Choice)
-                car_list_printer(car_licence_plate)
-                car_licence_plate.clear()
-        elif Choice.isdigit() == True:
-                print("Please enter a valid licence plate\n")
-        else:
-                print("Order does not exist")
+        count = True
+        while count == True:
+                print("Calculate cost with or without extra insurence ?\n")
+                print("1.  Without insurence\n2.  With insurence\n")
+                un_func.printer()
+                Choice = input("Choice: ").lower()
+                un_func.printline()
+                if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
+                        count = False
+                elif Choice == "1":
+                        count = calc_without_extra.get_car()
+                elif Choice.isdigit() == True:
+                        print("Please enter a valid licence plate\n")
+                else:
+                        print("Order does not exist")
+
         
