@@ -62,6 +62,6 @@ def edit_order():
                     order_ID = line[0]
                 count += 1
         elif count == 2:
-            print("\nDo ")
+            print("\nDo you want to edit the licence plate(1)?\n")
 
     return name, ssn, order_ID, licence_plate
