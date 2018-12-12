@@ -38,6 +38,9 @@ import ui.Search_user_func as search_u
 from ui.Order_menu import Search_order_menu
 import ui.Order_menu as order_m
 
+from ui.Calculate_cost import calculate_cost_menu
+import ui.Calculate_cost as calc_cost_m
+
 from services.OrderService import OrderService
 
 Quit_1 = "q"
@@ -108,7 +111,8 @@ class SalesmanUI:
                     new_order = Order(ID, licence_plate, ssn, name, start_date, end_date, payment_way, additional_insurance)
                     self.__order_service.add_order(new_order)
 
-            # elif action == Six_1 or action == Six_1:
+            elif action == Six_1 or action == Six_1:
+                calc_cost_m.calculate_cost_menu()
 
             elif action == Seven_1 or action == Seven_2:
                 licence_plate = ret_car_func.returncar()
