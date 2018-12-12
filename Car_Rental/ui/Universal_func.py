@@ -83,7 +83,7 @@ def address_input_chack(address):
     return Tester, address
 
 def phone_input_chack(phone):
-    # This function is used to check if the phone is properly input in the system
+    # This function is used to check if the phone is properly input in the system.
     Tester = True
     T_or_F = phone.isdigit()
     if T_or_F == False:
@@ -92,12 +92,12 @@ def phone_input_chack(phone):
         printline()
     elif len(phone) < 7 or len(phone) > 7:
         Tester = False
-        print("\nERROR: phone nuber can not contain a more or less then 7 nubers\n")
+        print("\nERROR: phone number can not contain a more or less then 7 numbers\n")
         printline()
     return Tester, phone
     
 def birthday_input_chack(birthday):
-    # This function is used to chack if the birthday is properly inputid in the system
+    # This function is used to check if the birthday is properly input in the system.
     present = datetime.now().date()
     newYear = present.year-20
     minimum_age = present.replace(year=newYear)
