@@ -1,47 +1,59 @@
-#from models.Car import Car
 import csv
 import os
 from datetime import date, datetime
+
 class CarRepository:
 
     def __init__(self):
-        #self.__cars = []
         self.__available_cars = []
         self.__unavailable_cars = []
 
-    def get_available_cars(self):
-        '''Reads the data file. Splits each line up into the cars attributes,
-        although we only care about availability this time. If the availability
-        is 1, then it puts it into the list. This list will therefore be 
-        containing all available cars. -Aron'''
-        with open("./data/cars.csv", "r") as car_file:
-            self.__available_cars = []
-            csv_reader = csv.reader(car_file)
-            next(csv_reader)
-            for line in csv_reader:
-                if line[4] == "1":
-                    self.__available_cars.append(line)    
-            return self.__available_cars
+    def get_current_cars_by_status(self, choice):
+        '''This is the main car list function. It handles both available and unavailable cars at the same time.
+        It gets the choice of available or unavailable cars from the service layer. - Aron'''
+        with open("./data/orders.csv", "r") as orders_file:
+            unavailable_car_by_order_list = []
 
-    def get_unavailable_cars(self):
-        '''Reads the data file. Splits each line up into the cars attributes,
-        although we only care about availability this time. If the availability
-        is 0, then it puts it into the list. This list will therefore be 
-        containing all unavailable cars. -Aron'''
+            all_cars = []
+            available_cars = []
+            unavailable_cars = []
+
+            csv_reader = csv.reader(orders_file)
+            current_date = datetime.now().date()
+            next(csv_reader)
+            for line in csv_reader:
+                year, month, day = line[4].split("-")
+                check_start_date = date(int(year), int(month), int(day))
+                year2, month2, day2 = line[5].split("-")
+                check_end_date = date(int(year2), int(month2), int(day2))
+                if check_start_date <= current_date and current_date <= check_end_date:
+                    unavailable_car_by_order_list.append(line[1])
+
         with open("./data/cars.csv", "r") as car_file:
-            self.__unavailable_cars = []
             csv_reader = csv.reader(car_file)
             next(csv_reader)
             for line in csv_reader:
-                if line[4] == "0":
-                    self.__unavailable_cars.append(line)    
-            return self.__unavailable_cars
-    
+                all_cars.append(line)
+
+        for x in range(len(all_cars)):
+            for y in range(len(unavailable_car_by_order_list)):
+                if unavailable_car_by_order_list[y] == all_cars[x][0]:
+                    unavailable_cars.append(all_cars[x])
+                else:
+                    available_cars.append(all_cars[x])
+
+        if choice == 0:
+            return unavailable_cars
+        else:
+            return available_cars
+
+
     def return_car(self, licence_plate):
-        '''this function is used to switch the availability of the car it
-        is given over to 'available' instead of unavailable.'''
+        '''This function changes the end date of a order to communicate the fact that the car in 
+        question has been returned prematurely/canceled. - Aron'''
         with open('./data/orders.csv', 'r') as inp, open('./data/temp.csv', 'w', newline='') as out:
-            writer = csv.DictWriter(out, fieldnames=['id', 'licence plate', 'SSN', 'name', 'start date', 'end date', 'payment info', 'additional insurance'])
+            writer = csv.DictWriter(out, fieldnames=['id', 'licence plate', 'SSN', 'name', 'start date', 
+            'end date', 'payment info', 'additional insurance'])
             writer.writeheader()
             current_date = datetime.now().date()
             for row in csv.DictReader(inp):
@@ -56,12 +68,12 @@ class CarRepository:
                     else:
                         writer.writerow(row)
                 else:
-                    writer.writerow(row)
-        # Til að eyða gömlu skránni og gera nýju skránna samnefnda gömlu skránni  
+                    writer.writerow(row) 
         os.remove('./data/orders.csv')
         os.rename('./data/temp.csv', './data/orders.csv')
 
     def verify_licence_plate(self, licence_plate):
+        '''Verifies that the car given exists. - Aron'''
         with open('./data/cars.csv', 'r') as car_file:
             csv_reader = csv.reader(car_file)
             next(csv_reader)
@@ -70,15 +82,9 @@ class CarRepository:
                     return True
             return False
                 
-
-
-
     def car_price(self, licence_plate):
-        '''Verifies if the licence plate given is in the database and in a unavailable state. -Aron'''
-        
+        '''Returns the day price of the car requested as an integer. - Aron'''  
         with open('./data/cars.csv', 'r') as car_file:
-            #writer = csv.DictWriter(car_file, fieldnames=['Licence plate', 'Brand', 'Model', 'Year', 'Availability', 'Price'])
-            #writer.writeheader()
             price = ""
             for row in csv.DictReader(car_file):
                 if row['Licence plate'] == licence_plate:
