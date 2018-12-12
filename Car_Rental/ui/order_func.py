@@ -2,16 +2,17 @@
 # All over the place in the ui
 from ui.Universal_func import printer, printline, date_chack
 import ui.Universal_func as un_func
-#Gets access to the OrderService class in the services folder. Used to get the available order lists.
+# Gets access to the OrderService class in the services folder. Used to get the available order lists.
 from services.OrderService import OrderService
-
+# Datetime is yous do used to make sure dates that are given are real
 from datetime import date, datetime
+# Gets access to the CustomerService class in the services folder. Used to get the ssn, name and list of users.
 from services.CustomerService import CustomerService
-
+# Used to format the user_list when it needs to be printed
 from ui.Search_user_func import user_list_printer
-
+# Gets access to the CarService class in the services folder. Used to get_car_price and valid_check_licence_plate
 from services.CarService import CarService
-
+# To give the youser a list of available cars it is better to format them then just printing it straight 
 from ui.Car_list_func import car_list_printer
 import ui.Car_list_func as Car_list_f
 #Constant variable used to take in commands toru the input
@@ -20,10 +21,12 @@ Back_2 = "back"
 Home_1 = "m"
 Home_2 = "main menu"
 END = 8
-
+# present is the day to day no matter what you are reading this
 present = datetime.now().date()
 
 def DontMakeOrder():
+    # The DontMakeOrder function is used to make sure that when the user want to go back to the 
+    # mane menu that the system does not place a order.
     ssn = "0"
     name = "0"
     start_date = "0"
@@ -36,6 +39,7 @@ def DontMakeOrder():
     return ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count
 
 def order_menu():
+    # This function makes an order by helping the user and makeing sure he gives input thad the system can use 
     customer_service = CustomerService()
     order_service = OrderService()
     car_service = CarService()

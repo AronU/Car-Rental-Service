@@ -35,7 +35,7 @@ def edit_user():
                 print("\nERROR: The SSN you entered is not in the system\n")
                 un_func.printline()
         elif count == 2:
-            print("Do you want to edit" + SSN + "users:\n1.  Name\n2.  Address\n3.  Phone\n4.  Date of birth\n")
+            print("Do you want to edit the Name(1), Address(2), Phone(3) or date of birth(4) of the user: " + SSN + "?\n")
             un_func.printer()
             Choice = input("Choice: ")
             un_func.printline()
@@ -43,15 +43,15 @@ def edit_user():
                 count, SSN = Donteditcustomer()
             elif Choice == Back_1 or Choice == Back_2:
                 count = 1
-            elif Choice == "1":
+            elif Choice.lower() == "1" or "name":
                 new_name = input("New name: ")
                 customer_service.edit_customer(SSN, Choice, new_name)
-            elif Choice == "2":
+            elif Choice.lower() == "2" or "address":
                 new_address = input("New address: ")
                 customer_service.edit_customer(SSN, Choice, new_address)
-            elif Choice == "3":
+            elif Choice.lower() == "3" or "phone":
                 new_phone = input("New phone number: ")
                 customer_service.edit_customer(SSN, Choice, new_phone)
-            elif Choice == "4":
+            elif Choice.lower() == "4" or "date of birth":
                 new_birthday = input("New date of birth: ")
                 customer_service.edit_customer(SSN, Choice, new_birthday)
