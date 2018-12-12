@@ -1,7 +1,7 @@
 #from models.Car import Car
 import csv
 import os
-
+from datetime import date, datetime
 class CarRepository:
 
     def __init__(self):
@@ -36,36 +36,54 @@ class CarRepository:
                 if line[4] == "0":
                     self.__unavailable_cars.append(line)    
             return self.__unavailable_cars
+
+    
+    def get_all_cars(self):
+        '''Reads the data file. splits each line up into the cars attributes,
+        and returns all cars regardless of availability.'''
+        with open("./data/cars.csv", "r") as car_file:
+            self.__all_cars = []
+            csv_reader = csv.reader(car_file)
+            next(csv_reader)
+            for line in csv_reader:
+                self.__all_cars.append(line)
+            return self.__all_cars
+
     
     def return_car(self, licence_plate):
         '''this function is used to switch the availability of the car it
         is given over to 'available' instead of unavailable.'''
-        with open('./data/cars.csv', 'r') as inp, open('./data/temp.csv', 'w', newline='') as out:
-            writer = csv.DictWriter(out, fieldnames=['Licence plate', 'Brand', 'Model', 'Year', 'Availability', 'Price'])
+        with open('./data/orders.csv', 'r') as inp, open('./data/temp.csv', 'w', newline='') as out:
+            writer = csv.DictWriter(out, fieldnames=['id', 'licence plate', 'SSN', 'name', 'start date', 'end date', 'payment info', 'additional insurance'])
             writer.writeheader()
+            current_date = datetime.now().date()
             for row in csv.DictReader(inp):
-                if row['Licence plate'] == licence_plate:
-                    if row['Availability'] == "0":
-                        row['Availability'] = "1"
+                if row['licence plate'] == licence_plate:
+                    year, month, day = row['start date'].split("-")
+                    check_start_date = date(int(year), int(month), int(day))
+                    year2, month2, day2 = row['end date'].split("-")
+                    check_end_date = date(int(year2), int(month2), int(day2))
+                    if check_start_date <= current_date and current_date <= check_end_date:
+                        row['end date'] = current_date
+                        writer.writerow(row)
+                    else:
                         writer.writerow(row)
                 else:
                     writer.writerow(row)
         # Til að eyða gömlu skránni og gera nýju skránna samnefnda gömlu skránni  
-        os.remove('./data/cars.csv')
-        os.rename('./data/temp.csv', './data/cars.csv')
+        os.remove('./data/orders.csv')
+        os.rename('./data/temp.csv', './data/orders.csv')
 
     def verify_licence_plate(self, licence_plate):
-        '''Verifies if the licence plate given is in the database and in a unavailable state. -Aron'''
-        
         with open('./data/cars.csv', 'r') as car_file:
-            #writer = csv.DictWriter(car_file, fieldnames=['Licence plate', 'Brand', 'Model', 'Year', 'Availability', 'Price'])
-            #writer.writeheader()
-            for row in csv.DictReader(car_file):
-                if row['Licence plate'] == licence_plate:
-                    if row['Availability'] == "1":
-                        return True
-                    elif row['Availability'] == "0":
-                        return False
+            csv_reader = csv.reader(car_file)
+            next(csv_reader)
+            for row in csv_reader:
+                if row[0] == licence_plate:
+                    return True
+            return False
+                
+
 
 
     def car_price(self, licence_plate):
