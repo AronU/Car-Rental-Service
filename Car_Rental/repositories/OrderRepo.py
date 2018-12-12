@@ -116,6 +116,5 @@ class OrderRepository:
                 all_orders.append(line)
             for i in range(len(all_orders)):
                 if all_orders[i][1] == line[1][:len(licence_plate)].upper():
-                    print("hi")
                     self.__order_licence_plate.append(all_orders[i])
             return self.__order_licence_plate
