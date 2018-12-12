@@ -6,6 +6,7 @@ class OrderRepository:
 
     def __init__(self):
         self.__order_ssn = []
+        self.__licence_plate = []
 
     def add_order(self, order):
         with open("./data/orders.csv", "a+") as orders_file:
@@ -60,6 +61,15 @@ class OrderRepository:
             csv_reader = csv.reader(orders_file)
             next(csv_reader)
             for line in csv_reader:
-                if line[3] == ssn:
+                if line[2] == ssn:
                     self.__order_ssn.append(line)
             return self.__order_ssn
+    
+    def get_licence_plate(self, licence_plate):
+        with open("./data/orders.csv", "r") as orders_file:
+            csv_reader = csv.reader(orders_file)
+            next(csv_reader)
+            for line in csv_reader:
+                if line[1] == licence_plate:
+                    self.__licence_plate.append(line)
+            return self.__licence_plate

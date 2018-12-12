@@ -14,3 +14,7 @@ class OrderService:
     def get_order_ssn(self, ssn):
         order_list_ssn = self.__order_repo.get_order_ssn(ssn)
         return order_list_ssn
+    
+    def get_licence_plate(self, licence_plate):
+        licence_plate_list = self.__order_repo.get_licence_plate(licence_plate)
+        return licence_plate_list
