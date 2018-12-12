@@ -26,4 +26,5 @@ def calculate_cost_menu():
     while count != 3:
         if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
             count = False
-        elif Choice == ""
+        elif Choice == "":
+                pass
