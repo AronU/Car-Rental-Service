@@ -28,8 +28,8 @@ class PriceRepository:
             csv_reader = csv.reader(price_file)
             next(csv_reader)
             for line in csv_reader:
-                line[5] = int(line[5])
-                if 0 < line[5] < 11000:
+                line[4] = int(line[4])
+                if 0 < line[4] < 11000:
                     self.__LowPrice.append(line)
         return self.__LowPrice
 
@@ -42,8 +42,8 @@ class PriceRepository:
             csv_reader = csv.reader(price_file)
             next(csv_reader)
             for line in csv_reader:
-                line[5] = int(line[5])
-                if 11000 <= line[5] < 20000:
+                line[4] = int(line[4])
+                if 11000 <= line[4] < 20000:
                     self.__MediumPrice.append(line)
         return self.__MediumPrice
     
@@ -56,8 +56,8 @@ class PriceRepository:
             csv_reader = csv.reader(price_file)
             next(csv_reader)
             for line in csv_reader:
-                line[5] = int(line[5])
-                if line[5] >= 20000:
+                line[4] = int(line[4])
+                if line[4] >= 20000:
                     self.__HighPrice.append(line)
         return self.__HighPrice
 
