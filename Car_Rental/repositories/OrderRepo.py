@@ -105,10 +105,7 @@ class OrderRepository:
             if all_cars[i][0] not in unavailable_car_list:
                 available_car_list.append(all_cars[i])
         return available_car_list
-            
-
-
-
+        
 
     def get_order_ssn(self, ssn):
         with open("./data/orders.csv", "r") as orders_file:
