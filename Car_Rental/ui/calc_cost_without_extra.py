@@ -22,7 +22,7 @@ def get_car():
     un_func.printline()
     count = True
     while count == True:
-        print("Input Licence plate from the cars above\n")
+        print("Input Licence plate from one of the cars above\n")
         un_func.printer()
         Choice = input("Choice: ").lower()
         un_func.printline()
@@ -41,4 +41,5 @@ def get_car():
             print("Order does not exist\n")
 
 def calculate_cost_without_extra(car_licence_plate):
-        print("price: {}".format(car_licence_plate[4]))
+        price = car_licence_plate[0][4]
+        print("How many days?")
