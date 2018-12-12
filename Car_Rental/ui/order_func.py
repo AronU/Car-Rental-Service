@@ -6,13 +6,13 @@ import ui.Universal_func as un_func
 from services.OrderService import OrderService
 # Datetime is yous do used to make sure dates that are given are real
 from datetime import date, datetime
-# 
+# Gets access to the CustomerService class in the services folder. Used to get the ssn, name and list of users.
 from services.CustomerService import CustomerService
-# 
+# Used to format the user_list when it needs to be printed
 from ui.Search_user_func import user_list_printer
-# 
+# Gets access to the CarService class in the services folder. Used to get_car_price and valid_check_licence_plate
 from services.CarService import CarService
-# 
+# To give the youser a list of available cars it is better to format them then just printing it straight 
 from ui.Car_list_func import car_list_printer
 import ui.Car_list_func as Car_list_f
 #Constant variable used to take in commands toru the input

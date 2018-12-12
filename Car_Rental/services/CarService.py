@@ -31,11 +31,9 @@ class CarService:
 
     def valid_check_licence_plate(self, licence_plate):
         '''Verifies if the licence plate it is given is real or not. Returns True if real, False if not.'''
-        valid_check = self.__car_repo.verify_licence_plate(licence_plate)
-        return valid_check
+        return self.__car_repo.verify_licence_plate(licence_plate)
     
     def get_car_price(self, licence_plate):
         '''Is called by UI layer to get a price of a specific car. Goes 
         into car repository layer for this info. - Aron'''
-        price = self.__car_repo.car_price(licence_plate)
-        return price
+        return self.__car_repo.car_price(licence_plate)
