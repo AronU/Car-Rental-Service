@@ -11,7 +11,7 @@ Home_2 = "main menu"
 
 def order_list_printer(order_list):
     for line in order_list:
-        print("ID: {} - Licence plate: {} - SSN: {} - Name: {} - Start date: {} - End date: {} - Payment info: {}\n- Additional insurence: {} - Order status: {} ".format(line[0], line[1], line[2], line[3], line[4], line[5], line[6], line[7], line[8]))
+        print("ID: {} - Licence plate: {} - SSN: {} - Name: {} - Start date: {} - End date: {} - Payment info: {}\n- Additional insurence: {}".format(line[0], line[1], line[2], line[3], line[4], line[5], line[6], line[7]))
         un_func.printline()
     input("Press Enter to coninue: ")
     un_func.printline()

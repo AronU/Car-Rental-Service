@@ -43,14 +43,27 @@ class OrderRepository:
         with open('./data/orders.csv', 'r') as inp, open('./data/temp.csv', 'w', newline='') as out:
             writer = csv.DictWriter(out, fieldnames=['id', 'licence plate', 'SSN', 'name', 'start date', 'end date', 'additional insurance', 'order status'])
             writer.writeheader()
+            current_date = datetime.now().date()
             for row in csv.DictReader(inp):
-                if row['Licence plate'] == licence_plate:
-                    if row['order status'] == "1":
-                        row['order status'] = "0"
+                if row['licence plate'] == licence_plate:
+                    year, month, day = row['start date'].split("-")
+                    check_start_date = date(int(year), int(month), int(day))
+                    year2, month2, day2 = row['end date'].split("-")
+                    check_end_date = date(int(year2), int(month2), int(day2))
+                    if check_start_date <= current_date and current_date <= check_end_date:
+                        row['end date'] = current_date
+                        writer.writerow(row)
+                    else:
                         writer.writerow(row)
                 elif row['SSN'] == ssn:
-                    if row['order status'] == "1":
-                        row['order status'] = "0"
+                    year, month, day = row['start date'].split("-")
+                    check_start_date = date(int(year), int(month), int(day))
+                    year2, month2, day2 = row['end date'].split("-")
+                    check_end_date = date(int(year2), int(month2), int(day2))
+                    if check_start_date <= current_date and current_date <= check_end_date:
+                        row['end date'] = current_date
+                        writer.writerow(row)
+                    else:
                         writer.writerow(row)
                 else:
                     writer.writerow(row)
@@ -92,10 +105,7 @@ class OrderRepository:
             if all_cars[i][0] not in unavailable_car_list:
                 available_car_list.append(all_cars[i])
         return available_car_list
-            
-
-
-
+        
 
     def get_order_ssn(self, ssn):
         with open("./data/orders.csv", "r") as orders_file:
@@ -116,6 +126,5 @@ class OrderRepository:
                 all_orders.append(line)
             for i in range(len(all_orders)):
                 if all_orders[i][1] == line[1][:len(licence_plate)].upper():
-                    print("hi")
                     self.__order_licence_plate.append(all_orders[i])
             return self.__order_licence_plate
