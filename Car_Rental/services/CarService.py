@@ -18,6 +18,12 @@ class CarService:
         unavailable_car_list = self.__car_repo.get_current_cars_by_status(0)
         return unavailable_car_list
 
+    def get_all_cars(self):
+        '''This function is pulled from the UI and is suppposed to go
+        into the car repository and get all car list from there - Fannar 12/12'''
+        all_car_list = self.__car_repo.get_all_cars()
+        return all_car_list
+
     def return_car(self, licence_plate):
         '''This function is pulled from the return car UI and goes into the
          repo to switch the car to an available state.-Aron'''

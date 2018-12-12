@@ -172,10 +172,10 @@ def order_menu():
             elif Choice == Back_1 or Choice == Back_2:
                 count -= 1
             elif Choice == "y":
-                additional_insurance = 1
+                additional_insurance = "Yes"
                 count += 1
             elif Choice == "n":
-                additional_insurance = 0
+                additional_insurance = "No"
                 count += 1
             else:
                 print("\nERROR: Something went wrong with your input please try again\n")

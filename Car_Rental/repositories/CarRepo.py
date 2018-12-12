@@ -48,6 +48,18 @@ class CarRepository:
             return available_cars
 
 
+    def get_all_cars(self):
+        '''Reads the data file. splits each line up into the cars attributes,
+        and returns all cars regardless of availability.'''
+        with open("./data/cars.csv", "r") as car_file:
+            self.__all_cars = []
+            csv_reader = csv.reader(car_file)
+            next(csv_reader)
+            for line in csv_reader:
+                self.__all_cars.append(line)
+            return self.__all_cars
+
+    
     def return_car(self, licence_plate):
         '''This function changes the end date of a order to communicate the fact that the car in 
         question has been returned prematurely/canceled. - Aron'''
