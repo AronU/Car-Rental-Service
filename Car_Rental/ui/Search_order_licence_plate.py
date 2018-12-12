@@ -36,6 +36,6 @@ def search_order_licence_plate():
             order_list_printer(order_licence_plate_list)
             order_licence_plate_list.clear()
         elif Choice.isdigit() == False:
-            print("Please enter a valid SSN\n")
+            print("Please enter a valid licence plate\n")
         else:
             print("Order does not exist\n")
