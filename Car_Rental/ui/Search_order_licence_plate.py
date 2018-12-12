@@ -18,11 +18,11 @@ def order_list_printer(order_list):
     return False
 
 
-def search_order_ssn():
+def search_order_licence_plate():
     order_service = OrderService()
     count = True
     while count == True:
-        print("Input SSN\n")
+        print("Input Licence plate\n")
         un_func.printer()
         Choice = input("Choice: ").lower()
         un_func.printline
@@ -30,10 +30,11 @@ def search_order_ssn():
             return False
         elif Choice == Back_1 or Choice == Back_2:
             return True
-        elif Choice.isdigit() == True:
-            order_ssn_list = order_service.get_order_ssn(Choice)
-            order_list_printer(order_ssn_list)
-            order_ssn_list.clear()
+        elif Choice.isdigit() == False:
+            Choice = Choice.upper()
+            order_licence_plate_list = order_service.get_order_licence_plate(Choice)
+            order_list_printer(order_licence_plate_list)
+            order_licence_plate_list.clear()
         elif Choice.isdigit() == False:
             print("Please enter a valid SSN\n")
         else:

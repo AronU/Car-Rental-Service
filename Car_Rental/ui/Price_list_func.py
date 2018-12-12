@@ -15,7 +15,7 @@ Home_2 = "main menu"
 # This function takes a nested list and prints out the list in a presentable way.
 def price_list_printer(price_list):
     for line in price_list:
-        print("Licence plate: {} - {} {} - Year: {} Price: {} ".format(line[0], line[1], line[2], line[3], line[5]))
+        print("Licence plate: {} - {} {} - Year: {} Price: {} ".format(line[0], line[1], line[2], line[3], line[4]))
     un_func.printline()
     input("Press Enter to continue: ")
     un_func.printline()

@@ -1,6 +1,8 @@
 import string
 from datetime import date, datetime
 
+from services.CustomerService import CustomerService
+
 def printer():
     # The printer function is used to make the command options more visible to the user anywhere he needs it
     print("B.  Back one window")
@@ -34,6 +36,7 @@ def Full_name_input_chack(name):
                     print("\nERROR: Name can not contain a symbol\n")
                     printline()
 
+
     else:# if it is a full name betar make sur it is capitalized
         name = ""
         for word in name_list:
@@ -41,8 +44,9 @@ def Full_name_input_chack(name):
 
     return Tester, name
 
-def ssn_input_chack(ssn):
+def ssn_input_chack(ssn, Not_user=0):
     # This function is used to chack if the ssn is properly inputid in the system
+    customer_service = CustomerService()
     Tester = True
     T_or_F = ssn.isdigit()
     if len(ssn) > 10 or len(ssn) < 10:
@@ -53,8 +57,12 @@ def ssn_input_chack(ssn):
         Tester = False
         print("\nERROR: SSN can not contain a letters\n")
         printline()
-    #else:
-        ######Vantar_tester_ef_kennitalan_er_frátekinn######
+    if Not_user == 0:
+        F_OR_T = customer_service.valid_customer_check(ssn)
+        if F_OR_T == True:
+            Tester = False
+            print("\nERROR: SSN already exists in the system\n")
+            printline()
 
     return Tester, ssn
 
@@ -135,8 +143,3 @@ def date_chack(day, month, year, Tester=True):
             printline()
             Tester = False
     return Tester, date_time
-
-def paymant_input_chack(paymant):
-    # This function is used to chack if the paymant is properly inputid in the system
-    Tester = True
-    return Tester, paymant

@@ -34,23 +34,34 @@ def edit_order():
             Choice = input("Choice: ").upper()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
-                count, SSN, order_ID, licence_plate = Donteditorder()
+                count, ssn, order_ID, licence_plate = Donteditorder()
             elif Choice.isdigit() == True:
                 if customer_service.valid_customer_check(Choice):
                     order_ssn_list = order_service.get_order_ssn(Choice)
-                    count += 1
+                    for line in order_ssn_list:
+                        name = line[3]
+                        ssn = line[2]
+                        licence_plate = line[1]
+                        order_ID = line[0]
                 elif 
                 else:
                     print("\nERROR: The SSN you entered is not in the system. Please try again.\n")
                     un_func.printline()
-                for line in order_ssn_list:
-                    ssn = line[2]
-                    name = line[3]
-                    licence_plate = line[1]
-                    order_ID = line[0]
+                count += 1
             elif Choice.isdigit() == False:
                 try:
                     car_services.valid_check_licence_plate(Choice)
                 except:
                     print("\nERROR: The licence plate you entered is not in the system. Please try again.\n")
                     un_func.printline()
+                order_licence_plate_list = order_service.get_order_licence_plate(Choice)
+                for line in licence_plate_list:
+                    name = line[3]
+                    ssn = line[2]
+                    licence_plate = line[1]
+                    order_ID = line[0]
+                count += 1
+        elif count == 2:
+            print("\nDo ")
+
+    return name, ssn, order_ID, licence_plate
