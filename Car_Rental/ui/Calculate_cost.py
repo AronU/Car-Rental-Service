@@ -25,6 +25,14 @@ def calculate_cost_menu():
     un_func.printline()
     while count != 3:
         if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
-            count = False
-        elif Choice == "":
-                pass
+            count = 3
+        elif Choice.isdigit() == False:
+                Choice = Choice.upper()
+                car_licence_plate = car_service.get_licence_plate(Choice)
+                car_list_printer(car_licence_plate)
+                car_licence_plate.clear()
+        elif Choice.isdigit() == True:
+                print("Please enter a valid licence plate\n")
+        else:
+                print("Order does not exist")
+        

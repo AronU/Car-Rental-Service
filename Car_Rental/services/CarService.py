@@ -24,7 +24,7 @@ class CarService:
         all_car_list = self.__car_repo.get_all_cars()
         return all_car_list
 
-    def get_licence_plate(self, license_plate):
+    def get_licence_plate(self, licence_plate):
         '''This function is pulled from the UI and is supposed to go
         into the car repository and get the car with matching licence
         plate - Fannar 12/12'''
