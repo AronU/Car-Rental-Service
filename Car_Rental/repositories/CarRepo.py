@@ -67,14 +67,13 @@ class CarRepository:
         attributes. and returns the car with the matching licence 
         plate '''
         all_cars = []
-        with open(".data/order.csv", "r") as licence_plate_file:
+        with open("./data/cars.csv", "r") as licence_plate_file:
             csv_reader = csv.reader(licence_plate_file)
             next(csv_reader)
             for line in csv_reader:
                 all_cars.append(line)
             for i in range(len(all_cars)):
                 if all_cars[i][1] == line[1][:len(licence_plate)].upper():
-                    print("hi")
                     self.__licence_plate.append(all_cars[i])
             return self.__licence_plate
 
