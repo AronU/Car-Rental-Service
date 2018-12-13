@@ -83,9 +83,9 @@ class OrderRepository:
                 check_start_date = date(int(year), int(month), int(day))
                 year2, month2, day2 = line[5].split("-")
                 check_end_date = date(int(year2), int(month2), int(day2))
-                if check_start_date <= start_date and start_date <= check_end_date:
+                if check_start_date <= start_date or start_date <= check_end_date:
                     unavailable_car_list.append(line[1])
-                elif check_start_date <= end_date and end_date <= check_end_date:
+                elif check_start_date <= end_date or end_date <= check_end_date:
                     if line[1] in unavailable_car_list:
                         pass
                     else:
