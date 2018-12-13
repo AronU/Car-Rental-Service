@@ -3,6 +3,12 @@ from datetime import date, datetime
 
 from services.CustomerService import CustomerService
 
+#Constant variable used to take in commands toru the input
+Back_1 = "b"
+Back_2 = "back"
+Home_1 = "m"
+Home_2 = "main menu"
+
 def printer():
     # The printer function is used to make the command options more visible to the user anywhere he needs it
     print("B.  Back one window")
@@ -145,3 +151,58 @@ def date_chack(day, month, year, Tester=True):
             printline()
             Tester = False
     return Tester, date_time
+
+def Start_date():
+    present = datetime.now().date()
+    print("Example: DD/MM/YYYY\nEnter in the date you want to pick up a car\n")
+    printer()
+    Choice = input("Choice: ").lower()
+    printline()
+    if Choice == Home_1 or Choice == Home_2:
+        return False
+    elif Choice == Back_1 or Choice == Back_2:
+        return True
+    elif len(Choice) == 10:
+        try:
+            day, month, year = Choice.replace("/", " ").split()
+            Tester, start_date = date_chack(day, month, year)
+            if Tester == True:
+                return start_date
+            else:
+                message = "ERROR"
+                return message
+        except ValueError:
+            Tester = False
+            print("\nERROR: Something went wrong with your input please try again\n")
+            printline()
+            if present < start_date:
+                return True
+            else:
+                print("\nYou can't rent a car in the past\n")
+                printline()
+
+
+def End_date(start_date):
+    print("Example: DD/MM/YYYY\nEnter in the date you want to return a car\n")
+    printer()
+    Choice = input("Choice: ").lower()
+    printline()
+    if Choice == Home_1 or Choice == Home_2:
+        return False
+    elif Choice == Back_1 or Choice == Back_2:
+        return True
+    elif len(Choice) == 10:
+        try:
+            Tester = True
+            day, month, year = Choice.replace("/", " ").split()
+            Tester, end_date = date_chack(day, month, year, Tester)
+            if start_date > end_date:
+                print("\nYou can't return a car you don't have\n")
+                printline()
+                return True
+            else:
+                return end_date
+        except:
+            Tester = False
+            print("\nERROR: Something went wrong with your input please try again\n")
+            printline()
