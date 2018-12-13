@@ -70,11 +70,13 @@ def ssn_input_chack(ssn, Not_user=0):
 def address_input_chack(address):
     # This function is used to chack if the address is properly inputid in the system
     Tester = False
+    address_list = []
     try:
-        street, number = address.split()
-        if number.isdigit() == True and street.isdigit() == False:
-            Tester = True
-        else:
+        address_list = address.split()
+        for i in range(len(address_list)):
+            if address_list[i].isdigit() == True and len(address_list) != 1:
+                Tester = True
+        if Tester == False:
             print("\nERROR: Street must have a name and a number\n")
             printline()
     except ValueError:
