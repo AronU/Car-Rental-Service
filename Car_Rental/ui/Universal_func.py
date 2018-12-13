@@ -18,12 +18,12 @@ def Full_name_input_chack(name):
     name_list = name.split()
     Tester = True
 
-    if len(name_list) <= 1:# chacks if the input is just one word
+    if len(name_list) <= 1:# checks if the input is just one word
         Tester = False
         print("\nERROR: Full name was not entered\n")
         printline()
 
-    elif len(name_list) > 1:# chacks if the input contanes a number or a symbol
+    elif len(name_list) > 1:# checks if the input contanes a number or a symbol
         for word in name_list:
             for letter in word:
                 T_or_F = letter.isdigit()
@@ -37,7 +37,7 @@ def Full_name_input_chack(name):
                     printline()
 
 
-    else:# if it is a full name betar make sur it is capitalized
+    else:# if it is a full name this code make sures it is capitalized.
         name = ""
         for word in name_list:
             name = name + " " + word.capitalize()
@@ -45,17 +45,17 @@ def Full_name_input_chack(name):
     return Tester, name
 
 def ssn_input_chack(ssn, Not_user=0):
-    # This function is used to chack if the ssn is properly inputid in the system
+    # This function is used to check if the ssn is properly inputid in the system
     customer_service = CustomerService()
     Tester = True
     T_or_F = ssn.isdigit()
     if len(ssn) > 10 or len(ssn) < 10:
         Tester = False
-        print("\nERROR: SSN contains 10 letters but you but in "+ str(len(ssn)) +"\n")
+        print("\nERROR: SSN contains 10 letters but you put in "+ str(len(ssn)) +"\n")
         printline()
     elif T_or_F == False:
         Tester = False
-        print("\nERROR: SSN can not contain a letters\n")
+        print("\nERROR: SSN can not contain letters\n")
         printline()
     if Not_user == 0:
         F_OR_T = customer_service.valid_customer_check(ssn)
@@ -83,21 +83,21 @@ def address_input_chack(address):
     return Tester, address
 
 def phone_input_chack(phone):
-    # This function is used to chack if the phone is properly inputid in the system
+    # This function is used to check if the phone is properly input in the system.
     Tester = True
     T_or_F = phone.isdigit()
     if T_or_F == False:
         Tester = False
-        print("\nERROR: phone nuber can not contain a letters\n")
+        print("\nERROR: phone number can not contain letters\n")
         printline()
     elif len(phone) < 7 or len(phone) > 7:
         Tester = False
-        print("\nERROR: phone nuber can not contain a more or less then 7 nubers\n")
+        print("\nERROR: phone number can not contain a more or less then 7 numbers\n")
         printline()
     return Tester, phone
     
 def birthday_input_chack(birthday):
-    # This function is used to chack if the birthday is properly inputid in the system
+    # This function is used to check if the birthday is properly input in the system.
     present = datetime.now().date()
     newYear = present.year-20
     minimum_age = present.replace(year=newYear)

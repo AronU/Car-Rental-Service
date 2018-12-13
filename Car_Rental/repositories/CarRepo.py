@@ -7,6 +7,8 @@ class CarRepository:
     def __init__(self):
         self.__available_cars = []
         self.__unavailable_cars = []
+        self.__all_cars = []
+        self.__licence_plate = []
 
     def get_current_cars_by_status(self, choice):
         '''This is the main car list function. It handles both available and unavailable cars at the same time.
@@ -61,6 +63,19 @@ class CarRepository:
             for line in csv_reader:
                 all_cars.append(line)
             return all_cars
+
+
+    def get_car_licence_plate(self, licence_plate):
+        '''Reads the data file. splits each line up into the cars
+        attributes. and returns the car with the matching licence 
+        plate '''
+        with open("./data/cars.csv", "r") as licence_plate_file:
+            csv_reader = csv.reader(licence_plate_file)
+            next(csv_reader)
+            for line in csv_reader:
+                if line[0] == licence_plate:
+                    self.__licence_plate.append(line)
+            return self.__licence_plate
 
     
     def return_car(self, licence_plate):

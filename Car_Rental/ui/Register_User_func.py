@@ -107,19 +107,19 @@ def RegisterUser():
                     count = 5
 
         elif count == 6:
-            # makes the user confurm what user he is making 
+            # makes the user confirm what user he is making 
             # and allows user to go back one window or go to the mane menu
             print("Is this the user you whant to make (Y/N) ?\n")
             print("Full name: {:>2}\nSSN: {:>2}\nHome address: {:>2}".format(name, ssn, address))
             print("Phone number: {:>2}\nBirthday: {}\n".format(phone, birthday))
             un_func.printer()
-            confurm = input("Choice: ").lower()
+            confirm = input("Choice: ").lower()
             un_func.printline()
-            if confurm == "y":
+            if confirm == "y":
                 count += 1
-            if confurm == Home_1 or confurm == Home_2 or confurm =="n":
+            if confirm == Home_1 or confirm == Home_2 or confirm =="n":
                 count, name, ssn, address, phone, birthday = DontMakeUser()
-            elif confurm == Back_1 or confurm == Back_2:
+            elif confirm == Back_1 or confirm == Back_2:
                 count -= 1
 
     return name, ssn, address, phone, birthday

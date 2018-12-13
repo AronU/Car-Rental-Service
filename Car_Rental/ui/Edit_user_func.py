@@ -17,7 +17,7 @@ def Donteditcustomer():
     Counter = False
     return count, SSN, Counter
 
-def exit():
+def exit_f():
     Counter = True
     return Counter
 
@@ -34,7 +34,7 @@ def edit_user():
                 count, SSN, Counter = Donteditcustomer()
             elif SSN == Back_1 or SSN == Back_2:
                 count = 3
-                Counter = exit()
+                Counter = exit_f()
             elif SSN == "":
                 customer_name_list = customer_service.get_customer_name(SSN)
                 Search_user_f.user_list_printer(customer_name_list)

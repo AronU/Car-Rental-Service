@@ -184,7 +184,7 @@ def order_menu():
         elif count == 6:
             price = car_service.get_car_price(licence_plate)
             d = end_date - start_date
-            print("How wood you like to pay for the car?\nPrice: " + str(d.days*price) +"Kr.\n\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
+            print("How would you like to pay for the car?\nPrice: " + str(d.days*price) +"Kr.\n\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()
@@ -206,9 +206,9 @@ def order_menu():
                 un_func.printline()
 ##############################################################################################################
         elif count == 7:
-            print("Plesse confurm your order (Y/N):\n\nSSN: {} \nName: {} \n".format(ssn, name))
-            print("start date: {} \nend date: {} \nlicence_plate: {} \n".format(start_date, end_date, licence_plate))
-            print("additional insurance: {} \npaymant way: {} \n".format(additional_insurance, payment_way))
+            print("Please confirm your order (Y/N):\n\nSSN: {} \nName: {} \n".format(ssn, name))
+            print("Start date: {} \nEnd date: {} \nLicence_plate: {} \n".format(start_date, end_date, licence_plate))
+            print("Additional insurance: {} \nPayment way: {} \n".format(additional_insurance, payment_way))
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()

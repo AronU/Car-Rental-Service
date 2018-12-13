@@ -1,16 +1,17 @@
-from models.Order import Order
-import csv
-import random
+import codecs
+#open it with utf-8 encoding 
+f=codecs.open("myfile.txt","r",encoding='utf-8')
+#read the file to unicode string
+sfile=f.read()
 
-class OrderRepository:
+#check the encoding type
+print(type(sfile)) #it's unicode
 
-    def __init__(self):
-        pass
+#unicode should be encoded to standard string to display it properly
+print(sfile.encode('utf-8'))
+#check the type of encoded string
 
-    def test(self, start_date=0, end_date=0):
-        with open("./data/orders.csv", "r") as orders_file:
-            print(orders_file)
+print(type(sfile.encode('utf-8')))
 
-P = OrderRepository.test(1)
 
-print(P)
+# https://stackoverflow.com/questions/10376923/reading-non-ascii-characters-from-a-text-file

@@ -14,6 +14,9 @@ import ui.Edit_user_func as edit_u
 from ui.Delete_user_func import Delete_User
 import ui.Delete_user_func as Delete_u
 
+from ui.User_history_func import User_history
+import ui.User_history_func as User_h
+
 # constant variables to be used to take in commands through the input
 Back_1 = "b"
 Back_2 = "back"
@@ -25,7 +28,7 @@ Home_2 = "main menu"
 def Search_menu():
     count = True
     while count == True:
-        print("1.  Search by Name, SSN or leave empty for full list\n2.  Edit customer by SSN\n3.  Delete customer by SSN\n")
+        print("1.  Search by Name, SSN or leave empty for full list\n2.  Edit customer by SSN\n3.  Delete customer by SSN\n4.  Search user by SSN to show User history\n")
         un_func.printer()
         Choice = input("Choice: ").lower()
         un_func.printline()
@@ -37,3 +40,5 @@ def Search_menu():
             count = edit_u.edit_user()
         elif Choice == "3":
             count = Delete_u.Delete_User()
+        elif Choice == "4":
+            count = User_h.User_history()
