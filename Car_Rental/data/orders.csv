@@ -5,9 +5,5 @@ id,licence plate,SSN,name,start date,end date,payment info,additional insurance
 42260,LO 567,1407965549,Jennifer Edwards,2019-04-27,2019-08-27,Credit card,Yes
 83437,TE 378,2612654589,Harold Johnsson,2018-12-27,2019-01-15,Credit card,No
 55804,RI T09,3007904569,Michael Stevens,2018-12-27,2019-01-30,Debit card,Yes
-<<<<<<< HEAD
-49640,TE 378,1407965549,Jennifer Edwards,2018-12-14,2018-12-15,Credit card,Yes
-=======
 41112,HK 468,0503603659,Bob Howards,2018-12-14,2019-12-14,Credit card,Yes
-2170,PM S45,1405915439,Vanessa Taylor,2018-12-26,2019-01-28,Credit card,No
->>>>>>> 7bd559fa69dc4c2632679e779f272781ed5560da
+2170,PM S45,1405915439,Vanessa Taylor,2018-12-11,2018-12-13,Credit card,No
