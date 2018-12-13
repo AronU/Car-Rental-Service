@@ -253,11 +253,13 @@ def confirm_order(ssn, name, start_date, end_date, licence_plate, additional_ins
             count = 1
     return ID
 
-while not End:
-    ssn, name = get_customer_info(ssn='0', name='0', start_date='0', end_date='0', licence_plate='0', additional_insurance='0', payment_way='0', ID='0', End=True)
-    start_date = get_start_date(ssn, name, start_date='0', end_date='0', licence_plate='0', additional_insurance='0', payment_way='0', ID='0', End=True)
-    end_date = get_end_date(ssn, name, start_date, end_date='0', licence_plate='0', additional_insurance='0', payment_way='0', ID='0', End=True)
-    licence_plate = get_licence_plate(ssn, name, start_date, end_date, licence_plate='0', additional_insurance='0', payment_way='0', ID='0', End=True)
-    additional_insurance = prompt_for_additional_insurance(ssn, name, start_date, end_date, licence_plate, additional_insurance='0', payment_way='0', ID='0', End=True)
-    payment_way = what_to_edit(ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way='0', ID='0', End=True)
-    order_confirm = confirm_order(ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID='0', End=True)
+def order_menu():
+    while not End:
+        ssn, name = get_customer_info(ssn='0', name='0', start_date='0', end_date='0', licence_plate='0', additional_insurance='0', payment_way='0', ID='0', End=True)
+        start_date = get_start_date(ssn, name, start_date='0', end_date='0', licence_plate='0', additional_insurance='0', payment_way='0', ID='0', End=True)
+        end_date = get_end_date(ssn, name, start_date, end_date='0', licence_plate='0', additional_insurance='0', payment_way='0', ID='0', End=True)
+        licence_plate = get_licence_plate(ssn, name, start_date, end_date, licence_plate='0', additional_insurance='0', payment_way='0', ID='0', End=True)
+        additional_insurance = prompt_for_additional_insurance(ssn, name, start_date, end_date, licence_plate, additional_insurance='0', payment_way='0', ID='0', End=True)
+        payment_way = what_to_edit(ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way='0', ID='0', End=True)
+        order_confirm = confirm_order(ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID='0', End=True)
+    return ID, licence_plate, ssn, name, start_date, end_date, payment_way, additional_insurance
