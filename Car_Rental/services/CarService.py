@@ -44,3 +44,13 @@ class CarService:
         '''Is called by UI layer to get a price of a specific car. Goes 
         into car repository layer for this info. - Aron'''
         return self.__car_repo.car_price(licence_plate)
+
+    def check_if_car_is_rented(self, licence_plate):
+        '''Makes sure the car is rented out. Used in return car - Aron'''
+        unavailable_car_list = self.__car_repo.get_current_cars_by_status(0)
+        if len(unavailable_car_list) > 0:
+            for i in range(len(unavailable_car_list)):
+                if licence_plate == unavailable_car_list[i][0]:
+                    return True
+        else:
+            return False
