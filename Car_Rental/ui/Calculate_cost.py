@@ -15,6 +15,7 @@ Back_2 = "back"
 Home_1 = "m"
 Home_2 = "main menu"
 
+
 def calculate_cost_menu():
         count = True
         while count == True:

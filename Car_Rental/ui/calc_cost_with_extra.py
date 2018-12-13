@@ -36,22 +36,45 @@ def get_car():
         elif Choice.isdigit() == False:
             Choice = Choice.upper()
             car_licence_plate_list = car_service.get_licence_plate(Choice)
-            calculate_cost_with_extra(car_licence_plate_list)
-            input("Press Enter to continue")
+            cost = calculate_cost_with_extra(car_licence_plate_list)
             car_licence_plate_list.clear()
+            if cost == False:
+                return False
+            elif cost == True:
+                pass
+            else:
+                return cost
         elif Choice.isdigit() == False:
             print("Please enter a valid licence plate\n")
         else:
             print("Order does not exist\n")
 
 def calculate_cost_with_extra(car_licence_plate):
-        price = car_licence_plate[0][4]
-        start_date = un_func.Start_date()
-        end_date = un_func.End_date(start_date)
-        d = end_date - start_date
-        insurence_cost = str(d.days * 2500)
-        total_cost = int(insurence_cost) + int(d.days * int(price))
-        print("The price for renting this car for " + str(d.days) + " days is with insurence: " + str(total_cost) + " Kr.")
+    count = 1
+    price = car_licence_plate[0][4]
+    while count != 3:
+        if count == 1:
+            start_date = un_func.Start_date()
+            if start_date == False:
+                count = 3
+                return False
+            elif start_date == True:
+                count = 3
+                return True
+            else:
+                count += 1
+        if count == 2:
+            end_date = un_func.End_date(start_date)
+            if end_date == False:
+                count += 1
+                return False
+            elif end_date == True:
+                count -= 1
+            else:
+                d = end_date - start_date
+                insurence_cost = str(d.days * 2500)
+                total_cost = int(insurence_cost) + int(d.days * int(price))
+                print("The price for renting this car for " + str(d.days) + " days is with insurence: " + str(total_cost) + " Kr.")
 
 
         # extra insurence er 2500 auka per dag

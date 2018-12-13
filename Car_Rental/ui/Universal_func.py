@@ -154,6 +154,7 @@ def date_chack(day, month, year, Tester=True):
             Tester = False
     return Tester, date_time
 
+# get start date function
 def Start_date():
     present = datetime.now().date()
     print("Example: DD/MM/YYYY\nEnter in the date you want to pick up a car\n")
@@ -183,7 +184,7 @@ def Start_date():
                 print("\nYou can't rent a car in the past\n")
                 printline()
 
-
+# Get end date function
 def End_date(start_date):
     print("Example: DD/MM/YYYY\nEnter in the date you want to return a car\n")
     printer()

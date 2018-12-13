@@ -36,80 +36,49 @@ def get_car():
         elif Choice.isdigit() == False:
             Choice = Choice.upper()
             car_licence_plate_list = car_service.get_licence_plate(Choice)
-            calculate_cost_without_extra(car_licence_plate_list)
-            input("Press Enter to continue")
+            cost = calculate_cost_without_extra(car_licence_plate_list)
             car_licence_plate_list.clear()
+            if cost == False:
+                return False
+            elif cost == True:
+                #return True
+                pass
+            else:
+                return cost
+            
         elif Choice.isdigit() == False:
             print("Please enter a valid licence plate\n")
         else:
             print("Order does not exist\n")
 
 def calculate_cost_without_extra(car_licence_plate):
-        price = car_licence_plate[0][4]
-        start_date = un_func.Start_date()
-        end_date = un_func.End_date(start_date)
-        d = end_date - start_date
-        print("The price for renting this car for " + str(d.days) + " days is: " + str(d.days*int(price)) + " Kr.")
-
-
-
-# def Start_date():
-#     present = datetime.now().date()
-#     print("Example: DD/MM/YYYY\nEnter in the date you want to pick up a car\n")
-#     un_func.printer()
-#     Choice = input("Choice: ").lower()
-#     un_func.printline()
-#     if Choice == Home_1 or Choice == Home_2:
-#         return False
-#     elif Choice == Back_1 or Choice == Back_2:
-#         return True
-#     elif len(Choice) == 10:
-#         try:
-#             day, month, year = Choice.replace("/", " ").split()
-#             Tester, start_date = un_func.date_chack(day, month, year)
-#             if Tester == True:
-#                 return start_date
-#             else:
-#                 message = "ERROR"
-#                 return message
-#         except ValueError:
-#             Tester = False
-#             print("\nERROR: Something went wrong with your input please try again\n")
-#             un_func.printline()
-#             if present < start_date:
-#                 return True
-#             else:
-#                 print("\nYou can't rent a car in the past\n")
-#                 un_func.printline()
-
-
-
-# def End_date(start_date):
-#     print("Example: DD/MM/YYYY\nEnter in the date you want to return a car\n")
-#     un_func.printer()
-#     Choice = input("Choice: ").lower()
-#     un_func.printline()
-#     if Choice == Home_1 or Choice == Home_2:
-#         return False
-#     elif Choice == Back_1 or Choice == Back_2:
-#         return True
-#     elif len(Choice) == 10:
-#         try:
-#             Tester = True
-#             day, month, year = Choice.replace("/", " ").split()
-#             Tester, end_date = un_func.date_chack(day, month, year, Tester)
-#             if start_date > end_date:
-#                 print("\nYou can't return a car you don't have\n")
-#                 un_func.printline()
-#                 return True
-#             else:
-#                 return end_date
-#         except:
-#             Tester = False
-#             print("\nERROR: Something went wrong with your input please try again\n")
-#             un_func.printline()
-
-
+    count = 1
+    price = car_licence_plate[0][4]
+    while count != 3:
+        if count == 1:
+            start_date = un_func.Start_date()
+            if start_date == False:
+                count = 3
+                return False
+            elif start_date == True:
+                count = 3
+                return True
+            else:
+                count += 1
+        if count == 2:
+            end_date = un_func.End_date(start_date)
+            if end_date == False:
+                count += 1
+                return False
+            elif end_date == True:
+                count -= 1
+                #return True
+            else:
+                d = end_date - start_date
+                print("\nThe price for renting this car for " + str(d.days) + " days is: " + str(d.days*int(price)) + " Kr.\n")
+                count += 1
+                un_func.printline()
+                input("Press Enter to continue")
 
 
         # extra insurence er 2500 auka per dag
