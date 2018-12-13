@@ -43,3 +43,7 @@ def get_car():
 def calculate_cost_without_extra(car_licence_plate):
         price = car_licence_plate[0][4]
         print("How many days?")
+
+
+
+        # extra insurence er 2500 auka per dag
