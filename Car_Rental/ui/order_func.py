@@ -96,17 +96,20 @@ def order_menu():
                 try:
                     day, month, year = Choice.replace("/", " ").split()
                     Tester, start_date = un_func.date_chack(day, month, year)
-                    if Tester == False:
+                    if Tester == True:
+                        Tested_start_date = date(int(year), int(month), int(day))
+                        if present < Tested_start_date:
+                            count += 1
+                        else:
+                            print("\nYou Can't rent a car in the past\n")
+                            un_func.printline()
+                    else:
                         count = 2
                 except ValueError:
                     Tester = False
                     print("\nERROR: Something went wrong with your input please try again\n")
                     printline()
-                if present < start_date:
-                    count += 1
-                else:
-                    print("\nYou Can't rent a car in the past\n")
-                    un_func.printline()
+                
 ##############################################################################################################
         elif count == 3:
             print("Example: DD/MM/YYYY\nEnter in the date you want to return a car\n")
