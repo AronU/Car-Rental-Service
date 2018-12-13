@@ -16,11 +16,11 @@
 
 # # https://stackoverflow.com/questions/10376923/reading-non-ascii-characters-from-a-text-file
 
-from ui.Universal_func import address_input_chack
+from ui.Universal_func import birthday_input_chack
 import ui.Universal_func as Universal_f
 
 name = input("Chose: ")
-Tester, address = Universal_f.address_input_chack(name)
+Tester, address = Universal_f.birthday_input_chack(name)
 
 print(Tester)
 print(address)
