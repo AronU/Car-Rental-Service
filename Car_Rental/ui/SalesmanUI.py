@@ -80,15 +80,15 @@ class SalesmanUI:
         action = ""
         while(action != Quit_1):
             print("Welcome to the central hub of the program.\n")
-            print("1.  Register User\n2.  Car list\n3.  Search User\n4.  Search order\n5.  Make order")
-            print("6.  Calculate cost\n7.  Return a car\n8.  Price list\n\nPress q to Quit")
+            print("1.  Register user\n2.  Car list\n3.  Customer menu\n4.  Search order\n5.  Make order")
+            print("6.  Calculate cost\n7.  Return a car\n8.  Price list\n9.  Car history\n\nPress q to Quit")
             un_func.printline()
             action = input("Choose an option: ").lower()
             un_func.printline()
 
             if action == ONE_1 or action == ONE_2:
                 name, ssn, address, phone, birthday = reg_func.RegisterUser()
-                # make sure if the user dissident to go back to the mane menu 
+                # Make sure if the user doesn't go back to the main menu 
                 # halfway through that a have made user is not created 
                 if name != "0" and ssn != "0" and address != "0" and phone != "0" and birthday != "0":
                     new_customer = Customer(name, ssn, address, phone, birthday)

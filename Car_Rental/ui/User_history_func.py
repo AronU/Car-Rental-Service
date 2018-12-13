@@ -34,7 +34,7 @@ def User_history():
         if count == 1:
             print("Input the SSN of the customer you see the history of\nor leave it empty to see a list of users\n")
             un_func.printer()
-            SSN = input("Choice: ").lower()
+            SSN = input("SSN: ").lower()
             un_func.printline()
             if SSN == Home_1 or SSN == Home_2:
                 count, SSN, Counter = edit_u.Donteditcustomer()
@@ -47,7 +47,7 @@ def User_history():
                 customer_name_list.clear()
             else:
                 if customer_service.valid_customer_check(SSN) == False:
-                    print("ERROR: This SSN does not belong to a user")
+                    print("ERROR: This SSN does not belong to a registered customer")
                     count = 1
                 else:
                     count += 1

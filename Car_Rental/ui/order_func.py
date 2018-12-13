@@ -47,9 +47,9 @@ def order_menu():
     while count != END:
 ##############################################################################################################
         if count == 1:
-            print("Search by Name or by SSN\n")
+            print("Search by name, SSN or leave empty for a list of all customers\n")
             un_func.printer()
-            Choice = input("Choice: ").lower()
+            Choice = input("Name/SSN: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
                 ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
@@ -68,7 +68,7 @@ def order_menu():
                     if T_or_F == True:
                         Tester = True
                 if Tester == True:
-                    print("\nERROR: Number can't be used in Name\n")
+                    print("\nERROR: Numbers can't be used in Name\n")
                     printline()
                 else:
                     customer_name_list = customer_service.get_customer_name(Choice)
@@ -86,7 +86,7 @@ def order_menu():
         elif count == 2:
             print("Example: DD/MM/YYYY\nEnter in the date you want to pick up a car\n")
             un_func.printer()
-            Choice = input("Choice: ").lower()
+            Choice = input("Start date: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
                 ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
@@ -101,7 +101,7 @@ def order_menu():
                         if present < Tested_start_date:
                             count += 1
                         else:
-                            print("\nYou Can't rent a car in the past\n")
+                            print("\nYou can't rent a car in the past\n")
                             un_func.printline()
                     else:
                         count = 2
@@ -114,7 +114,7 @@ def order_menu():
         elif count == 3:
             print("Example: DD/MM/YYYY\nEnter in the date you want to return a car\n")
             un_func.printer()
-            Choice = input("Choice: ").lower()
+            Choice = input("End date: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
                 ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()
@@ -127,7 +127,7 @@ def order_menu():
                     if start_date < end_date:
                         count += 1
                     else:
-                        print("\nYou Can't return a car you don't have\n")
+                        print("\nYou can't return a car you don't have\n")
                         un_func.printline()
                 except:
                     Tester = False
@@ -137,7 +137,7 @@ def order_menu():
         elif count == 4:
             print("Example: XX XXX\nEnter in the the licence plate or leave empty to see available cars\n")
             un_func.printer()
-            Choice = input("Choice: ").lower()
+            Choice = input("Licence plate: ").lower()
             un_func.printline()
             if Choice == Home_1 or Choice == Home_2:
                 ssn, name, start_date, end_date, licence_plate, additional_insurance, payment_way, ID, count = DontMakeOrder()

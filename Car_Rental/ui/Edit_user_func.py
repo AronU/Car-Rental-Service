@@ -26,9 +26,9 @@ def edit_user():
     count = 1
     while count != 3:
         if count == 1:
-            print("Input the SSN of the customer you want to edit\nor leave it empty to see a list of users\n")
+            print("Please provide the SSN of the customer you want to edit\nor leave it empty to see a list of users\n")
             un_func.printer()
-            SSN = input("Choice: ").lower()
+            SSN = input("SSN: ").lower()
             un_func.printline()
             if SSN == Home_1 or SSN == Home_2:
                 count, SSN, Counter = Donteditcustomer()

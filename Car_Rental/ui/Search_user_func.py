@@ -22,9 +22,9 @@ def search_user():
     customer_service = CustomerService()
     count = True
     while count == True:
-        print("Input name, SSN or empty\n")
+        print("Please provide a name, SSN or leave empty for a list of all users\n")
         un_func.printer()
-        Choice = input("Choice: ").lower()
+        Choice = input("Name/SSN: ").lower()
         un_func.printline
         if Choice == Home_1 or Choice == Home_2:
             return False
@@ -41,7 +41,7 @@ def search_user():
                 if T_or_F == True:
                     Tester = True
             if Tester == True:
-                print("\nERROR: Number can't be used in Name\n")
+                print("\nERROR: Number can't be used in name\n")
                 printline()
             else:
                 customer_name_list = customer_service.get_customer_name(Choice)
