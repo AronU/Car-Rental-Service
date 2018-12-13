@@ -30,7 +30,7 @@ def RegisterUser():
         if count == 1:
             print("Full name: \n")
             un_func.printer()
-            name = input("Choice: ").lower()
+            name = input("Name: ")
             un_func.printline()
             count += 1
             if name == Home_1 or name == Home_2:
@@ -46,7 +46,7 @@ def RegisterUser():
             # Takes in SSN and allows user to go back one window or go to the mane menu
             print("SSN: \n")
             un_func.printer()
-            ssn = input("Choice: ").lower()
+            ssn = input("SSN: ").lower()
             un_func.printline()
             count += 1
             if ssn == Home_1 or ssn == Home_2:
@@ -62,7 +62,7 @@ def RegisterUser():
             # Takes in Home address and allows user to go back one window or go to the mane menu
             print("Home address: \n")
             un_func.printer()
-            address = input("Choice: ").lower()
+            address = input("Home address: ")
             un_func.printline()
             count += 1
             if address == Home_1 or address == Home_2:
@@ -78,7 +78,7 @@ def RegisterUser():
             # Takes in Phone number and allows user to go back one window or go to the mane menu
             print("Phone number: \n")
             un_func.printer()
-            phone = input("Choice: ").lower()
+            phone = input("Phone number: ").lower()
             un_func.printline()
             count += 1
             if phone == Home_1 or phone == Home_2:
@@ -94,7 +94,7 @@ def RegisterUser():
             # Takes in Birthday and allows user to go back one window or go to the mane menu
             print("DD/MM/YYYY\nBirthday: \n")
             un_func.printer()
-            birthday = input("Choice: ").lower()
+            birthday = input("Birthday: ").lower()
             un_func.printline()
             count += 1
             if birthday == Home_1 or birthday == Home_2:
