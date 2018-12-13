@@ -56,7 +56,7 @@ class CustomerRepository:
             next(csv_reader)
             for line in csv_reader:
                 # See if the SSN list item is equal to the input
-                if line[1] == ssn:
+                if ssn == line[1][:len(ssn)]:
                     self.__customer_ssn.append(line)
             return self.__customer_ssn
 
