@@ -86,6 +86,9 @@ class CustomerRepository:
         os.rename('./data/temp.csv', './data/customers.csv')
 
     def get_user_history(self, ssn):
+        '''Takes in a customers SSN. From that the function gathers all 
+        orders from the orders data file that matches with that SSN. 
+        Returns it in a list. - Aron'''
         user_history = []
         with open("./data/orders.csv", "r") as order_file:
             csv_reader = csv.reader(order_file)

@@ -121,4 +121,17 @@ class CarRepository:
                     price = row['Price']
                     price = int(price)
                     return price   
+
+    def car_history(self, licence_plate):
+        '''Takes in a cars licence plate. From that the function gathers all 
+        orders from the orders data file that matches with that licence plate. 
+        Returns it in a list. - Aron'''
+        car_history = []
+        with open("./data/orders.csv", "r") as order_file:
+            csv_reader = csv.reader(order_file)
+            next(csv_reader)
+            for line in csv_reader:
+                if line[1] == licence_plate:
+                    car_history.append(line)    
+            return car_history
         

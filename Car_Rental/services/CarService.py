@@ -8,32 +8,28 @@ class CarService:
         '''This function is pulled from the UI and is supposed to 
            go into the Car Repository and get the available car list 
            from there. - Aron 05/12'''
-        available_car_list = self.__car_repo.get_current_cars_by_status(1)
-        return available_car_list
+        return self.__car_repo.get_current_cars_by_status(1)
 
     def get_unavailable_cars(self):
         '''This function is pulled from the UI and is supposed to 
        go into the Car Repository and get the unavailable car list 
        from there. - Aron 05/12'''
-        unavailable_car_list = self.__car_repo.get_current_cars_by_status(0)
-        return unavailable_car_list
+        return self.__car_repo.get_current_cars_by_status(0)
 
     def get_all_cars(self):
         '''This function is pulled from the UI and is suppposed to go
         into the car repository and get all car list from there - Fannar 12/12'''
-        all_car_list = self.__car_repo.get_all_cars()
-        return all_car_list
+        return self.__car_repo.get_all_cars()
 
     def get_licence_plate(self, licence_plate):
         '''This function is pulled from the UI and is supposed to go
         into the car repository and get the car with matching licence
         plate - Fannar 12/12'''
-        car_licence_plate = self.__car_repo.get_car_licence_plate(licence_plate)
-        return car_licence_plate
+        return self.__car_repo.get_car_licence_plate(licence_plate)
 
     def return_car(self, licence_plate):
         '''This function is pulled from the return car UI and goes into the
-         repo to switch the car to an available state.-Aron'''
+         repo to switch the car to an available state.- Aron'''
         self.__car_repo.return_car(licence_plate)
 
     def valid_check_licence_plate(self, licence_plate):
@@ -54,3 +50,8 @@ class CarService:
                     return True
         else:
             return False
+    
+    def get_car_history(self, licence_plate):
+        '''Takes in a licence plate from UI and sends it over to repo to get 
+        a list of all orders of that car - Aron'''
+        return self.__car_repo.car_history(licence_plate)
