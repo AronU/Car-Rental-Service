@@ -28,9 +28,8 @@ def returncar():
             un_func.printline()
             if licence_plate == Home_1 or licence_plate == Home_2 or licence_plate == Back_1 or licence_plate == Back_2:
                 count, licence_plate = Dontreturncar()
-            # it the check is True then we know if the licence plate is in the system and rented out
-            elif car_service.valid_check_licence_plate(licence_plate) == True and 
-            car_service.check_if_car_is_rented(licence_plate) == True:
+            #If the check is True then we know if the licence plate is in the system and rented out
+            elif car_service.valid_check_licence_plate(licence_plate) == True and car_service.check_if_car_is_rented(licence_plate) == True:
                 count += 1
             else:
                 print("\nERROR: The licence plate you entered is not in the system or not currently rented out\n")
