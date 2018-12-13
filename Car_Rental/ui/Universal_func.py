@@ -109,10 +109,12 @@ def birthday_input_chack(birthday):
             day, month, year = birthday.replace("/", " ").split()
             Tester = True
             Tester, birthday = date_chack(day, month, year, Tester)
-            if birthday > minimum_age:
-                print("\nERROR: This age is not allowed to rent a car\n")
-                printline()
-                Tester = False
+            if Tester == True:
+                Tested_birthday = date(int(year), int(month), int(day))
+                if Tested_birthday > minimum_age:
+                    print("\nERROR: This age is not allowed to rent a car\n")
+                    printline()
+                    Tester = False
         except ValueError:
             Tester = False
             print("\nERROR: Something went wrong with your input please try again\n")
