@@ -1,6 +1,8 @@
 from ui.Universal_func import printer, printline
 import ui.Universal_func as un_func
 
+from datetime import date, datetime
+
 from services.CarService import CarService
 
 #Constant variable used to take in commands toru the input
@@ -42,7 +44,62 @@ def get_car():
 
 def calculate_cost_without_extra(car_licence_plate):
         price = car_licence_plate[0][4]
-        print("How many days?")
+        start_date = Start_date()
+        end_date = End_date(start_date)
+
+
+
+def Start_date():
+    present = datetime.now().date()
+    print("Example: DD/MM/YYYY\nEnter in the date you want to pick up a car\n")
+    un_func.printer()
+    Choice = input("Choice: ").lower()
+    un_func.printline()
+    if Choice == Home_1 or Choice == Home_2:
+        return False
+    elif Choice == Back_1 or Choice == Back_2:
+        return True
+    elif len(Choice) == 10:
+        try:
+            day, month, year = Choice.replace("/", " ").split()
+            Tester, start_date = un_func.date_chack(day, month, year)
+            if Tester == False:
+                return True
+        except ValueError:
+            Tester = False
+            print("\nERROR: Something went wrong with your input please try again\n")
+            un_func.printline()
+            if present < start_date:
+                return start_date
+            else:
+                print("\nYou can't rent a car in the past\n")
+                un_func.printline()
+
+
+
+def End_date(start_date):
+    print("Example: DD/MM/YYYY\nEnter in the date you want to return a car\n")
+    un_func.printer()
+    Choice = input("Choice: ").lower()
+    un_func.printline()
+    if Choice == Home_1 or Choice == Home_2:
+        return False
+    elif Choice == Back_1 or Choice == Back_2:
+        return True
+    elif len(Choice) == 10:
+        try:
+            day, month, year = Choice.replace("/", " ").split()
+            Tester, end_date = un_func.date_chack(day, month, year, Tester)
+            if start_date < end_date:
+                return end_date
+            else:
+                print("\nYou can't return a car you don't have\n")
+                un_func.printline()
+        except:
+            Tester = False
+            print("\nERROR: Something went wrong with your input please try again\n")
+            un_func.printline()
+
 
 
 
