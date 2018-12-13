@@ -44,8 +44,15 @@ def get_car():
 
 def calculate_cost_without_extra(car_licence_plate):
         price = car_licence_plate[0][4]
+        # print("For how many days?")
+        # un_func.printer()
+        # num_of_days = int(input("Choice: "))
+        # un_func.printline()
         start_date = Start_date()
         end_date = End_date(start_date)
+        d = end_date - start_date
+        print("The price for renting this car for this many days is: " + str(d.days*int(price)) + " Kr.")
+
 
 
 
@@ -63,14 +70,17 @@ def Start_date():
         try:
             day, month, year = Choice.replace("/", " ").split()
             Tester, start_date = un_func.date_chack(day, month, year)
-            if Tester == False:
-                return True
+            if Tester == True:
+                return start_date
+            else:
+                message = "ERROR"
+                return message
         except ValueError:
             Tester = False
             print("\nERROR: Something went wrong with your input please try again\n")
             un_func.printline()
             if present < start_date:
-                return start_date
+                return True
             else:
                 print("\nYou can't rent a car in the past\n")
                 un_func.printline()
@@ -88,13 +98,15 @@ def End_date(start_date):
         return True
     elif len(Choice) == 10:
         try:
+            Tester = True
             day, month, year = Choice.replace("/", " ").split()
             Tester, end_date = un_func.date_chack(day, month, year, Tester)
-            if start_date < end_date:
-                return end_date
-            else:
+            if start_date > end_date:
                 print("\nYou can't return a car you don't have\n")
                 un_func.printline()
+                return True
+            else:
+                return end_date
         except:
             Tester = False
             print("\nERROR: Something went wrong with your input please try again\n")
