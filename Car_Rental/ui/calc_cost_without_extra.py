@@ -37,14 +37,15 @@ def get_car():
             Choice = Choice.upper()
             car_licence_plate_list = car_service.get_licence_plate(Choice)
             cost = calculate_cost_without_extra(car_licence_plate_list)
+            car_licence_plate_list.clear()
             if cost == False:
                 return False
             elif cost == True:
-                return True
+                #return True
+                pass
             else:
                 return cost
-            input("Press Enter to continue")
-            car_licence_plate_list.clear()
+            
         elif Choice.isdigit() == False:
             print("Please enter a valid licence plate\n")
         else:
@@ -61,6 +62,7 @@ def calculate_cost_without_extra(car_licence_plate):
                 return False
             elif start_date == True:
                 count = 3
+                return True
             else:
                 count += 1
         if count == 2:
@@ -70,10 +72,13 @@ def calculate_cost_without_extra(car_licence_plate):
                 return False
             elif end_date == True:
                 count -= 1
+                #return True
             else:
                 d = end_date - start_date
-                print("The price for renting this car for " + str(d.days) + " days is: " + str(d.days*int(price)) + " Kr.")
+                print("\nThe price for renting this car for " + str(d.days) + " days is: " + str(d.days*int(price)) + " Kr.\n")
                 count += 1
+                un_func.printline()
+                input("Press Enter to continue")
 
 
         # extra insurence er 2500 auka per dag
