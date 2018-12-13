@@ -3,6 +3,12 @@ from datetime import date, datetime
 
 from services.CustomerService import CustomerService
 
+#Constant variable used to take in commands toru the input
+Back_1 = "b"
+Back_2 = "back"
+Home_1 = "m"
+Home_2 = "main menu"
+
 def printer():
     # The printer function is used to make the command options more visible to the user anywhere he needs it
     print("B.  Back one window")
@@ -70,11 +76,13 @@ def ssn_input_chack(ssn, Not_user=0):
 def address_input_chack(address):
     # This function is used to chack if the address is properly inputid in the system
     Tester = False
+    address_list = []
     try:
-        street, number = address.split()
-        if number.isdigit() == True and street.isdigit() == False:
-            Tester = True
-        else:
+        address_list = address.split()
+        for i in range(len(address_list)):
+            if address_list[i].isdigit() == True and len(address_list) != 1:
+                Tester = True
+        if Tester == False:
             print("\nERROR: Street must have a name and a number\n")
             printline()
     except ValueError:
@@ -109,10 +117,12 @@ def birthday_input_chack(birthday):
             day, month, year = birthday.replace("/", " ").split()
             Tester = True
             Tester, birthday = date_chack(day, month, year, Tester)
-            if birthday > minimum_age:
-                print("\nERROR: This age is not allowed to rent a car\n")
-                printline()
-                Tester = False
+            if Tester == True:
+                Tested_birthday = date(int(year), int(month), int(day))
+                if Tested_birthday > minimum_age:
+                    print("\nERROR: This age is not allowed to rent a car\n")
+                    printline()
+                    Tester = False
         except ValueError:
             Tester = False
             print("\nERROR: Something went wrong with your input please try again\n")
@@ -143,3 +153,58 @@ def date_chack(day, month, year, Tester=True):
             printline()
             Tester = False
     return Tester, date_time
+
+def Start_date():
+    present = datetime.now().date()
+    print("Example: DD/MM/YYYY\nEnter in the date you want to pick up a car\n")
+    printer()
+    Choice = input("Choice: ").lower()
+    printline()
+    if Choice == Home_1 or Choice == Home_2:
+        return False
+    elif Choice == Back_1 or Choice == Back_2:
+        return True
+    elif len(Choice) == 10:
+        try:
+            day, month, year = Choice.replace("/", " ").split()
+            Tester, start_date = date_chack(day, month, year)
+            if Tester == True:
+                return start_date
+            else:
+                message = "ERROR"
+                return message
+        except ValueError:
+            Tester = False
+            print("\nERROR: Something went wrong with your input please try again\n")
+            printline()
+            if present < start_date:
+                return True
+            else:
+                print("\nYou can't rent a car in the past\n")
+                printline()
+
+
+def End_date(start_date):
+    print("Example: DD/MM/YYYY\nEnter in the date you want to return a car\n")
+    printer()
+    Choice = input("Choice: ").lower()
+    printline()
+    if Choice == Home_1 or Choice == Home_2:
+        return False
+    elif Choice == Back_1 or Choice == Back_2:
+        return True
+    elif len(Choice) == 10:
+        try:
+            Tester = True
+            day, month, year = Choice.replace("/", " ").split()
+            Tester, end_date = date_chack(day, month, year, Tester)
+            if start_date > end_date:
+                print("\nYou can't return a car you don't have\n")
+                printline()
+                return True
+            else:
+                return end_date
+        except:
+            Tester = False
+            print("\nERROR: Something went wrong with your input please try again\n")
+            printline()

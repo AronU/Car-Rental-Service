@@ -4,6 +4,9 @@ import ui.Universal_func as un_func
 from ui.calc_cost_without_extra import calculate_cost_without_extra
 import ui.calc_cost_without_extra as calc_without_extra
 
+from ui.calc_cost_with_extra import calculate_cost_with_extra
+import ui.calc_cost_with_extra as calc_with_extra
+
 from services.CarService import CarService
 
 #Constant variable used to take in commands toru the input
@@ -24,9 +27,7 @@ def calculate_cost_menu():
                         count = False
                 elif Choice == "1":
                         count = calc_without_extra.get_car()
-                elif Choice.isdigit() == True:
-                        print("Please enter a valid licence plate\n")
-                else:
-                        print("Order does not exist")
+                elif Choice == "2":
+                        count = calc_with_extra.get_car()
 
         

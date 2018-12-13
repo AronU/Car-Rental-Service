@@ -14,6 +14,7 @@ end = date(2019, 1, 28)
 
 available_cars = car_service.get_available_cars()
 print(available_cars)
+print(car_service.check_if_car_is_rented("HK 468"))
 
 
 
