@@ -8,10 +8,11 @@ from datetime import date, datetime
 
 order_repo = OrderRepository()
 order_service = OrderService()
+car_service = CarService()
 start = date(2019, 1, 23)
 end = date(2019, 1, 28)
 
-available_cars = order_service.available_cars(start, end)
+available_cars = car_service.get_available_cars()
 print(available_cars)
 
 

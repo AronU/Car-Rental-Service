@@ -36,11 +36,14 @@ class CarRepository:
                 all_cars.append(line)
 
         for x in range(len(all_cars)):
-            for y in range(len(unavailable_car_by_order_list)):
-                if unavailable_car_by_order_list[y] == all_cars[x][0]:
-                    unavailable_cars.append(all_cars[x])
-                else:
-                    available_cars.append(all_cars[x])
+            if len(unavailable_car_by_order_list) > 0:
+                for y in range(len(unavailable_car_by_order_list)):
+                    if unavailable_car_by_order_list[y] == all_cars[x][0]:
+                        unavailable_cars.append(all_cars[x])
+                    else:
+                        available_cars.append(all_cars[x])
+            else:
+                available_cars.append(all_cars[x])
 
         if choice == 0:
             return unavailable_cars
