@@ -187,7 +187,9 @@ def order_menu():
         elif count == 6:
             price = car_service.get_car_price(licence_plate)
             d = end_date - start_date
-            print("How would you like to pay for the car?\nPrice: " + str(d.days*price) +"Kr.\n\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
+            insurence_cost = str(d.days * 2500)
+            total_cost = int(insurence_cost) + int(d.days * int(price))
+            print("How would you like to pay for the car?\nPrice: " + str(total_cost) +"Kr.\n\n1.  Credit card\n2.  Debit card\n3.  Cash\n")
             un_func.printer()
             Choice = input("Choice: ").lower()
             un_func.printline()

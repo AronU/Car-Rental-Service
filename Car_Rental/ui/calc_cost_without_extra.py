@@ -5,27 +5,23 @@ from datetime import date, datetime
 
 from services.CarService import CarService
 
+from ui.calc_cost_with_extra import car_list_printer
+import ui.calc_cost_with_extra as calc_cost
+
 #Constant variable used to take in commands toru the input
 Back_1 = "b"
 Back_2 = "back"
 Home_1 = "m"
 Home_2 = "main menu"
 
-def car_list_printer(car_list):
-    for line in car_list:
-        print("Licence plate: {} - Brand: {} - Model: {} - Year: {} - Price: {}".format(line[0], line[1], line[2], line[3], line[4]))
-    printline()
-    return False
-
 def get_car():
     car_service = CarService()
     all_car_list = car_service.get_all_cars()
     
-    un_func.printline()
     count = True
     while count == True:
-        car_list_printer(all_car_list)
-        print("Input Licence plate from one of the cars above\n")
+        calc_cost.car_list_printer(all_car_list)
+        print("Input Licence plate from one of the cars above like this: XX XXX\n")
         un_func.printer()
         Choice = input("Choice: ").lower()
         un_func.printline()
@@ -33,23 +29,35 @@ def get_car():
             return False
         elif Choice == Back_1 or Choice == Back_2:
             return True
-        elif Choice.isdigit() == False:
+        elif len(Choice) == 6:
             Choice = Choice.upper()
-            car_licence_plate_list = car_service.get_licence_plate(Choice)
-            cost = calculate_cost_without_extra(car_licence_plate_list)
-            car_licence_plate_list.clear()
-            if cost == False:
-                return False
-            elif cost == True:
-                #return True
-                pass
-            else:
-                return cost
-            
-        elif Choice.isdigit() == False:
-            print("Please enter a valid licence plate\n")
+            Tester = False
+            try:
+                if (' ' in Choice) == True:
+                    Tester = True
+            except:
+                Tester = False
+                print("\nERROR: Something went wrong with your input, please try again\n")
+                un_func.printline()
+            if Tester == True:
+                licence_plate_check = car_service.valid_check_licence_plate(Choice)
+                if licence_plate_check == True:  
+                    Choice = Choice.upper()
+                    car_licence_plate_list = car_service.get_licence_plate(Choice)
+                    cost = calculate_cost_without_extra(car_licence_plate_list)
+                    car_licence_plate_list.clear()
+                    if cost == False:
+                        return False
+                    elif cost == True:
+                        pass
+                    else:
+                        return cost
+                else:
+                    print("\nERROR: Please enter a licence plate number like this:\nXX XXX\n")
+                    un_func.printline()
         else:
-            print("Order does not exist\n")
+            print("\nERROR: Please enter a licence plate number like this:\nXX XXX\n")
+            un_func.printline()
 
 def calculate_cost_without_extra(car_licence_plate):
     count = 1
@@ -72,7 +80,6 @@ def calculate_cost_without_extra(car_licence_plate):
                 return False
             elif end_date == True:
                 count -= 1
-                #return True
             else:
                 d = end_date - start_date
                 print("\nThe price for renting this car for " + str(d.days) + " days is: " + str(d.days*int(price)) + " Kr.\n")

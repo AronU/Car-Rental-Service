@@ -1,6 +1,7 @@
 import string
 from datetime import date, datetime
-
+# the os is used in cls() to clear the screen 
+import os 
 from services.CustomerService import CustomerService
 
 #Constant variable used to take in commands toru the input
@@ -209,3 +210,7 @@ def End_date(start_date):
             Tester = False
             print("\nERROR: Something went wrong with your input please try again\n")
             printline()
+
+def cls():
+    # This fucsun is used to clear the screen 
+    os.system('cls' if os.name=='nt' else 'clear')

@@ -1,26 +1,25 @@
-# import codecs
-# #open it with utf-8 encoding 
-# f=codecs.open("myfile.txt","r",encoding='utf-8')
-# #read the file to unicode string
-# sfile=f.read()
 
-# #check the encoding type
-# print(type(sfile)) #it's unicode
+# from ui.Universal_func import birthday_input_chack
+# import ui.Universal_func as Universal_f
 
-# #unicode should be encoded to standard string to display it properly
-# print(sfile.encode('utf-8'))
-# #check the type of encoded string
+# name = input("Chose: ")
+# Tester, address = Universal_f.birthday_input_chack(name)
 
-# print(type(sfile.encode('utf-8')))
+# print(Tester)
+# print(address)
 
 
-# # https://stackoverflow.com/questions/10376923/reading-non-ascii-characters-from-a-text-file
+import os
 
-from ui.Universal_func import birthday_input_chack
-import ui.Universal_func as Universal_f
+def cls():
+    # This fucsun is used to clear the screen 
+    os.system('cls' if os.name=='nt' else 'clear')
 
-name = input("Chose: ")
-Tester, address = Universal_f.birthday_input_chack(name)
 
-print(Tester)
-print(address)
+
+for i in range(20):
+    print(i)
+
+input("X: ")
+cls()
+print("X")

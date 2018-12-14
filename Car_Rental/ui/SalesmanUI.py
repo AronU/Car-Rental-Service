@@ -79,6 +79,7 @@ class SalesmanUI:
 
         action = ""
         while(action != Quit_1):
+            un_func.cls()
             print("Welcome to the central hub of the program.\n")
             print("1.  Register user\n2.  Car list\n3.  Customer menu\n4.  Search order\n5.  Make order")
             print("6.  Calculate cost\n7.  Return a car\n8.  Price list\n9.  Car history\n\nPress q to Quit")
