@@ -108,7 +108,7 @@ class CarRepository:
             csv_reader = csv.reader(car_file)
             next(csv_reader)
             for row in csv_reader:
-                if row[0] == licence_plate:
+                if row[0].lower() == licence_plate:
                     return True
             return False
                 
@@ -120,8 +120,8 @@ class CarRepository:
                 if row['Licence plate'] == licence_plate:
                     price = row['Price']
                     price = int(price)
-                    return price   
-
+                    return price
+                   
     def car_history(self, licence_plate):
         '''Takes in a cars licence plate. From that the function gathers all 
         orders from the orders data file that matches with that licence plate. 
@@ -134,4 +134,3 @@ class CarRepository:
                 if line[1] == licence_plate:
                     car_history.append(line)    
             return car_history
-        

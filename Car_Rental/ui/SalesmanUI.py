@@ -43,6 +43,9 @@ import ui.Calculate_cost as calc_cost_m
 
 from services.OrderService import OrderService
 
+from ui.car_history_func import car_history
+import ui.car_history_func as car_h_func
+
 Quit_1 = "q"
 
 ONE_1 = "1"
@@ -68,6 +71,9 @@ Seven_2 = "return a car"
 
 Eight_1 = "8"
 Eight_2 = "price list"
+
+Nine_1 = "9"
+Nine_2 = "car history"
 
 class SalesmanUI:
 
@@ -122,3 +128,6 @@ class SalesmanUI:
             
             elif action == Eight_1 or action == Eight_2:
                 price_func.Pricelist()
+            
+            elif action == Nine_1 or action == Nine_2:
+                car_h_func.car_history()
