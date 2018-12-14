@@ -155,10 +155,8 @@ def order_menu():
                     un_func.printline()
                 if Tester == True:
                     licence_plate_check = car_service.valid_check_licence_plate(Choice)
-                    print("sup")
                     if licence_plate_check == True:
                         licence_plate = Choice
-                        print("hi")
                         count += 1
             elif len(Choice) == 0:
                 available_cars = order_service.available_cars(start_date, end_date)

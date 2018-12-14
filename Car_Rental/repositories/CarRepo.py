@@ -108,7 +108,7 @@ class CarRepository:
             csv_reader = csv.reader(car_file)
             next(csv_reader)
             for row in csv_reader:
-                if row[0].lower() == licence_plate:
+                if row[0].lower() == licence_plate.lower():
                     return True
             return False
                 
