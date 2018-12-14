@@ -171,8 +171,9 @@ def Start_date():
             day, month, year = Choice.replace("/", " ").split()
             Tester, start_date = date_chack(day, month, year)
             if Tester == True:
-                return start_date
-            else:
+                new_start_date = date(int(year), int(month), int(day))
+                return new_start_date
+            elif Tester == False:
                 message = "ERROR"
                 return message
         except ValueError:

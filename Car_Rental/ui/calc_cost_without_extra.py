@@ -61,6 +61,7 @@ def get_car():
 
 def calculate_cost_without_extra(car_licence_plate):
     count = 1
+    present = datetime.now().date()
     price = car_licence_plate[0][4]
     while count != 3:
         if count == 1:
@@ -69,10 +70,16 @@ def calculate_cost_without_extra(car_licence_plate):
                 count = 3
                 return False
             elif start_date == True:
-                count = 3
-                return True
-            else:
-                count += 1
+                count = 1
+            elif type(start_date) == date:
+                if present < start_date:
+                    count += 1
+                else:
+                    print("\nERROR: You can't rent a car in the past\n")
+                    un_func.printline()
+            # else:
+            #     print("\nERROR: Something went wrong with your input please try again\n")
+            #     un_func.printline()
         if count == 2:
             end_date = un_func.End_date(start_date)
             if end_date == False:
@@ -86,6 +93,5 @@ def calculate_cost_without_extra(car_licence_plate):
                 count += 1
                 un_func.printline()
                 input("Press Enter to continue")
-
 
         # extra insurence er 2500 auka per dag
