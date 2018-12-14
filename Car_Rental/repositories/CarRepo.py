@@ -131,6 +131,6 @@ class CarRepository:
             csv_reader = csv.reader(order_file)
             next(csv_reader)
             for line in csv_reader:
-                if line[1] == licence_plate:
+                if line[1].lower() == licence_plate:
                     car_history.append(line)    
             return car_history

@@ -14,7 +14,7 @@ Home_2 = "main menu"
 
 
 def car_history_printer(history_list):
-    print("The order history for {}: \n".format(history_list[0]))
+    print("The order history for {}: \n".format(history_list[0][1]))
 
     for line in history_list:
         print("ID: {} - Start date: {} - End date: {}\n".format(line[0], line[4], line[5]))
