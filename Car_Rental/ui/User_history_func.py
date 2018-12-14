@@ -53,7 +53,11 @@ def User_history():
                     count += 1
         elif count == 2:
             history_list = customer_service.user_history(SSN)
-            User_history_printer(history_list)
-            history_list.clear()
+            if history_list == []:
+                print("\nThe history for {} is empty.\n".format(SSN))
+                un_func.printline()
+            else:
+                User_history_printer(history_list)
+                history_list.clear()
             count = 1
     return Counter
