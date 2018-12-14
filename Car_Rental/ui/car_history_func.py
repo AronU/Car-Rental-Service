@@ -58,7 +58,11 @@ def car_history():
                     count += 1
         elif count == 2:
             history_list = car_service.get_car_history(licence_plate)
-            car_history_printer(history_list)
-            history_list.clear()
+            if history_list == []:
+                print("\nThe history for {} is empty.\n".format(licence_plate))
+                un_func.printline()
+            else:
+                car_history_printer(history_list)
+                history_list.clear()
             count = 1
     return Counter
