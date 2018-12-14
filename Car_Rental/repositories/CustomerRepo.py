@@ -28,14 +28,6 @@ class CustomerRepository:
         os.remove('./data/customers.csv')
         os.rename('./data/temp.csv', './data/customers.csv')
     
-    def get_customers(self):
-        customers = []
-        with open("./data/customer.csv", "r") as customers_file:
-            for line in customers_file.readlines():
-                customer = eval(line.strip())
-                customers.append(customer)
-        return customers
-
     # Find customer according to their name
     def get_customer_name(self, name):
         with open("./data/customers.csv", "r") as customers_file:
@@ -45,8 +37,11 @@ class CustomerRepository:
                 # Check if the input is equal to the name in the list, the only part of the name that is checked is the part
                 # that is equal to the lenght of the input. For example if the input is "ar" then the only part of the string 
                 # that is checked is equal to the len(name)
-                if name.lower() == line[0][:len(name)].lower():
-                    self.__customer_name.append(line)
+                try:
+                    if name.lower() == line[0][:len(name)].lower():
+                        self.__customer_name.append(line)
+                except IndexError:
+                    pass
             return self.__customer_name
                 
     # Find customer according to their SSN
@@ -56,8 +51,11 @@ class CustomerRepository:
             next(csv_reader)
             for line in csv_reader:
                 # See if the SSN list item is equal to the input
-                if ssn == line[1][:len(ssn)]:
-                    self.__customer_ssn.append(line)
+                try:
+                    if ssn == line[1][:len(ssn)]:
+                        self.__customer_ssn.append(line)
+                except IndexError:
+                    pass
             return self.__customer_ssn
 
     def edit_user(self, ssn, choice, new_input):
@@ -94,6 +92,9 @@ class CustomerRepository:
             csv_reader = csv.reader(order_file)
             next(csv_reader)
             for line in csv_reader:
-                if line[2] == ssn:
-                    user_history.append(line)    
+                try:
+                    if line[2] == ssn:
+                        user_history.append(line)    
+                except IndexError:
+                    pass
             return user_history

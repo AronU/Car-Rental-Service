@@ -1,6 +1,7 @@
 import string
 from datetime import date, datetime
-
+# the os is used in cls() to clear the screen 
+import os 
 from services.CustomerService import CustomerService
 
 #Constant variable used to take in commands toru the input
@@ -170,8 +171,9 @@ def Start_date():
             day, month, year = Choice.replace("/", " ").split()
             Tester, start_date = date_chack(day, month, year)
             if Tester == True:
-                return start_date
-            else:
+                new_start_date = date(int(year), int(month), int(day))
+                return new_start_date
+            elif Tester == False:
                 message = "ERROR"
                 return message
         except ValueError:
@@ -209,3 +211,7 @@ def End_date(start_date):
             Tester = False
             print("\nERROR: Something went wrong with your input please try again\n")
             printline()
+
+def cls():
+    # This fucsun is used to clear the screen 
+    os.system('cls' if os.name=='nt' else 'clear')
