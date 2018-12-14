@@ -58,7 +58,7 @@ def edit_user():
                 while not back:
                     print("Enter in the new name of the user\n")
                     un_func.printer()
-                    new_name = input("New name: ").lower()
+                    new_name = input("New name: ")
                     un_func.printline()
                     if new_name == Home_1 or new_name == Home_2:
                         count, SSN, Counter = Donteditcustomer()
@@ -77,7 +77,7 @@ def edit_user():
                 while not back:
                     print("Enter in the new address of the user\n")
                     un_func.printer()
-                    new_address = input("New address: ").lower()
+                    new_address = input("New address: ")
                     un_func.printline()
                     if new_address == Home_1 or new_address == Home_2:
                         count, SSN, Counter = Donteditcustomer()
