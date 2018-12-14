@@ -39,11 +39,6 @@ def Carlist():
         elif Choice == "1":
             available_car_list = car_service.get_available_cars()
             car_list_printer(available_car_list)
-            # present = datetime.now().date()
-            # newYear = present.day + 1
-            # print(newYear)
-            # available_cars = order_service.available_cars(present, newYear)
-            # car_list_printer(available_cars)
         elif Choice == "2":
             unavailable_car_list = car_service.get_unavailable_cars()
             car_list_printer(unavailable_car_list)
