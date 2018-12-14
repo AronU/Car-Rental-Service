@@ -9,4 +9,8 @@ id,licence plate,SSN,name,start date,end date,payment info,additional insurance
 2170,PM S45,1405915439,Vanessa Taylor,2018-12-11,2018-12-13,Credit card,No
 23199,JK 911,0905953189,Fannar Leo Orvarsson,2018-12-15,2018-12-25,Cash,Yes
 76876,TO 999,1407965549,Jennifer Edwards,2019-12-12,2020-12-12,Cash,Yes
+<<<<<<< HEAD
 36486,JR FL0,2904802439,John Smith,2019-03-31,2020-03-31,Cash,No
+=======
+86143,JR FL0,0507982639,Thelma Ólafsdóttir,2018-12-13,2018-12-14,Debit card,Yes
+>>>>>>> 17616a3b70203c1e0ecdf429a1b328d7c0e22844
