@@ -15,63 +15,56 @@ import ui.Universal_func as un_func
 # Used to list Available and Unavailable cars in oppositions two in the mane menu
 from ui.Car_list_func import Carlist
 import ui.Car_list_func as car_func
-
+# Gets acces to the Search_menu function in the User_list_func named user_func in the code
+# Used to Search Users, Edit Users, Delete users and show users history
 from ui.User_list_func import Search_menu
 import ui.User_list_func as user_func
-
 # This gives the function access to the Pricelist function in Price_list_func.
 from ui.Price_list_func import Pricelist
 # This names the Price_list_func price_func.
 import ui.Price_list_func as price_func
-
+# Gets acces to the returncar function in the Return_Car_func named ret_car_func in the code
+# Used to Return a car
 from ui.Return_Car_func import returncar
 import ui.Return_Car_func as ret_car_func
-
+# Used to return a car
 from services.CarService import CarService
-
+# Gets acces to the order_menu function in the order_func named order in the code
+# Used to Search order
 from ui.order_func import order_menu
 import ui.order_func as order
-
-from ui.Search_user_func import search_user
-import ui.Search_user_func as search_u
-
+# Gets acces to the Search_order_menu function in the Order_menu named order_m in the code
+# Used to Search order
 from ui.Order_menu import Search_order_menu
 import ui.Order_menu as order_m
-
+# Gets acces to the calculate_cost_menu function in the Calculate_cost named calc_cost_m in the code
+# Used to Calculate cost
 from ui.Calculate_cost import calculate_cost_menu
 import ui.Calculate_cost as calc_cost_m
-
+# Used to Make order
 from services.OrderService import OrderService
-
+# Gets acces to the car_history function in the car_history_func named car_h_func in the code
+# Used to Car history
 from ui.car_history_func import car_history
 import ui.car_history_func as car_h_func
-
+# concatenate variables
 Quit_1 = "q"
-
 ONE_1 = "1"
 ONE_2 = "register user"
-
 Two_1 = "2"
 Two_2 = "car list"
-
 Three_1 = "3"
 Three_2 = "search user"
-
 Four_1 = "4"
 Four_2 = "search order"
-
 Five_1 = "5"
 Five_2 = "make order"
-
 Six_1 = "6"
 Six_2 = "calculate cost"
-
 Seven_1 = "7"
 Seven_2 = "return a car"
-
 Eight_1 = "8"
 Eight_2 = "price list"
-
 Nine_1 = "9"
 Nine_2 = "car history"
 
@@ -82,7 +75,6 @@ class SalesmanUI:
         self.__order_service = OrderService()
 
     def main_menu(self):
-
         action = ""
         while(action != Quit_1):
             un_func.cls()
@@ -123,6 +115,8 @@ class SalesmanUI:
 
             elif action == Seven_1 or action == Seven_2:
                 licence_plate = ret_car_func.returncar()
+                # make sure if the user dissident to go back to the mane menu 
+                # halfway through that a car is not returnd 
                 if licence_plate != "0":
                     car_service = CarService()
                     car_service.return_car(licence_plate)
