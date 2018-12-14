@@ -19,7 +19,7 @@ Home_2 = "main menu"
 
 def order_list_printer(order_list, lp_or_ssn=1):
     if lp_or_ssn == 1:
-        print("The order where this user: {} whas involved: \n".format(order_list[0][3]))
+        print("The order where this user: {} was involved: \n".format(order_list[0][3]))
 
         for line in order_list:
             print("ID: {} - Licence plate: {} - Start date: {} - End date: {} - Payment way: {} - Additional insurence: {}\n".format(line[0], line[1], line[4], line[5], line[6], line[7]))
@@ -47,7 +47,7 @@ def Search_order_menu():
         if Choice == Home_1 or Choice == Home_2 or Choice == Back_1 or Choice == Back_2:
             count = False
         elif Choice == "":
-            print("\nERROR: You have to search for something\n")
+            print("\nERROR: You have to search for something!\n")
             un_func.printline()
         elif Choice.isdigit() == True:
             if customer_service.valid_customer_check(Choice) == True:
@@ -60,6 +60,6 @@ def Search_order_menu():
             order_list_printer(order_licence_plate_list, 2)
             order_licence_plate_list.clear()
         elif Choice.isdigit() == False:
-            print("Please enter a valid licence plate\n")
+            print("Please enter a valid licence plate.\n")
         else:
-            print("Order does not exist\n")
+            print("Order does not exist!\n")
