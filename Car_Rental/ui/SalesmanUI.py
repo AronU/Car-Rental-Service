@@ -115,8 +115,8 @@ class SalesmanUI:
 
             elif action == Seven_1 or action == Seven_2:
                 licence_plate = ret_car_func.returncar()
-                # 
-                # 
+                # make sure if the user dissident to go back to the mane menu 
+                # halfway through that a car is not returnd 
                 if licence_plate != "0":
                     car_service = CarService()
                     car_service.return_car(licence_plate)
