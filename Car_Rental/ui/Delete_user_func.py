@@ -14,7 +14,7 @@ def Delete_User():
     customer_service = CustomerService()
     count = True
     while count == True:
-        print("Enter in the SSN of the User you whant to Delete\n")
+        print("Enter in the SSN of the user you want to delete.\n")
         un_func.printer()
         Choice = input("Choice: ").lower()
         un_func.printline()
@@ -35,9 +35,9 @@ def Delete_User():
                     count = True
                 elif Yes_or_no == "y":
                     customer_service.remove_customer(Choice)
-                    print("Customer Has been deleted.")
+                    print("Customer has been deleted.")
                     un_func.printline()
                     count = False
             else:
-                print("\nERROR: SSN you entered is not currently in the system\n")
+                print("\nERROR: The SSN you entered is currently not in the system.\n")
                 un_func.printline()
